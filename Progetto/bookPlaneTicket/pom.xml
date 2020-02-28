@@ -14,6 +14,13 @@
   </properties>
   
   <dependencies>
+      
+    <!-- Link backend project -->
+    <dependency>
+  		<groupId>gruppoaereo5</groupId>
+  		<artifactId>bookBackEnd</artifactId>
+  		<version>0.0.1-SNAPSHOT</version>
+    </dependency>  
     
     <!-- JAVA EE-->
     <dependency>
@@ -22,6 +29,8 @@
 		<version>${javaee.version} </version>
 		<scope>provided</scope>
 	</dependency>
+    
+    
     
     <!-- JUNIT -->
     <dependency>
