@@ -74,8 +74,7 @@
       </div>
     </div>
   </div>
-  
-	<!-- JQuery -->
+
 	<script src="${js}/jquery.js"></script>
 	
   <!-- Bootstrap core JavaScript -->
