@@ -3,9 +3,13 @@ package gruppoaereo5.bookBackEnd.daoimpl;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.stereotype.Repository;
+
 import gruppoaereo5.bookBackEnd.dao.VoloDAO;
 import gruppoaereo5.bookBackEnd.dto.Volo;
 
+
+@Repository("voloDAO")
 public class VoloDAOImpl implements VoloDAO {
 
 	private static List<Volo> voli = new ArrayList<>();
@@ -15,6 +19,8 @@ public class VoloDAOImpl implements VoloDAO {
 		Volo volo = new Volo();
 		 volo.setCodice_volo("e1");
 		 volo.setAereo("fisa");
+		 volo.setCitta_partenza("Milano");
+		 volo.setCitta_arrivo("Roma");
 		 volo.setData_partenza("12/02/1255");
 		 volo.setData_arrivo("12/02/1255");
 		 volo.setOra_partenza("22:33");
@@ -28,6 +34,8 @@ public class VoloDAOImpl implements VoloDAO {
 		 volo = new Volo();
 		 volo.setCodice_volo("e1a");
 		 volo.setAereo("fisadfaa");
+		 volo.setCitta_partenza("Londra");
+		 volo.setCitta_arrivo("Parigi");
 		 volo.setData_partenza("12/02/1255");
 		 volo.setData_arrivo("12/02/1255");
 		 volo.setOra_partenza("22:33");
@@ -41,6 +49,8 @@ public class VoloDAOImpl implements VoloDAO {
 		 volo = new Volo();
 		 volo.setCodice_volo("e1rr");
 		 volo.setAereo("fi56765sa");
+		 volo.setCitta_partenza("Mosca");
+		 volo.setCitta_arrivo("New York");
 		 volo.setData_partenza("12/10/1255");
 		 volo.setData_arrivo("12/10/1255");
 		 volo.setOra_partenza("22:33");
