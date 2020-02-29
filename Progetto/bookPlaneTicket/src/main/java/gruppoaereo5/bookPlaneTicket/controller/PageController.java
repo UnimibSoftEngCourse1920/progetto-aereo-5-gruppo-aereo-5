@@ -16,12 +16,12 @@ public class PageController{
 	 	mv.addObject("userClickHome",true);	
 		return mv;
 	}
-	@RequestMapping(value = "/accedi")
-	public ModelAndView accedi(){
+	@RequestMapping(value = "/conferma")
+	public ModelAndView conferma(){
 		
 	 	ModelAndView mv = new ModelAndView("page");
-	 	mv.addObject("title","Accedi al servizio");
-	 	mv.addObject("userClickAccedi",true);	
+	 	mv.addObject("title","Conferma la Prenotazione");
+	 	mv.addObject("userClickConfermaLaPrenotazione",true);	
 		return mv;
 	}
 	@RequestMapping(value = "/registrati")
@@ -40,4 +40,12 @@ public class PageController{
 	 	mv.addObject("userClickInfo",true);	
 		return mv;
 	}
+	@RequestMapping(value = "/listaVoli")
+	public ModelAndView listaVoli(){
+		
+	 	ModelAndView mv = new ModelAndView("page");
+	 	mv.addObject("title","Lista Voli");
+	 	mv.addObject("userClickMostraVoli",true);	
+		return mv;
+}
 }

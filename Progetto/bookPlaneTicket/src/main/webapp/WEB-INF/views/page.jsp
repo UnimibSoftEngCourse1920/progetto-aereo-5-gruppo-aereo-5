@@ -47,13 +47,13 @@
  	</c:if>
  	
 	<!-- / Home Page -->
- 	<!--  Login Page -->
+ 	<!--  Booking Page -->
  	
- 	<c:if test="${userClickAccedi == true }">
- 	<%@include file="accedi.jsp" %>
+ 	<c:if test="${userClickConfermaLaPrenotazione == true }">
+ 	<%@include file="conferma.jsp" %>
  	</c:if>
  	
-	<!-- / Login Page -->
+	<!-- / Booking Page -->
  	<!--  Register Page -->
  	
  	<c:if test="${userClickRegistrati == true }">
@@ -68,6 +68,13 @@
  	</c:if>
  	
 	<!-- / Info Page -->
+ 	<!--  Flight List Page -->
+ 	
+ 	<c:if test="${userClickMostraVoli == true }">
+ 	<%@include file="listaVoli.jsp" %>
+ 	</c:if>
+ 	
+	<!-- / Flight List Page -->
 	
   <!-- / Page Content -->		
 	<script src="${js}/jquery.js"></script>

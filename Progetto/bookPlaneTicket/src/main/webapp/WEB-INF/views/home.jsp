@@ -1,3 +1,5 @@
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+ 
  <div class="container">
     <div class="row">
       <div class="col-lg-12 text-center">
@@ -46,7 +48,8 @@
 <input type="number" class="form-control" value="0">
 </div>
 
-<button type="button" class="btn btn-primary flight">Mostra voli</button>
+<a class="btn btn-primary flight" href="${contextRoot}/listaVoli">Mostra voli</a>
+        
 </div>
 
 </div>
