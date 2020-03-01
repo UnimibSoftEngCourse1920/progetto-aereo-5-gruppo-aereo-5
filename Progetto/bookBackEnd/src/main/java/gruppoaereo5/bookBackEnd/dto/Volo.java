@@ -5,13 +5,21 @@ import java.text.ParseException;
 import java.util.Date;
 import java.util.Locale;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
 public class Volo {
 
 	/*
 	 * Private fields
 	 */
-	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private String codice_volo;
+	
 	private String aereo;
 	private String citta_partenza;
 	private String citta_arrivo;
@@ -113,6 +121,15 @@ public class Volo {
 	public void setPuntiOttenuti(double puntiOttenuti) {
 		this.puntiOttenuti = puntiOttenuti;
 	}
+	
+	@Override
+	public String toString() {
+		return "Volo [codice_volo=" + codice_volo + ", aereo=" + aereo + ", citta_partenza=" + citta_partenza
+				+ ", citta_arrivo=" + citta_arrivo + ", data_partenza=" + data_partenza + ", data_arrivo=" + data_arrivo
+				+ ", ora_partenza=" + ora_partenza + ", ora_arrivo=" + ora_arrivo + ", kmTratta=" + kmTratta
+				+ ", prezzo=" + prezzo + ", puntiOttenuti=" + puntiOttenuti + "]";
+	}
+	
 	
 	
 }
