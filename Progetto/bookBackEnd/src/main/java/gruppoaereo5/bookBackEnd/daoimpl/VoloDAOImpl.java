@@ -3,7 +3,10 @@ package gruppoaereo5.bookBackEnd.daoimpl;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import gruppoaereo5.bookBackEnd.dao.VoloDAO;
 import gruppoaereo5.bookBackEnd.dto.Volo;
@@ -12,6 +15,9 @@ import gruppoaereo5.bookBackEnd.dto.Volo;
 @Repository("voloDAO")
 public class VoloDAOImpl implements VoloDAO {
 
+	@Autowired
+	private SessionFactory sessionFactory;
+	
 	private static List<Volo> voli = new ArrayList<>();
 	
 	static {
@@ -66,6 +72,21 @@ public class VoloDAOImpl implements VoloDAO {
 	public List<Volo> list() {
 		// TODO Auto-generated method stub
 		return voli;
+	}
+	
+	//controllare
+	@Override
+	@Transactional
+	public boolean add(Volo volo) {
+		try {
+			//aggiunta voli dal database
+			sessionFactory.getCurrentSession().persist(volo);
+			return true;
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+			return false;
+		}
 	}
 
 }
