@@ -25,7 +25,7 @@
 </label>
 	<input type="text" class="form-control" >
 	
-<a class="btn btn-primary flight" >Cerca</a>
+<a class="btn btn-primary flight" >Vai al Pagamento</a>
 
 </div>
 </div>
