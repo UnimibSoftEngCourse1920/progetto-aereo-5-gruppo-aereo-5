@@ -1,22 +1,17 @@
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
     <div class="container">
       <a class="navbar-brand" href="${contextRoot}/home">Home</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarResponsive">
+
+      <div >
         <ul class="navbar-nav ml-auto">
-          <li class="nav-item active">
-
-          </li>
-
-          <li class="nav-item">
+     
+          <li id="registrati" class="nav-item">
             <a class="nav-link" href="${contextRoot}/registrati">Registrati</a>
           </li>
-          <li class="nav-item">
+          <li id="conferma" class="nav-item">
             <a class="nav-link" href="${contextRoot}/conferma">Conferma la tua Prenotazione</a>
           </li>  
-          <li class="nav-item">
+          <li id="info" class="nav-item">
             <a class="nav-link" href="${contextRoot}/info">Info</a>
           </li>
         
