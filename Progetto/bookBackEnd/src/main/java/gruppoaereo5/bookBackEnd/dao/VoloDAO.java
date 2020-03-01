@@ -9,5 +9,5 @@ public interface VoloDAO {
 	List<Volo> list();
 	
 	//controllare
-	boolean add(Volo volo);
+	//boolean add(Volo volo);
 }
