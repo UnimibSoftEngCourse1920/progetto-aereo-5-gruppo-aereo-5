@@ -1,5 +1,10 @@
 <!DOCTYPE html SYSTEM "about:legacy-compat">
- 
+
+ <html>
+  <body>
+  <head>
+  <title> Registrazione</title>
+  </head>
  <div class="container">
     <div class="row">
       <div class="col-lg-12 text-center">
@@ -24,18 +29,29 @@
 <div class="booking-form-box">
 
 <div class="booking-form">
+<form action="reg" method="post">
 	<label>Nome</label>
-	<input type="text" class="form-control" >
+	<input type="text" class="form-control" name="nome">
+	
 	<label>Cognome</label>
-	<input type="text" class="form-control" >
-<div class="birth-date">
-<label>Data di nascita</label>
-<input type="date" class="form-control select-date">
+	<input type="text" class="form-control" name="cognome">
+	
+	<label>E-Mail</label>
+	<input type="text" class="form-control" name="email">
+	
+	<div class="birth-date"><label>Data di nascita</label>
+	<input type="date" class="form-control select-date" name="data"></div>
+	
 	<label>Indirizzo di casa</label>
-	<input type="text" class="form-control" >
+	<input type="text" class="form-control" name="indirizzo">
+	
 	<label>Password</label>
-	<input type="text" class="form-control" >
-</div>	
-<a class="btn btn-primary flight" >Registrati</a>
+	<input type="password" class="form-control" name="pwd">
+
+<input  type="submit" class="btn btn-primary flight"  value="Cerca Volo">
+</form>
 </div>
 </div>
+
+</body>
+</html>

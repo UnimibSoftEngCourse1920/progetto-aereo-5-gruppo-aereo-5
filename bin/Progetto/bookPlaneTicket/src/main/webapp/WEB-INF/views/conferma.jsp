@@ -1,9 +1,5 @@
 <!DOCTYPE html SYSTEM "about:legacy-compat">
- <html>
-  <body>
-  <head>
-  <title> Conferma</title>
-  </head>
+ 
  <div class="container">
     <div class="row">
       <div class="col-lg-12 text-center">
@@ -29,9 +25,7 @@
 </label>
 	<input type="text" class="form-control" >
 	
-<a class="btn btn-primary flight" >Vai al Pagamento</a>
+<a class="btn btn-primary flight" >Cerca</a>
 
 </div>
 </div>
-</body>
-</html>

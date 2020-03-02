@@ -1,5 +1,10 @@
 <!DOCTYPE html SYSTEM "about:legacy-compat">
- 
+<html xmlns:th="https://www.thymeleaf.org">
+
+  <body>
+    <head>
+  <title>Home</title>
+  </head>
  <div class="container">
     <div class="row">
       <div class="col-lg-12 text-center">
@@ -22,11 +27,19 @@
 	<input type="radio" class="btn" name="check" checked><span>Andata e Ritorno</span>
 </div>
 <div class="booking-form">
+
+    <form action="listaVoli" method="post">
+    	<p>Da: <input type="text" name="città_partenza" class="form-control" placeholder="Città o Aeroporto" th:field="*{id}" /></p>
+        <p>A: <input type="text" class="form-control" placeholder="Città o Aeroporto" th:field="*{content}" /></p>
+
+<%-- 
 	<label>Da</label>
-	<input type="text" class="form-control" placeholder="Città o Aeroporto">
+	<form action="listaVoli.jsp" method="post">
+	<input type="text" name="città_partenza" class="form-control" placeholder="Città o Aeroporto">
+	</form>
 	<label>A</label>
 	<input type="text" class="form-control" placeholder="Città o Aeroporto">
-	
+	--%>
 <div class="input-grp">
 <label>Partenza</label>
 <input type="date" class="form-control select-date">
@@ -48,8 +61,10 @@
 <input type="number" class="form-control" value="0">
 </div>
 
-<a class="btn btn-primary flight" href="${contextRoot}/listaVoli">Mostra voli</a>
-        
+<input type="submit" class="btn btn-primary flight" value="Mostra voli">
+       </form> 
 </div>
 
 </div>
+</body>
+</html>

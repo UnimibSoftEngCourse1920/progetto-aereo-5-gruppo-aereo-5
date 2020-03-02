@@ -1,5 +1,9 @@
 <!DOCTYPE html SYSTEM "about:legacy-compat">
- 
+  <html>
+  <body>
+  <head>
+  <title> Info</title>
+  </head>
  <div class="container">
  	<h1 align="center">Gruppo Aereo5</h1>
     <div class="row">
@@ -13,7 +17,7 @@ dei biglietti aerei, per la gestione delle promozioni relative ai biglietti aere
 Si progetti e si implementi uno strumento di supporto per la gestione di una compagnia aerea,
 qualitativamente competitivo rispetto agli strumenti esistenti della stessa categoria, tenendo conto
 delle seguenti caratteristiche di funzionamento (definite in questa fase solo preliminarmente; la
-definizione del concetto applicativo dovrà essere perfezionata come parte dell’esecuzione del
+definizione del concetto applicativo dovra' essere perfezionata come parte dell'esecuzione del
 progetto):</p>
  <div >
         <ul >
@@ -60,3 +64,5 @@ promozioni messi a disposizione della compagnia aerea. </li>
 
     </div>
   </div>
+  </body>
+</html>
