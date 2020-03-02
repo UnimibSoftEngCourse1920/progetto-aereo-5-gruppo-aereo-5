@@ -57,20 +57,6 @@
  	</c:if>
  	
 	<!-- / Booking Page -->
- 	<!--  Payment Page -->
- 	
- 	<c:if test="${userClickPaga == true }">
- 	<%@include file="pagamento.jsp" %>
- 	</c:if>
- 	
-	<!-- / Payment Page -->
-<!--  Login Page -->
- 	
- 	<c:if test="${userClickAccedi == true }">
- 	<%@include file="login.jsp" %>
- 	</c:if>
- 	
-	<!-- / Login Page -->
  	<!--  Register Page -->
  	
  	<c:if test="${userClickRegistrati == true }">

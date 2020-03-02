@@ -1,17 +1,28 @@
 package gruppoaereo5.bookPlaneTicket.controller;
 
 
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.ws.rs.core.MediaType;
+
 import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 
 import gruppoaereo5.bookBackEnd.dao.VoloDAO;
+import gruppoaereo5.bookBackEnd.dto.FiltroDTO;
+import gruppoaereo5.bookBackEnd.dto.Volo;
+import gruppoaereo5.bookBackEnd.dto.VoloDTO;
 
 @Controller
 public class PageController{
@@ -51,14 +62,30 @@ public class PageController{
 	 	mv.addObject("userClickInfo",true);	
 		return mv;
 	}
-	@RequestMapping(value = "/listaVoli")
-	public ModelAndView listaVoli(){
+	
+	@PostMapping(value = "/listaVoli", consumes = MediaType.APPLICATION_JSON)
+	public ModelAndView listaVoli(@RequestBody FiltroDTO filtro){
+		
+		List<VoloDTO> list = new ArrayList<>();
+		VoloDTO volo = new VoloDTO();
+
+		 volo.setCodice_volo("e1");
+		 volo.setAereo("fisa");
+		 volo.setCitta_partenza("Milano");
+		 volo.setCitta_arrivo("Roma");
+
+		 volo.setKmTratta(122.22);
+		 volo.setPrezzo(33.3);
+		 volo.setPuntiOttenuti(44);
+		 
+		 list.add(volo);
 		
 	 	ModelAndView mv = new ModelAndView("page");
+	 	
 	 	mv.addObject("title","Lista Voli");
 	 	
 	 	//passo lista voli
-	 	mv.addObject("voli",voloDAO.list());
+	 	mv.addObject("voli", list);
 	 	
 	 	mv.addObject("userClickMostraVoli",true);	
 		return mv;

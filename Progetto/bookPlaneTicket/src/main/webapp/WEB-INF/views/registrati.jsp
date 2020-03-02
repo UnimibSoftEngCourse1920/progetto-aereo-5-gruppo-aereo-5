@@ -48,7 +48,7 @@
 	<label>Password</label>
 	<input type="password" class="form-control" name="pwd">
 
-<input  type="submit" class="btn btn-primary flight"  value="Cerca Volo">
+<input  type="submit" class="btn btn-primary flight"  value="Registrati">
 </form>
 </div>
 </div>

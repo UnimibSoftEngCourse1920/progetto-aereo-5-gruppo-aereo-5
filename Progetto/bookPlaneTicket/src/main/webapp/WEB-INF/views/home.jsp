@@ -5,6 +5,7 @@
     <head>
   <title>Home</title>
   </head>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
  <div class="container">
     <div class="row">
       <div class="col-lg-12 text-center">
@@ -22,15 +23,13 @@
 
 
 
-<div class="radio-btn">
-	<input type="radio" class="btn" name="check"><span>Sola Andata</span>
-	<input type="radio" class="btn" name="check" checked><span>Andata e Ritorno</span>
-</div>
+
 <div class="booking-form">
 
     <form action="listaVoli" method="post">
-    	<p>Da: <input type="text" name="città_partenza" class="form-control" placeholder="Città o Aeroporto" th:field="*{id}" /></p>
-        <p>A: <input type="text" class="form-control" placeholder="Città o Aeroporto" th:field="*{content}" /></p>
+    	<p>Da: <input type="text" id="filtro_partenza" name="città_partenza" class="form-control" placeholder="Città o Aeroporto" th:field="*{id}" /></p>
+       
+        <p>A: <input type="text" id="filtro_arrivo" class="form-control" placeholder="Città o Aeroporto" th:field="*{content}" /></p>
 
 <%-- 
 	<label>Da</label>
@@ -42,29 +41,61 @@
 	--%>
 <div class="input-grp">
 <label>Partenza</label>
-<input type="date" class="form-control select-date">
+<input type="date" id="filtro_data_partenza" class="form-control select-date">
 
 </div>
 
 <div class="input-grp">
 <label>Ritorno</label>
-<input type="date" class="form-control select-date">
+<input type="date" id="filtro_data_ritorno" class="form-control select-date">
 </div>
 
 <div class="input-grp">
-<label>Adulti</label>
-<input type="number" class="form-control" value="1">
+<label>Passeggeri</label>
+<input type="number" id="nPasseggeri" class="form-control" value="1">
 </div>
 
-<div class="input-grp">
-<label>Bambini</label>
-<input type="number" class="form-control" value="0">
-</div>
 
-<input type="submit" class="btn btn-primary flight" value="Mostra voli">
+
+<button id="filtra_voli" class="btn btn-primary flight" value="Mostra voli"></button>
        </form> 
-</div>
-
-</div>
+       </div>
+       </div>
+<script type="text/javascript">
+	
+ 	$(document).ready(function() {
+ 		var base_url = window.location.host + "/bookPlaneTicket/";
+ 		var filtro = {};
+ 		var partenza = '';
+ 		
+ 		$('#filtra_voli').on('click', function() {
+ 			partenza = $('#filtro_partenza').val();
+ 			arrivo = $('#filtro_arrivo').val();
+ 			data_partenza = $('#filtro_data_partenza').val();
+ 			data_ritorno = $('#filtro_data_ritorno').val();
+ 			nPasseggeri = $('#nPasseggeri').val();
+ 			
+ 			filtro.partenza=partenza;
+ 			filtro.arrivo=arrivo;
+ 			filtro.dataPartenza=data_partenza;
+ 			filtro.dataRitorno=data_ritorno;
+ 			filtro.nPasseggeri=nPasseggeri;
+ 			
+ 			console.log(filtro);
+ 			
+ 			$.ajax({
+                type: "POST",
+                url: base_url + "listaVoli",
+                data: JSON.stringify(partenza),
+                contentType:"application/json; charset=utf-8",
+                dataType:"json",
+                success: function() {
+                    console.log("success");
+                }
+              });
+ 		});
+ 		
+ 	});
+</script>
 </body>
 </html>
