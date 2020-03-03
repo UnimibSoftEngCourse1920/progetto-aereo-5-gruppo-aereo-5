@@ -1,11 +1,11 @@
-<!DOCTYPE html SYSTEM "about:legacy-compat">
+<%@include file="../shared/flows-header.jsp" %>
 
- <html>
-  <body>
-  <head>
-  <title> Registrazione</title>
-  </head>
+<!DOCTYPE html>
+<html>
+<body>
+
  <div class="container">
+ 
     <div class="row">
       <div class="col-lg-12 text-center">
         <h1 class="mt-5">Crea Account<br>
@@ -57,3 +57,4 @@
 
 </body>
 </html>
+<%@include file="../shared/flows-footer.jsp" %>

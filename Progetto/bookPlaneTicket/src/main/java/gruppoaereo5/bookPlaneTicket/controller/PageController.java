@@ -45,7 +45,6 @@ public class PageController{
 		
 	 	ModelAndView mv = new ModelAndView("page");
 	 	mv.addObject("title","Registrati al servizio");
-	 	mv.addObject("userClickRegistrati",true);	
 		return mv;
 	}
 	@RequestMapping(value = "/info")

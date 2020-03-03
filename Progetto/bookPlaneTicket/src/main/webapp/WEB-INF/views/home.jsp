@@ -31,14 +31,6 @@
        
         <p>A: <input type="text" id="filtro_arrivo" class="form-control" placeholder="Città o Aeroporto" th:field="*{content}" /></p>
 
-<%-- 
-	<label>Da</label>
-	<form action="listaVoli.jsp" method="post">
-	<input type="text" name="città_partenza" class="form-control" placeholder="Città o Aeroporto">
-	</form>
-	<label>A</label>
-	<input type="text" class="form-control" placeholder="Città o Aeroporto">
-	--%>
 <div class="input-grp">
 <label>Partenza</label>
 <input type="date" id="filtro_data_partenza" class="form-control select-date">
@@ -54,8 +46,6 @@
 <label>Passeggeri</label>
 <input type="number" id="nPasseggeri" class="form-control" value="1">
 </div>
-
-
 
 <button id="filtra_voli" class="btn btn-primary flight" > Mostra voli</button>
        </form> 

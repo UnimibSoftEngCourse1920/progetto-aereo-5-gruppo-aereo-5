@@ -74,7 +74,7 @@
  	<!--  Register Page -->
  	
  	<c:if test="${userClickRegistrati == true }">
- 	<%@include file="registrati.jsp" %>
+ 	<%@include file="flows/register/registrati.jsp" %>
  	</c:if>
  	
 	<!-- / Register Page -->
