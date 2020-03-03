@@ -62,6 +62,22 @@ public class PageController{
 	 	mv.addObject("userClickInfo",true);	
 		return mv;
 	}
+	@RequestMapping(value = "/pagamento")
+	public ModelAndView pagamento(){
+		
+	 	ModelAndView mv = new ModelAndView("page");
+	 	mv.addObject("title","Pagamento");
+	 	mv.addObject("userClickPaga",true);	
+		return mv;
+	}
+	@RequestMapping(value = "/login")
+	public ModelAndView login(){
+		
+	 	ModelAndView mv = new ModelAndView("page");
+	 	mv.addObject("title","Accedi");
+	 	mv.addObject("userClickAccedi",true);	
+		return mv;
+	}
 	
 	@PostMapping(value = "/listaVoli", consumes = MediaType.APPLICATION_JSON)
 	public ModelAndView listaVoli(@RequestBody FiltroDTO filtro){

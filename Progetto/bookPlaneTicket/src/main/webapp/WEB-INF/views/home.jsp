@@ -57,7 +57,7 @@
 
 
 
-<button id="filtra_voli" class="btn btn-primary flight" value="Mostra voli"></button>
+<button id="filtra_voli" class="btn btn-primary flight" > Mostra voli</button>
        </form> 
        </div>
        </div>
