@@ -13,7 +13,7 @@ CREATE TABLE `Volo` (
   PRIMARY KEY (`codice_volo`))
   
   -- -----------------------------------------------------
--- Table `mydb`.`Utente`
+-- Table `Utente`
 -- -----------------------------------------------------
 CREATE TABLE `Utente` (
   `email` VARCHAR(45) NOT NULL,
@@ -28,7 +28,7 @@ CREATE TABLE `Utente` (
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`Prenotazione`
+-- Table `Prenotazione`
 -- -----------------------------------------------------
 CREATE TABLE `Prenotazione` (
   `codicePrenotazione` INT NOT NULL,
@@ -37,17 +37,14 @@ CREATE TABLE `Prenotazione` (
   `penaleModifica` DECIMAL(2) NULL,
   `utente` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`codicePrenotazione`),
-  INDEX `utente_idx` (`utente` ASC) VISIBLE,
-  CONSTRAINT `utentePrenotazione`
-    FOREIGN KEY (`utente`)
-    REFERENCES `mydb`.`Utente` (`email`)
+  CONSTRAINT `utentePrenotazione` FOREIGN KEY (`utente`) REFERENCES `Utente` (`email`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`Posto`
+-- Table `Posto`
 -- -----------------------------------------------------
 CREATE TABLE `Posto` (
   `idPosto` INT NOT NULL,
@@ -55,23 +52,17 @@ CREATE TABLE `Posto` (
   `lettera` INT NOT NULL,
   `prenotazione` INT NULL,
   `volo` VARCHAR(8) NOT NULL,
-  INDEX `prenotazione_idx` (`prenotazione` ASC) VISIBLE,
   PRIMARY KEY (`idPosto`),
-  INDEX `codice_volo_idx` (`volo` ASC) VISIBLE,
-  CONSTRAINT `voloPosto`
-    FOREIGN KEY (`volo`)
-    REFERENCES `mydb`.`Volo` (`codice_volo`)
+  CONSTRAINT `voloPosto` FOREIGN KEY (`volo`) REFERENCES `Volo` (`codice_volo`)
     ON DELETE CASCADE
     ON UPDATE CASCADE,
-  CONSTRAINT `prenotazionePosto`
-    FOREIGN KEY (`prenotazione`)
-    REFERENCES `mydb`.`Prenotazione` (`codicePrenotazione`)
+  CONSTRAINT `prenotazionePosto` FOREIGN KEY (`prenotazione`) REFERENCES `Prenotazione` (`codicePrenotazione`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`Biglietto`
+-- Table `Biglietto`
 -- -----------------------------------------------------
 CREATE TABLE `Biglietto` (
   `idBiglietto` INT NOT NULL,
@@ -81,38 +72,29 @@ CREATE TABLE `Biglietto` (
   `prenotazione` INT NOT NULL,
   `utente` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`idBiglietto`),
-  INDEX `prenotazione_idx` (`prenotazione` ASC) VISIBLE,
-  INDEX `utente_idx` (`utente` ASC) VISIBLE,
-  CONSTRAINT `prenotazioneBiglietto`
-    FOREIGN KEY (`prenotazione`)
-    REFERENCES `mydb`.`Prenotazione` (`codicePrenotazione`)
+  CONSTRAINT `prenotazioneBiglietto` FOREIGN KEY (`prenotazione`) REFERENCES `Prenotazione` (`codicePrenotazione`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
-  CONSTRAINT `utenteBiglietto`
-    FOREIGN KEY (`utente`)
-    REFERENCES `mydb`.`Utente` (`email`)
+  CONSTRAINT `utenteBiglietto` FOREIGN KEY (`utente`) REFERENCES `Utente` (`email`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`CartaFedeltà`
+-- Table `CartaFedeltà`
 -- -----------------------------------------------------
 CREATE TABLE `CartaFedeltà` (
   `idCartaFedeltà` INT NOT NULL,
   `puntiTessera` INT NOT NULL DEFAULT 0,
   `utente` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`idCartaFedeltà`),
-  INDEX `utente_idx` (`utente` ASC) VISIBLE,
-  CONSTRAINT `utenteCartaFedeltà`
-    FOREIGN KEY (`utente`)
-    REFERENCES `mydb`.`Utente` (`email`)
+  CONSTRAINT `utenteCartaFedeltà` FOREIGN KEY (`utente`) REFERENCES `Utente` (`email`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`Promozione`
+-- Table `Promozione`
 -- -----------------------------------------------------
 CREATE TABLE `Promozione` (
   `idPromozione` INT NOT NULL,
@@ -126,7 +108,7 @@ CREATE TABLE `Promozione` (
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`Pagamento`
+-- Table `Pagamento`
 -- -----------------------------------------------------
 CREATE TABLE `Pagamento` (
   `idPagamento` INT NOT NULL,
@@ -134,15 +116,9 @@ CREATE TABLE `Pagamento` (
   `cartaFedeltà` INT NULL,
   `prenotazione` INT NOT NULL,
   PRIMARY KEY (`idPagamento`),
-  INDEX `cartaFedeltà_idx` (`cartaFedeltà` ASC) VISIBLE,
-  INDEX `prenotazione_idx` (`prenotazione` ASC) VISIBLE,
-  CONSTRAINT `cartaFedeltàPagamento`
-    FOREIGN KEY (`cartaFedeltà`)
-    REFERENCES `mydb`.`CartaFedeltà` (`idCartaFedeltà`)
+  CONSTRAINT `cartaFedeltàPagamento` FOREIGN KEY (`cartaFedeltà`) REFERENCES `CartaFedeltà` (`idCartaFedeltà`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
-  CONSTRAINT `prenotazionePagamento`
-    FOREIGN KEY (`prenotazione`)
-    REFERENCES `mydb`.`Prenotazione` (`codicePrenotazione`)
+  CONSTRAINT `prenotazionePagamento` FOREIGN KEY (`prenotazione`) REFERENCES `Prenotazione` (`codicePrenotazione`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
