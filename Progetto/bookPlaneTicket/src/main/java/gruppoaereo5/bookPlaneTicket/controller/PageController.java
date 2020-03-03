@@ -72,7 +72,7 @@ public class PageController{
 		return mv;
 	}
 	
-	@PostMapping(value = "/listaVoli", consumes = MediaType.APPLICATION_JSON)
+	@PostMapping(path = "/listaVoli", consumes = "application/json")
 	public ModelAndView listaVoli(@RequestBody FiltroDTO filtro){
 		
 		List<VoloDTO> list = new ArrayList<>();

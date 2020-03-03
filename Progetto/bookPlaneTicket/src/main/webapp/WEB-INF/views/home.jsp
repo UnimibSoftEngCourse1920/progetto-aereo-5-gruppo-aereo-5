@@ -1,6 +1,8 @@
+
 <!DOCTYPE html SYSTEM "about:legacy-compat">
 <html xmlns:th="https://www.thymeleaf.org">
-
+<meta name="_csrf" content="${_csrf.token}"/>
+<meta name="_csrf_header" content="${_csrf.headerName}"/>
   <body>
     <head>
   <title>Home</title>
@@ -57,6 +59,7 @@
  		var base_url = window.location.host + "/bookPlaneTicket/";
  		var filtro = {};
  		var partenza = '';
+ 		var token = $("meta[name='_csrf']").attr("content");
  		
  		$('#filtra_voli').on('click', function() {
  			partenza = $('#filtro_partenza').val();
@@ -76,9 +79,12 @@
  			$.ajax({
                 type: "POST",
                 url: base_url + "listaVoli",
-                data: JSON.stringify(partenza),
+                data: JSON.stringify(filtro),
                 contentType:"application/json; charset=utf-8",
                 dataType:"json",
+                
+                beforeSend: function(xhr) {
+                    xhr.setRequestHeader('X-CSRF-TOKEN', token)
                 success: function() {
                     console.log("success");
                 }
