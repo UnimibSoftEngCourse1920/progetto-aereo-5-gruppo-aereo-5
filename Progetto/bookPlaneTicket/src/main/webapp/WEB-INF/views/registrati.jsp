@@ -31,23 +31,25 @@
 <div class="booking-form">
 <form action="reg" method="post">
 	<label>Nome</label>
-	<input type="text" class="form-control" name="nome">
+	<input type="text" class="form-control" id="nome">
 	
 	<label>Cognome</label>
-	<input type="text" class="form-control" name="cognome">
+	<input type="text" class="form-control" id="cognome">
 	
 	<label>E-Mail</label>
-	<input type="text" class="form-control" name="email">
+	<input type="text" class="form-control" id="email">
 	
 	<div class="birth-date"><label>Data di nascita</label>
-	<input type="date" class="form-control select-date" name="data"></div>
+	<input type="date" class="form-control select-date" id="data"></div>
 	
 	<label>Indirizzo di casa</label>
-	<input type="text" class="form-control" name="indirizzo">
+	<input type="text" class="form-control" id="indirizzo">
 	
 	<label>Password</label>
-	<input type="password" class="form-control" name="pwd">
-
+	<input type="password" class="form-control" id="pwd">
+	
+	<label>Conferma Password</label>
+	<input type="password" class="form-control" id="pwdC">
 <input  type="submit" class="btn btn-primary flight"  value="Registrati">
 </form>
 </div>
