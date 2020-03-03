@@ -1,7 +1,5 @@
 package gruppoaereo5.bookBackEnd.dto;
 
-import java.io.Serializable;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -17,12 +15,9 @@ private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY) 
 	private int id;
-	@Column(name = "id_utente")
-	private double idUtente;
-	public double getIdUtente() {
-		return idUtente;
-	}
-
+	
+	@OneToOne
+	private User user;
 
 	@Column(name = "totale")
 	private double totale;
@@ -33,14 +28,15 @@ private static final long serialVersionUID = 1L;
 		// TODO Auto-generated constructor stub
 	}
 
-	@Override
-	public String toString() {
-		return "Carrello [id=" + id + ", idUtente=" + idUtente + ", totale=" + totale + "]";
+	public User getUser() {
+		return user;
 	}
 
-	public void setIdUtente(double idUtente) {
-		this.idUtente = idUtente;
+
+	public void setUser(User user) {
+		this.user = user;
 	}
+
 	public int getId() {
 		return id;
 	}

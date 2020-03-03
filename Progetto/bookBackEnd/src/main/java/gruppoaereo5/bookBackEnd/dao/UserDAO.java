@@ -7,8 +7,8 @@ import gruppoaereo5.bookBackEnd.dto.User;
 public interface UserDAO {
 	
 	boolean addUser(User user);
-	
-	boolean addCarrello(Carrello carrello);
+	User getByEmail(String email);
+	boolean updateCarrello(Carrello carrello);
 
 
 }
