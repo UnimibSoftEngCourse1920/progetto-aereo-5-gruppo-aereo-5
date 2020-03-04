@@ -19,11 +19,11 @@ CREATE TABLE `Utente` (
   `email` VARCHAR(45) NOT NULL,
   `nome` VARCHAR(45) NULL,
   `cognome` VARCHAR(45) NULL,
-  `dataNascita` VARCHAR(45) NULL,
+  `dataNascita` DATE(45) NULL,
   `ultimoAcquisto` DATE NULL,
   `indirizzoCasa` VARCHAR(45) NULL,
   `password` VARCHAR(45) NULL,
-  `infedele` TINYINT NULL DEFAULT 0,
+  `infedele` BOOLEAN NULL DEFAULT FALSE,
   PRIMARY KEY (`email`))
 
 

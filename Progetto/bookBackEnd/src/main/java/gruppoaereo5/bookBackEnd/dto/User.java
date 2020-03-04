@@ -1,22 +1,21 @@
 package gruppoaereo5.bookBackEnd.dto;
 
-import java.io.Serializable;
 
-import javax.persistence.CascadeType;
+
+import java.util.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
 //import org.hibernate.validator.constraints.NotBlank;
 
 @Entity
-@Table(name = "dettagli_utente")
+@Table(name = "Utente")
 public class User {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -31,7 +30,7 @@ public class User {
 	private String email;
 	//@NotBlank(message = "Inserisci data di nascita")
 	@Column(name = "data_nascita")
-	private String dataNascita;
+	private Date dataNascita;
 //	@NotBlank(message = "Inserisci password")
 	private String password;
 	
@@ -64,10 +63,10 @@ public class User {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public String getDataNascita() {
+	public Date getDataNascita() {
 		return dataNascita;
 	}
-	public void setDataNascita(String dataNascita) {
+	public void setDataNascita(Date dataNascita) {
 		this.dataNascita = dataNascita;
 	}
 	public String getPassword() {
