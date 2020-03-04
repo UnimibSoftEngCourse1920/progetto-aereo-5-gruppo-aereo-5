@@ -95,7 +95,10 @@
 	
   <!-- / Page Content -->	
   
-  <!--  jQuery -->	
+  <!--  jQuery Validatior-->	
+	<script src="${js}/jquery.validate.js"></script>
+	
+	 <!--  jQuery -->	
 	<script src="${js}/jquery.js"></script>
 	
   <!-- Bootstrap core JavaScript -->
