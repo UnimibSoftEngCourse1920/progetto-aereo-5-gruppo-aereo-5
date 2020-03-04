@@ -66,9 +66,9 @@ public class PageController{
 	@RequestMapping(value = "/login")
 	public ModelAndView login(){
 		
-	 	ModelAndView mv = new ModelAndView("page");
-	 	mv.addObject("title","Accedi");
-	 	mv.addObject("userClickAccedi",true);	
+	 	ModelAndView mv = new ModelAndView("login");
+	 	mv.addObject("title","Login");
+	
 		return mv;
 	}
 	
@@ -99,5 +99,7 @@ public class PageController{
 	 	mv.addObject("userClickMostraVoli",true);	
 		return mv;
 }
+	
+
 
 }

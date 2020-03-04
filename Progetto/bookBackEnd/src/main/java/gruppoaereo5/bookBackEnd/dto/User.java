@@ -1,6 +1,13 @@
 package gruppoaereo5.bookBackEnd.dto;
 
+
 import java.io.Serializable;
+
+
+
+
+import java.util.Date;
+
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -15,6 +22,7 @@ import javax.persistence.Transient;
 //import org.hibernate.validator.constraints.NotBlank;
 
 @Entity
+
 @Table(name = "UTENTE")
 public class User implements Serializable{
 	/**
@@ -34,10 +42,9 @@ public class User implements Serializable{
 	private String email;
 	//@NotBlank(message = "Inserisci data di nascita")
 	@Column(name = "data_nascita")
-	private String dataNascita;
+	private Date dataNascita;
 	@Column(name = "Indirizzo")
 	private String indirizzo;
-
 	//	@NotBlank(message = "Inserisci password")
 	private String password;
 	private String confermaPassword;
@@ -86,10 +93,10 @@ public class User implements Serializable{
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public String getDataNascita() {
+	public Date getDataNascita() {
 		return dataNascita;
 	}
-	public void setDataNascita(String dataNascita) {
+	public void setDataNascita(Date dataNascita) {
 		this.dataNascita = dataNascita;
 	}
 	public String getPassword() {
