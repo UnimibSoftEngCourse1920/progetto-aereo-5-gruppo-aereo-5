@@ -71,13 +71,7 @@
  	</c:if>
  	
 	<!-- / Login Page -->
- 	<!--  Register Page -->
- 	
- 	<c:if test="${userClickRegistrati == true }">
- 	<%@include file="flows/register/registrati.jsp" %>
- 	</c:if>
- 	
-	<!-- / Register Page -->
+
  	<!--  Info Page -->
  	
  	<c:if test="${userClickInfo == true }">

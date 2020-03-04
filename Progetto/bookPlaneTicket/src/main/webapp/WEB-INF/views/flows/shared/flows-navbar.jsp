@@ -1,6 +1,6 @@
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
     <div class="container">
-      <a class="navbar-brand" href="${contextRoot}/home">Home</a>
+      <a class="navbar-brand" href="${flowExecutionUrl}&_eventId_home">Home</a>
 
       <div >
         <ul class="navbar-nav ml-auto">
