@@ -24,7 +24,7 @@
 	<authentication-manager>
 		<authentication-provider>
 			<user-service>
-				<user name="user" password="password" authorities="ROLE_USER, ROLE_ADMIN" />
+				<user name="user@gmail.com" password="password" authorities="ROLE_USER, ROLE_ADMIN" />
 			</user-service>
 			<jdbc-user-service data-source-ref="dataSource"
 				users-by-username-query="select email, password from Utente where email = ?" />

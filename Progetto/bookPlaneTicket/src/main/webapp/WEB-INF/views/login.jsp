@@ -45,7 +45,9 @@
 
 
 	<!-- Page Content -->
+	
 	<div class="container">
+
 		<div class="row">
 			<div class="col-lg-12 text-center">
 				<h1 class="mt-5">Accedi al tuo account</h1>
@@ -56,38 +58,45 @@
 				</ul>
 			</div>
 		</div>
-	</div>
+	
 
-	<div class="booking-form-box">
-		<div class="booking-form">
-			<form action="${contextRoot}/login" method="POST" id="loginForm">
+		<div class="booking-form-box">
+			<div class="booking-form">
+				<form id="loginForm" action="${contextRoot}/login" method="POST" id="loginForm">
+					<div>
+						<label for="username">Email:</label>
+						<input type="text"	name="username" id="username" class="form-control" />
+					</div>
+					<div>
+						<label for="password">Password:</label> 
+						<input type="password" name="password" id="password" class="form-control" />
+					</div>
+					<input type="submit" value="Login" class="btn btn-primary flight" />
+					<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
 
-				<label for="username">Email:</label>
-				<input type="text"	name="username" id="username" class="form-control" />
-				<label for="password">Password:</label> 
-				<input type="password" name="password" id="password" class="form-control" />
-				<input type="submit" value="Login" class="btn btn-primary flight" />
-				<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
-
-			</form>
-			<div class="panel-footer">
-				<div class="text-right">
-					Nuovo Utente - <a href="${contextRoot}/registrati">Registrati</a>
+				</form>
+				<div class="panel-footer">
+					<div class="text-right">
+						Nuovo Utente - <a href="${contextRoot}/registrati">Registrati</a>
+					</div>
 				</div>
 			</div>
+
 		</div>
-
 	</div>
-
 	<!-- /Page Content -->
 
 	<!--  jQuery -->
 	<script src="${js}/jquery.js"></script>
+	
+	  <!--  jQuery Validator-->	
+	<script src="${js}/jquery.validate.js"></script>
 
 	<!-- Bootstrap core JavaScript -->
 	<script src="${js}vendor/jquery/jquery.slim.min.js"></script>
 	<script src="${js}vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
+	<script src="${js}/bootstrap.min.js"></script>
+	
 	<!--  javascript -->
 	<script src="${js}/myapp.js"></script>
 

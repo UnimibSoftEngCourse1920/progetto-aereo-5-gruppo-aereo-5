@@ -4,16 +4,19 @@
       xsi:schemaLocation="http://www.springframework.org/schema/webflow
                           http://www.springframework.org/schema/webflow/spring-webflow.xsd">
 
-	<var name="user" class="gruppoAereo5.bookBackEnd.dto.User"></var>
-	
-	
-	
-	
-	<view-state id="reg" view="flows/register/registrati" model="user"></view-state>
-	<view-state id="conferma" view="flows/register/conferma"></view-state>
+	<var name="user" class="gruppoaereo5.bookBackEnd.dto.User"></var>
 
+	<view-state id="registrati" view="flows/register/signup-registrati" model="user">
+		<transition on="conferma" to="conferma"/> 			
+	</view-state>
+
+	<view-state id="conferma" view="flows/register/signup-conferma" model="flowScope.registerModel">
+			<transition on="registrati" to="registrati"/> 
+			<transition on="registrazioneEffettuata" to="registrazioneEffettuata"/>		 
+	</view-state>
+	
+	<end-state id="registrazioneEffettuata" view="flows/register/signup-registrazioneEffettuata"></end-state>
 	<end-state id="home" view="externalRedirect:contextRelative:/"/>
-	<end-state id="successo" view="flows/register/registrazioneEffettuata"></end-state>
 	
 	<global-transitions>
 		<transition on="home" to="home"/>

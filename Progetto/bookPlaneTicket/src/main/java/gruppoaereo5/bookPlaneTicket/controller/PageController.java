@@ -4,14 +4,12 @@ package gruppoaereo5.bookPlaneTicket.controller;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.ws.rs.core.MediaType;
-
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import gruppoaereo5.bookBackEnd.dao.VoloDAO;
@@ -40,8 +38,8 @@ public class PageController{
 	 	mv.addObject("userClickConfermaLaPrenotazione",true);	
 		return mv;
 	}
-	@RequestMapping(value = "/registrati")
-	public ModelAndView registrati(){
+	@RequestMapping(value = "/register")
+	public ModelAndView register(){
 		
 	 	ModelAndView mv = new ModelAndView("page");
 	 	mv.addObject("title","Registrati al servizio");
@@ -65,8 +63,8 @@ public class PageController{
 	}
 	@RequestMapping(value = "/login")
 	public ModelAndView login(){
+		ModelAndView mv = new ModelAndView("login");
 		
-	 	ModelAndView mv = new ModelAndView("login");
 	 	mv.addObject("title","Login");
 	
 		return mv;
