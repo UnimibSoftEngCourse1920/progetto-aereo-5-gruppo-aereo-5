@@ -40,8 +40,8 @@ public class PageController{
 	 	mv.addObject("userClickConfermaLaPrenotazione",true);	
 		return mv;
 	}
-	@RequestMapping(value = "/registrati")
-	public ModelAndView registrati(){
+	@RequestMapping(value = "/register")
+	public ModelAndView register(){
 		
 	 	ModelAndView mv = new ModelAndView("page");
 	 	mv.addObject("title","Registrati al servizio");

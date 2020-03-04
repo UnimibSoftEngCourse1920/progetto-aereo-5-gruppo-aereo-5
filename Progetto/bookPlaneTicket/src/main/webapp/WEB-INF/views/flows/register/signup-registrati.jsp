@@ -1,9 +1,6 @@
 <%@include file="../shared/flows-header.jsp" %>
 <%@taglib prefix="sf" uri="http://www.springframework.org/tags/form" %>			
 
-<!DOCTYPE html>
-<html>
-<body>
 
  <div class="container">
 			
@@ -20,13 +17,10 @@
         registrazione. <br> Avrai inoltre la possibilità di 
         accumulare punti sulla Member Card e quando ne avrai accumulati abbastanza
         potrai riscattare un viaggio gratis. </p>        
-        <ul class="list-unstyled">
-        
-
-        </ul>
+ 
       </div>
     </div>
-  </div>
+
 
 <div class="booking-form-box">
 	<sf:form
@@ -36,37 +30,45 @@
 				id="registerForm"
 						>
 <div class="booking-form">
-<form action="reg" method="post">
-	<label>Nome</label>
+	<label >Nome</label>
 	<sf:input type="text" class="form-control" path="nome" placeholder="inserisci nome"/>
-	
-	<label>Cognome</label>
+	<sf:errors path="nome" cssClass="help-block" element="em"/>
+	 
+	<label >Cognome</label>
 	<sf:input type="text" class="form-control" path="cognome" placeholder="inserisci cognome"/>
+	<sf:errors path="cognome" cssClass="help-block" element="em"/>
 	
-	<label>E-Mail</label>
+	<label >E-Mail</label>
 	<sf:input type="text" class="form-control" path="email" placeholder="inserisci email"/>
+	<sf:errors path="email" cssClass="help-block" element="em"/>
 	
-	<div class="birth-date"><label>Data di nascita</label>
-	<sf:input type="date" class="form-control select-date" path="data" placeholder="inserisci data di nascita"/></div>
+	<div class="birth-date">
+		<label >Data di nascita</label>
+		<sf:input type="date" class="form-control select-date" path="dataNascita" placeholder="Inserisci data di nascita"/>
+		<sf:errors path="dataNascita" cssClass="help-block" element="em"/>
+	</div>
 	
-	<label>Indirizzo di casa</label>
-	<sf:input type="text" class="form-control" path="indirizzo" placeholder="inserisci indirizzo"/>
+	<label >Indirizzo di casa</label>
+	<sf:input type="text" class="form-control" path="indirizzo" placeholder="Inserisci indirizzo"/>
+	<sf:errors path="indirizzo" cssClass="help-block" element="em"/>
 	
-	<label>Password</label>
-	<sf:input type="password" class="form-control" path="pwd" placeholder="password"/>
+	<label >Password</label>
+	<sf:input type="password" class="form-control" path="password" />
+	<sf:errors path="password" cssClass="help-block" element="em"/>
 	
-	<label>Conferma Password</label>
-	<sf:input type="password" class="form-control" path="pwdC" placeholder="password"/>
+	<label >Conferma Password</label>
+	<sf:input type="password" class="form-control" path="confermaPassword" placeholder="Conferma password"/>
+	<sf:errors path="confermaPassword" cssClass="help-block" element="em"/>
 
-
+<div class="form-group">
 <button  type="submit" class="btn btn-primary flight"  
-		name="_eventiId_billing" value="Registrati">
+		name="_eventId_conferma" >
+	Conferma <span class="glyphicon glyphicon-chevron-right"></span>
 </button>
-</form>
-</div> 	
+</div>
+</div> 
+
 </sf:form>	
 </div>
-
-</body>
-</html>
+  </div>
 <%@include file="../shared/flows-footer.jsp" %>

@@ -77,7 +77,9 @@ body {
 [tabindex="-1"]:focus {
   outline: 0 !important;
 }
-
+.help-block {
+	color: #ff0000;
+}
 .booking-form-box {
 	background-color:#C0C0C0 ;
 	border-style: groove;

@@ -1,5 +1,7 @@
 package gruppoaereo5.bookBackEnd.dto;
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -9,7 +11,7 @@ import javax.persistence.OneToOne;
 
 @Entity
 
-public class Carrello {
+public class Carrello implements Serializable{
 private static final long serialVersionUID = 1L;
 	
 	@Id

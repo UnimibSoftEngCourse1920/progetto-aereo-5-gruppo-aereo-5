@@ -1,5 +1,7 @@
 package gruppoaereo5.bookBackEnd.dto;
 
+import java.io.Serializable;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -13,8 +15,12 @@ import javax.persistence.Transient;
 //import org.hibernate.validator.constraints.NotBlank;
 
 @Entity
-@Table(name = "dettagli_utente")
-public class User {
+@Table(name = "UTENTE")
+public class User implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
@@ -29,8 +35,12 @@ public class User {
 	//@NotBlank(message = "Inserisci data di nascita")
 	@Column(name = "data_nascita")
 	private String dataNascita;
-//	@NotBlank(message = "Inserisci password")
+	@Column(name = "Indirizzo")
+	private String indirizzo;
+
+	//	@NotBlank(message = "Inserisci password")
 	private String password;
+	private String confermaPassword;
 	
 	@OneToOne(mappedBy ="user", cascade = CascadeType.ALL)
 	private Carrello carrello;
@@ -52,6 +62,12 @@ public class User {
 	public void setId(int id) {
 		this.id = id;
 	}
+	public String getIndirizzo() {
+		return indirizzo;
+	}
+	public void setIndirizzo(String indirizzo) {
+		this.indirizzo = indirizzo;
+	}	
 	public String getNome() {
 		return nome;
 	}
@@ -92,6 +108,12 @@ public class User {
 	private String confirmPassword;
 	public User() {
 		// TODO Auto-generated constructor stub
+	}
+	public String getConfermaPassword() {
+		return confermaPassword;
+	}
+	public void setConfermaPassword(String confermaPassword) {
+		this.confermaPassword = confermaPassword;
 	}
 	
 
