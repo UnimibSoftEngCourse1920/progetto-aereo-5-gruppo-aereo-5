@@ -45,7 +45,6 @@ public class PageController{
 		
 	 	ModelAndView mv = new ModelAndView("page");
 	 	mv.addObject("title","Registrati al servizio");
-	 	mv.addObject("userClickRegistrati",true);	
 		return mv;
 	}
 	@RequestMapping(value = "/info")
@@ -73,7 +72,7 @@ public class PageController{
 		return mv;
 	}
 	
-	@PostMapping(value = "/listaVoli", consumes = MediaType.APPLICATION_JSON)
+	@PostMapping(path = "/listaVoli", consumes = "application/json")
 	public ModelAndView listaVoli(@RequestBody FiltroDTO filtro){
 		
 		List<VoloDTO> list = new ArrayList<>();

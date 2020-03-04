@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<flow xmlns="http://www.springframework.org/schema/webflow"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.springframework.org/schema/webflow
+                          http://www.springframework.org/schema/webflow/spring-webflow.xsd">
+
+	<var name="user" class="gruppoAereo5.bookBackEnd.dto.User"></var>
+	
+	
+	
+	
+	<view-state id="reg" view="flows/register/registrati" model="user"></view-state>
+	<view-state id="conferma" view="flows/register/conferma"></view-state>
+
+	<end-state id="home" view="externalRedirect:contextRelative:/"/>
+	<end-state id="successo" view="flows/register/registrazioneEffettuata"></end-state>
+	
+	<global-transitions>
+		<transition on="home" to="home"/>
+	</global-transitions>
+</flow>

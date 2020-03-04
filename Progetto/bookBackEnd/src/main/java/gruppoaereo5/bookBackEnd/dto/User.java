@@ -2,13 +2,16 @@ package gruppoaereo5.bookBackEnd.dto;
 
 
 
+
 import java.util.Date;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
@@ -34,6 +37,15 @@ public class User {
 //	@NotBlank(message = "Inserisci password")
 	private String password;
 	
+	@OneToOne(mappedBy ="user", cascade = CascadeType.ALL)
+	private Carrello carrello;
+	
+	public Carrello getCarrello() {
+		return carrello;
+	}
+	public void setCarrello(Carrello carrello) {
+		this.carrello = carrello;
+	}
 	@Override
 	public String toString() {
 		return "User [id=" + id + ", nome=" + nome + ", cognome=" + cognome + ", email=" + email + ", dataNascita="

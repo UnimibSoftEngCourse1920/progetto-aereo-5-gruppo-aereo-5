@@ -1,6 +1,8 @@
+
 <!DOCTYPE html SYSTEM "about:legacy-compat">
 <html xmlns:th="https://www.thymeleaf.org">
-
+<meta name="_csrf" content="${_csrf.token}"/>
+<meta name="_csrf_header" content="${_csrf.headerName}"/>
   <body>
     <head>
   <title>Home</title>
@@ -31,14 +33,6 @@
        
         <p>A: <input type="text" id="filtro_arrivo" class="form-control" placeholder="Città o Aeroporto" th:field="*{content}" /></p>
 
-<%-- 
-	<label>Da</label>
-	<form action="listaVoli.jsp" method="post">
-	<input type="text" name="città_partenza" class="form-control" placeholder="Città o Aeroporto">
-	</form>
-	<label>A</label>
-	<input type="text" class="form-control" placeholder="Città o Aeroporto">
-	--%>
 <div class="input-grp">
 <label>Partenza</label>
 <input type="date" id="filtro_data_partenza" class="form-control select-date">
@@ -55,8 +49,6 @@
 <input type="number" id="nPasseggeri" class="form-control" value="1">
 </div>
 
-
-
 <button id="filtra_voli" class="btn btn-primary flight" > Mostra voli</button>
        </form> 
        </div>
@@ -67,6 +59,7 @@
  		var base_url = window.location.host + "/bookPlaneTicket/";
  		var filtro = {};
  		var partenza = '';
+ 		var token = $("meta[name='_csrf']").attr("content");
  		
  		$('#filtra_voli').on('click', function() {
  			partenza = $('#filtro_partenza').val();
@@ -86,9 +79,12 @@
  			$.ajax({
                 type: "POST",
                 url: base_url + "listaVoli",
-                data: JSON.stringify(partenza),
+                data: JSON.stringify(filtro),
                 contentType:"application/json; charset=utf-8",
                 dataType:"json",
+                
+                beforeSend: function(xhr) {
+                    xhr.setRequestHeader('X-CSRF-TOKEN', token)
                 success: function() {
                     console.log("success");
                 }

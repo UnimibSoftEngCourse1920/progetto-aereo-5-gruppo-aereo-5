@@ -1,47 +1,59 @@
 package gruppoaereo5.bookBackEnd.daoimpl;
 
-import gruppoaereo5.bookBackEnd.dao.UserDAO;
-import java.util.List;
-
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
+import gruppoaereo5.bookBackEnd.dao.UserDAO;
 import gruppoaereo5.bookBackEnd.dto.Carrello;
 import gruppoaereo5.bookBackEnd.dto.User;
 
 @Repository(" ")
 @Transactional
-public interface UserDAOImpl extends UserDAO {
-
+public class UserDAOImpl implements UserDAO {
+	@Autowired
+	private SessionFactory sessionFactory;
+	
 	@Override
-	default boolean addUser(User user) {
-	/*	try {			
+	public boolean addUser(User user) {
+		try {			
 			sessionFactory.getCurrentSession().persist(user);			
 			return true;
 		}
 		catch(Exception ex) {
 			return false;
 		
-	}*/
-		return false;
+	}
 	}
 
 	@Override
-	default boolean addCarrello(Carrello carrello) {
-	/*	try {			
-			sessionFactory.getCurrentSession().persist(user);			
+	public boolean updateCarrello(Carrello carrello) {
+		try {			
+			sessionFactory.getCurrentSession().update(carrello);			
 			return true;
 		}
 		catch(Exception ex) {
 			return false;
 		
-	}*/
-		return false;
+	}
+	}
+
+	@Override
+	public User getByEmail(String email) {
+		String selectQuery = "FROM User WHERE email  = :email";
+		
+		try {
+			return sessionFactory.getCurrentSession()	
+					.createQuery(selectQuery, User.class)
+						.setParameter("email", email)
+						.getSingleResult();		}
+		catch(Exception ex) {
+			ex.printStackTrace();
+			return null;
+		}
 	}
 	
-	//@Autowired
-	//private SessionFactory sessionFactory;
+
 
 }
