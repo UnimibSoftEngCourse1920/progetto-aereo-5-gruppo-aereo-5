@@ -21,7 +21,7 @@ public class VoloTestCase {
 		context.scan("gruppo5.bookBackEnd");
 		context.refresh();
 		
-		voloDAO = (VoloDAO)context.getBean("VoloDAO");
+		voloDAO = (VoloDAO)context.getBean("voloDAO");
 	}
 	
 	@Test

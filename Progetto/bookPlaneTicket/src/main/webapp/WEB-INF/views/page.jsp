@@ -20,23 +20,29 @@
 
 <head>
 
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="">
-  <meta name="author" content="">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="description" content="">
+	<meta name="author" content="">
 
-  <!-- Bootstrap core CSS -->
-  <link href="${css}vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Bootstrap core CSS 
+  <link href="${css}/bootstrap.min.css" rel="stylesheet">-->
+  
+    <!-- Bootstrap DataTable -->
+  <link href="${css}/dataTables.bootstrap.css" rel="stylesheet">
+  
+  <!--  Custom CSS -->
   <link href="${css}/myapp.css" rel="stylesheet">
 
   <title>Aereo5 Booking Project - ${title}> </title>
 
 	<script>
 		window.menu = '${title}';
+		
+		window.contextRoot = '${contextRoot}';
 	</script>
 </head>
-	<link href="myapp.css" rel="stylesheet">
-	<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
 
 <body>
   <!-- Navigation -->
@@ -87,18 +93,23 @@
  	
 	<!-- / Flight List Page -->
 	
-  <!-- / Page Content -->	
+	<!-- / Page Content -->	
+
+	<!--  jQuery -->	
+	<script src="${js}/jquery.js"></script>
   
-  <!--  jQuery Validatior-->	
+	<!--  jQuery Validator-->	
 	<script src="${js}/jquery.validate.js"></script>
 	
-	 <!--  jQuery -->	
-	<script src="${js}/jquery.js"></script>
-	
-  <!-- Bootstrap core JavaScript -->
-  <script src="${js}vendor/jquery/jquery.slim.min.js"></script>
-  <script src="${js}vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+	<!-- Bootstrap core JavaScript -->
+	<script src="${js}/bootstrap.min.js"></script>
 
+	<!--  DataTable Plugin -->	
+	<script src="${js}/jquery.dataTables.js"></script>
+	
+	<!--  DataTable Bootstrap -->	
+	<script src="${js}/dataTables.bootstrap.js"></script>
+	
 	<!--  javascript -->	
 	<script src="${js}/myapp.js"></script>
 

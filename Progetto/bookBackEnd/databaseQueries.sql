@@ -10,7 +10,7 @@ CREATE TABLE `Volo` (
   `KmTratta` FLOAT NOT NULL,
   `prezzo` FLOAT NOT NULL,
   `puntiOttenuti` INT NOT NULL,
-  PRIMARY KEY (`codice_volo`))
+  PRIMARY KEY (`codice_volo`));
   
   -- -----------------------------------------------------
 -- Table `Utente`
@@ -24,7 +24,7 @@ CREATE TABLE `Utente` (
   `indirizzoCasa` VARCHAR(45) NULL,
   `password` VARCHAR(45) NULL,
   `infedele` BOOLEAN NULL DEFAULT FALSE,
-  PRIMARY KEY (`email`))
+  PRIMARY KEY (`email`));
 
 
 -- -----------------------------------------------------
@@ -39,7 +39,7 @@ CREATE TABLE `Prenotazione` (
   PRIMARY KEY (`codicePrenotazione`),
   CONSTRAINT `utentePrenotazione` FOREIGN KEY (`utente`) REFERENCES `Utente` (`email`)
     ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+    ON UPDATE NO ACTION);
 
 
 
@@ -58,7 +58,7 @@ CREATE TABLE `Posto` (
     ON UPDATE CASCADE,
   CONSTRAINT `prenotazionePosto` FOREIGN KEY (`prenotazione`) REFERENCES `Prenotazione` (`codicePrenotazione`)
     ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+    ON UPDATE NO ACTION);
 
 
 -- -----------------------------------------------------
@@ -77,7 +77,7 @@ CREATE TABLE `Biglietto` (
     ON UPDATE NO ACTION,
   CONSTRAINT `utenteBiglietto` FOREIGN KEY (`utente`) REFERENCES `Utente` (`email`)
     ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+    ON UPDATE NO ACTION);
 
 
 -- -----------------------------------------------------
@@ -90,7 +90,7 @@ CREATE TABLE `CartaFedeltà` (
   PRIMARY KEY (`idCartaFedeltà`),
   CONSTRAINT `utenteCartaFedeltà` FOREIGN KEY (`utente`) REFERENCES `Utente` (`email`)
     ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+    ON UPDATE NO ACTION);
 
 
 -- -----------------------------------------------------
@@ -104,7 +104,7 @@ CREATE TABLE `Promozione` (
   `perTutti` TINYINT NULL DEFAULT 0,
   `dataInizio` DATE NULL,
   `dataFine` DATE NULL,
-  PRIMARY KEY (`idPromozione`))
+  PRIMARY KEY (`idPromozione`));
 
 
 -- -----------------------------------------------------
@@ -121,7 +121,7 @@ CREATE TABLE `Pagamento` (
     ON UPDATE NO ACTION,
   CONSTRAINT `prenotazionePagamento` FOREIGN KEY (`prenotazione`) REFERENCES `Prenotazione` (`codicePrenotazione`)
     ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+    ON UPDATE NO ACTION);
     
 -- -----------------------------------------------------
 -- Insert 'volo'

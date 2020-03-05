@@ -19,6 +19,7 @@
 		<intercept-url pattern="/**" access="hasRole('USER')" />
 		<form-login login-page="/login"/>
 		<logout />
+		<csrf disabled="true"/>
 	</http>
 
 	<authentication-manager>
@@ -30,6 +31,7 @@
 				users-by-username-query="select email, password from Utente where email = ?" />
 		</authentication-provider>
 	</authentication-manager>
+
 
 
 </beans:beans>

@@ -28,7 +28,7 @@
 
 <div class="booking-form">
 
-    <form action="listaVoli" method="post">
+    <form action="listaVoli" method="post" accept-charset=utf-8>
     	<p>Da: <input type="text" id="filtro_partenza" name="città_partenza" class="form-control" placeholder="Città o Aeroporto" th:field="*{id}" /></p>
        
         <p>A: <input type="text" id="filtro_arrivo" class="form-control" placeholder="Città o Aeroporto" th:field="*{content}" /></p>
@@ -53,7 +53,7 @@
        </form> 
        </div>
        </div>
-<script type="text/javascript">
+<!--<script type="text/javascript">
 	
  	$(document).ready(function() {
  		var base_url = window.location.host + "/bookPlaneTicket/";
@@ -92,6 +92,6 @@
  		});
  		
  	});
-</script>
+</script>  -->
 </body>
 </html>

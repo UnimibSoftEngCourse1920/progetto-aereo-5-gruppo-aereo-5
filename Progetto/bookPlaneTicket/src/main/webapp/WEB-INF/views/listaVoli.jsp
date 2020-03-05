@@ -1,28 +1,77 @@
-<%@page import="java.sql.*" %>
-<%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
-<%-- 
-<!DOCTYPE HTML>
-<html xmlns:th="https://www.thymeleaf.org">
-<head>
-    <title>Getting Started: Handling Form Submission</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-</head>
-<body>
-	<h1>Result</h1>
-    <p th:text=" ${greeting.id}" />
-    <p th:text="'content ' + ${greeting.content}" />
-    <a href="/bookPlaneTicket/home">Modifica Dati</a>
-</body>
-</html>--%>
+<div class="container">
+
+	<div class="row">
 
 
-<!DOCTYPE html>
+		<!-- to display the actual products -->
+		<div class="col-md-9">
 
-<p class="lead">Lista voli</p>
-<div class="list-group">
-	<c:forEach items="${voli}" var="volo">
-		<p>${volo.codice_volo} ${volo.citta_partenza}</p>
-	</c:forEach>
+			<!-- Added breadcrumb component -->
+			<div class="row">
+
+				<div class="col-lg-12">
+
+
+				</div>
+
+
+			</div>
+
+			
+			<div class="row">
+			
+				<div class="col-xs-12">
+				
+					
+					<table id="voloListTable" class="table table-striped table-borderd">
+					
+					
+						<thead>
+						
+							<tr>
+								<th>Aereo</th>
+								<th>Partenza</th>
+								<th>Arrivo</th>
+								<th>Ora Partenza</th>
+								<th>Ora Arrivo</th>
+								<th>Prezzo</th>
+								<th></th>
+							
+							</tr>
+						
+						</thead>
+						<tfoot>
+						
+							<tr>
+								<th>Aereo</th>
+								<th>Partenza</th>
+								<th>Arrivo</th>
+								<th>Ora Partenza</th>
+								<th>Ora Arrivo</th>
+								<th>Prezzo</th>
+								<th></th>
+							
+							</tr>
+						
+						</tfoot>
+
+					</table>
+				
+				</div>
+			
+			</div>
+
+
+		</div>
+
+
+
+	</div>
+
+
+
+
+
+
 </div>
-
 

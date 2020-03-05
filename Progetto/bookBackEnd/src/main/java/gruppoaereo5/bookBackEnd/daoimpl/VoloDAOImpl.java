@@ -14,7 +14,8 @@ import gruppoaereo5.bookBackEnd.dao.VoloDAO;
 import gruppoaereo5.bookBackEnd.dto.Volo;
 
 
-@Repository("voloDAO")
+@Transactional
+@Repository("VoloDAO")
 public class VoloDAOImpl implements VoloDAO {
 
 	@Autowired
@@ -73,6 +74,7 @@ public class VoloDAOImpl implements VoloDAO {
 	@Override
 	public List<Volo> list() {
 		// TODO Auto-generated method stub
+		
 		return voli;
 	}
 	
@@ -91,5 +93,32 @@ public class VoloDAOImpl implements VoloDAO {
 			return false;
 		}
 	}
+	
+	@Override
+	public Volo get(int voloId) {
 
+		try {			
+			return sessionFactory
+					.getCurrentSession()
+						.get(Volo.class,Integer.valueOf(voloId));			
+			}
+			catch(Exception ex) {		
+				ex.printStackTrace();			
+			}
+			return null;
+		}
+	
+	@Override
+	public List<Volo> listVoli() {
+
+		String selezionaVoli =  "FROM Volo";
+		return sessionFactory
+				.getCurrentSession()
+					.createQuery(selezionaVoli, Volo.class)
+						.getResultList();
+	
+	}
+
+	
 }
+
