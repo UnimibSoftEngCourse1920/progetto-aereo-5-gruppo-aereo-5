@@ -64,7 +64,7 @@ $(function() {
 						mRender: function(data, type, row){
 								
 							var str ='';
-							str += '<a href="'+ window.contextRoot+ '/show/'+data+'volo" class="btn btn-primary"><span class="glyphicon glyphicon-eye-open"></span></a>';
+							str += '<a href="'+ window.contextRoot+ '/show/'+data+'/volo" class="btn btn-primary"><span class="glyphicon glyphicon-eye-open"></span></a>';
 							
 							return str;
 						}

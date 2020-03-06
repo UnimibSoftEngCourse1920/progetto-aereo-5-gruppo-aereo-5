@@ -43,7 +43,7 @@ public class HibernateConfig {
 		LocalSessionFactoryBuilder builder = new LocalSessionFactoryBuilder(dataSource);
 		
 		builder.addProperties(getHibernateProperties());
-		builder.scanPackages("gruppo5.bookBackEnd.dto");
+		builder.scanPackages("gruppo5.bookBackEnd.dto","gruppo5.bookBackEnd.dao");
 		return builder.buildSessionFactory();
 		
 	}

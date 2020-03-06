@@ -6,21 +6,21 @@ import java.util.Date;
 import java.util.Locale;
 
 import javax.persistence.Entity;
-//import javax.persistence.GeneratedValue;
-//import javax.persistence.GenerationType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
 
 
 @Entity
-@Table(name = "VOLO")
+@Table(name = "volo")
 public class Volo {
 
 	/*
 	 * Private fields
 	 */
-	//@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Id
 	private String codice_volo;
 	

@@ -34,6 +34,30 @@
 <mvc:annotation-driven />
 <mvc:resources location="/assets/" mapping="/resources/**" />
 
+
+    <!-- Step 1: Define Database DataSource / connection pool 
+    <bean id="dataSource" class="gruppoaereo5.bookBackEnd.config.HibernateConfig"
+          destroy-method="close">
+        <property name="driverClass" value="org.h2.Driver" />
+        <property name="jdbcUrl" value="jdbc:h2:./localhost/~/bookPlaneTicket" />
+        <property name="user" value="gruppo5" />
+        <property name="password" value="progetto" /> 
+
+    </bean>  -->
+    <!-- Step 2: Setup Hibernate session factory 
+    <bean id="sessionFactory"
+        class="gruppoaereo5.bookBackEnd.config.HibernateConfig">
+        <property name="dataSource" ref="dataSource" />
+        <property name="packagesToScan" value="gruppoaereo5.bookBackEnd.dto" />
+        <property name="hibernateProperties">
+           <props>
+              <prop key="hibernate.dialect">org.hibernate.dialect.H2Dialect</prop>
+              <prop key="hibernate.show_sql">true</prop>
+           </props>
+        </property>
+   </bean>  -->
+
+
 	<!-- Webflow  -->
 	
 	<wf:flow-executor id="flowExecutor"  flow-registry="flowRegistry"/>

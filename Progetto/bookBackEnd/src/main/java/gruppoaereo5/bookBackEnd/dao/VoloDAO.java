@@ -6,7 +6,7 @@ import gruppoaereo5.bookBackEnd.dto.Volo;
 
 public interface VoloDAO {
 
-	Volo get(int voloId);
+	Volo get(String codiceVolo);
 	List<Volo> list();
 	
 	//controllare

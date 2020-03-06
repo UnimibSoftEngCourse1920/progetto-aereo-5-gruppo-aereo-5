@@ -91,6 +91,17 @@ body {
 	margin: 5% auto 0;
 
 }
+.booking-fligth {
+	background-color:#C0C0C0 ;
+	border-style: groove;
+	border-width: 10px;
+	border-color: white;
+	border-radius: 5px;
+	max-width: 800px;
+	
+	margin: 5% auto 0;
+
+}
 
 .radio-btn{
 

@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container booking-form">
 
 	<div class="row">
 
@@ -23,7 +23,7 @@
 				<div class="col-xs-12">
 				
 					
-					<table id="voloListTable" class="table table-striped table-borderd">
+					<table id="voloListTable" class="table table-striped table-borderd" >
 					
 					
 						<thead>

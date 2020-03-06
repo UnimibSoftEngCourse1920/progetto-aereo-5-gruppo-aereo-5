@@ -21,7 +21,7 @@ public class JsonDataController {
 	@ResponseBody
 	public List<Volo> getVoli(){
 		
-		return voloDAO.listVoli();
+		return voloDAO.list();
 	}
 
 }

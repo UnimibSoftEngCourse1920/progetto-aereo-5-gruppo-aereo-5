@@ -4,10 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.hibernate.SessionFactory;
-//import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-//import org.springframework.transaction.annotation.Transactional;
 import org.springframework.transaction.annotation.Transactional;
 
 import gruppoaereo5.bookBackEnd.dao.VoloDAO;
@@ -95,12 +93,12 @@ public class VoloDAOImpl implements VoloDAO {
 	}
 	
 	@Override
-	public Volo get(int voloId) {
+	public Volo get(String codiceVolo) {
 
 		try {			
 			return sessionFactory
 					.getCurrentSession()
-						.get(Volo.class,Integer.valueOf(voloId));			
+						.get(Volo.class,String.valueOf(codiceVolo));			
 			}
 			catch(Exception ex) {		
 				ex.printStackTrace();			
