@@ -63,6 +63,13 @@
 		<%@include file="conferma.jsp"%>
 	</c:if>
 	<!-- / Booking Page -->
+	
+	<!--  Registration Success Page -->
+
+	<c:if test="${userClickRegistrazioneEffettuata == true }">
+		<%@include file="registrazioneEffettuata.jsp"%>
+	</c:if>
+	<!-- / Registration Success Page Page -->
 
 	<!--  Payment Page -->
 
