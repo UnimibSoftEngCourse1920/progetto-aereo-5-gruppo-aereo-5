@@ -16,6 +16,7 @@ CREATE TABLE `Volo` (
 -- Table `Utente`
 -- -----------------------------------------------------
 CREATE TABLE `Utente` (
+  `id` INT auto_increment NOT NULL,
   `email` VARCHAR(45) NOT NULL,
   `nome` VARCHAR(45) NULL,
   `cognome` VARCHAR(45) NULL,
@@ -24,7 +25,7 @@ CREATE TABLE `Utente` (
   `indirizzoCasa` VARCHAR(45) NULL,
   `password` VARCHAR(45) NULL,
   `infedele` BOOLEAN NULL DEFAULT FALSE,
-  PRIMARY KEY (`email`));
+  PRIMARY KEY (`id`));
 
 
 -- -----------------------------------------------------

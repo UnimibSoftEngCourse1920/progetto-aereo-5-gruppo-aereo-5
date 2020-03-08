@@ -6,7 +6,7 @@
         <ul class="navbar-nav ml-auto">
      
           <li id="registrati" class="nav-item">
-            <a class="nav-link" href="${contextRoot}/register">Registrati</a>
+            <a class="nav-link" href="${contextRoot}/registrati">Registrati</a>
           </li>
           <li id="conferma" class="nav-item">
             <a class="nav-link" href="${contextRoot}/conferma">Conferma la tua Prenotazione</a>
