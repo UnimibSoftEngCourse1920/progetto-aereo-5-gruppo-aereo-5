@@ -7,6 +7,7 @@
 
 <%
 	try{
+		if(request.getParameter("nome")!= "null"){
 		String nome = request.getParameter("nome");
 		String cognome = request.getParameter("cognome");
 		String email = request.getParameter("email");
@@ -15,31 +16,61 @@
 		String password = request.getParameter("password");
 		String ultimoAcquisto = "2020-09-09";
 		
+		String infedele = "0";
 		
 		
-		String sql = "INSERT INTO UTENTE(EMAIL, NOME, COGNOME, DATANASCITA, ULTIMOACQUISTO, INDIRIZZOCASA, PASSWORD, INFEDELE) values(?, ?, ?, ?, ?, ?, ?, ?)";
+		String sql = "INSERT INTO UTENTE(EMAIL, NOME, COGNOME, DATANASCITA, INDIRIZZOCASA, PASSWORD, INFEDELE) values(?, ?, ?, CURRENT_TIMESTAMP, ?, ?, ?)";
 		Class.forName("org.h2.Driver");
-		Connection conn = DriverManager.getConnection("jdbc:h2:./localhost/~/bookPlaneTicket", "gruppo5", "password");
+		Connection conn = DriverManager.getConnection("jdbc:h2:./localhost/~/bookPlaneTicket;DB_CLOSE_DELAY=-1", "gruppo5", "progetto");
 		PreparedStatement ps = conn.prepareStatement(sql);
 		ps.setString(1, email);
 		ps.setString(2, nome);
 		ps.setString(3, cognome);
-		ps.setString(4, datanascita);
-		ps.setString(6, indirizzo);
-		ps.setString(7, password);
+		ps.setString(4, indirizzo);
+		ps.setString(5, password);
+		ps.setString(6, infedele);
 		ps.executeUpdate();
 		out.println("Registrazione avvenuta con successo");
 
 	}
+}
 	catch(ClassNotFoundException e){
 		e.printStackTrace();
 	}
-catch (SQLException e) {
+	catch (SQLException e) {
 	e.printStackTrace();
 }
 
 
 %>
+<%--
+		try {
+		String sql = "INSERT INTO UTENTE(EMAIL, NOME, COGNOME, DATANASCITA, INDIRIZZOCASA, PASSWORD, INFEDELE) values(?, ?, ?, CURRENT_TIMESTAMP, ?, ?, ?)";
+		try {
+			Class.forName("org.h2.Driver");
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		Connection conn = DriverManager.getConnection("jdbc:h2:./localhost/~/bookPlaneTicket;DB_CLOSE_DELAY=-1", "gruppo5", "progetto");
+		PreparedStatement ps = conn.prepareStatement(sql);
+		ps.setString(1, "34");
+		ps.setString(2, "st2e");
+		ps.setString(3, "st3e");
+		
+		
+		
+		ps.setString(4, "st4e");
+		ps.setString(5, "s5te");
+		ps.setString(6, "0");
+		ps.executeUpdate();
+		System.out.println("Registrazione avvenuta con successo");
+		conn.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+--%>
 <head>
 <title>Home</title>
 </head>

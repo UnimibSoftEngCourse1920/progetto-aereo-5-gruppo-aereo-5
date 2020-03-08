@@ -50,14 +50,7 @@ public class User implements Serializable{
 	private String confermaPassword;
 	
 	@OneToOne(mappedBy ="user", cascade = CascadeType.ALL)
-	private Carrello carrello;
-	
-	public Carrello getCarrello() {
-		return carrello;
-	}
-	public void setCarrello(Carrello carrello) {
-		this.carrello = carrello;
-	}
+
 	@Override
 	public String toString() {
 		return "User [id=" + id + ", nome=" + nome + ", cognome=" + cognome + ", email=" + email + ", dataNascita="
