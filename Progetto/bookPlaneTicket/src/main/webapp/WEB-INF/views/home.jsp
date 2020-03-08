@@ -109,21 +109,10 @@
 			</p>
 
 			<div class="input-grp">
-				<label>Partenza</label> <input type="date" id="filtro_data_partenza"
+				<label>Data di Partenza</label> <input type="date" id="filtro_data_partenza"
 					class="form-control select-date">
 
 			</div>
-
-			<div class="input-grp">
-				<label>Ritorno</label> <input type="date" id="filtro_data_ritorno"
-					class="form-control select-date">
-			</div>
-
-			<div class="input-grp">
-				<label>Passeggeri</label> <input type="number" id="nPasseggeri"
-					class="form-control" value="1">
-			</div>
-
 			<button id="filtra_voli" class="btn btn-primary flight">
 				Mostra voli</button>
 		</form>
