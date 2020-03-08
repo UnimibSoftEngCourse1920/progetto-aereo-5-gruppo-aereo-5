@@ -70,6 +70,13 @@
 		<%@include file="pagamento.jsp"%>
 	</c:if>
 	<!-- / Payment Page -->
+	
+	<!--  Register Page -->
+
+	<c:if test="${userClickRegistrati == true }">
+		<%@include file="registrati.jsp"%>
+	</c:if>
+	<!-- / Register Page -->
 
 	<!--  Login Page -->
 

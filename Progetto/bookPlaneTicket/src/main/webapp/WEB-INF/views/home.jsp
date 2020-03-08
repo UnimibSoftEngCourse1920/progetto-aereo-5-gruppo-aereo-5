@@ -1,8 +1,45 @@
 <!DOCTYPE html SYSTEM "about:legacy-compat">
-<html xmlns:th="https://www.thymeleaf.org">
+<%@ page import="java.sql.*" %>
+<%@page import="java.io.*, java.util.Date,  java.text.SimpleDateFormat, java.util.Enumeration" %> <html xmlns:th="https://www.thymeleaf.org">
 <meta name="_csrf" content="${_csrf.token}" />
 <meta name="_csrf_header" content="${_csrf.headerName}" />
 <body>
+
+<%
+	try{
+		String nome = request.getParameter("nome");
+		String cognome = request.getParameter("cognome");
+		String email = request.getParameter("email");
+		String datanascita = request.getParameter("dataNascita");	
+		String indirizzo = request.getParameter("indirizzo");
+		String password = request.getParameter("password");
+		String ultimoAcquisto = "2020-09-09";
+		
+		
+		
+		String sql = "INSERT INTO UTENTE(EMAIL, NOME, COGNOME, DATANASCITA, ULTIMOACQUISTO, INDIRIZZOCASA, PASSWORD, INFEDELE) values(?, ?, ?, ?, ?, ?, ?, ?)";
+		Class.forName("org.h2.Driver");
+		Connection conn = DriverManager.getConnection("jdbc:h2:./localhost/~/bookPlaneTicket", "gruppo5", "password");
+		PreparedStatement ps = conn.prepareStatement(sql);
+		ps.setString(1, email);
+		ps.setString(2, nome);
+		ps.setString(3, cognome);
+		ps.setString(4, datanascita);
+		ps.setString(6, indirizzo);
+		ps.setString(7, password);
+		ps.executeUpdate();
+		out.println("Registrazione avvenuta con successo");
+
+	}
+	catch(ClassNotFoundException e){
+		e.printStackTrace();
+	}
+catch (SQLException e) {
+	e.printStackTrace();
+}
+
+
+%>
 <head>
 <title>Home</title>
 </head>
