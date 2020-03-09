@@ -1,6 +1,6 @@
 <!DOCTYPE html SYSTEM "about:legacy-compat">
 <%@ page import="java.sql.*" %>
-<%@page import="java.io.*, java.util.Date,  java.text.SimpleDateFormat, java.util.Enumeration" %> <html xmlns:th="https://www.thymeleaf.org">
+<%@page import="java.io.*, java.util.Date,  java.text.SimpleDateFormat, java.util.Enumeration, gruppoaereo5.bookBackEnd.config.SendEmail" %> <html xmlns:th="https://www.thymeleaf.org">
 <meta name="_csrf" content="${_csrf.token}" />
 <meta name="_csrf_header" content="${_csrf.headerName}" />
 
@@ -32,6 +32,8 @@
 		
 		String infedele = "0";
 		
+		SendEmail sm = new SendEmail();
+		boolean inviata = sm.sendEmailRegistrazione(email, nome, cognome);
 		
 		String sql = "INSERT INTO UTENTE(EMAIL, NOME, COGNOME, DATANASCITA, INDIRIZZOCASA, PASSWORD, INFEDELE) values(?, ?, ?, CURRENT_TIMESTAMP, ?, ?, ?)";
 		Class.forName("org.h2.Driver");
@@ -44,6 +46,7 @@
 		ps.setString(5, password);
 		ps.setString(6, infedele);
 		ps.executeUpdate();
+		
 		out.println(nome + ", Grazie per esserti registrato");
 	}
 
