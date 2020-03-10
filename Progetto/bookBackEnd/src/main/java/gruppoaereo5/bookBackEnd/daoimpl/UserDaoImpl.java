@@ -1,16 +1,17 @@
 package gruppoaereo5.bookBackEnd.daoimpl;
 
 
-import gruppoaereo5.bookBackEnd.config.HibernateUtil;
-
-import gruppoaereo5.bookBackEnd.dto.User;
-
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
+import gruppoaereo5.bookBackEnd.config.HibernateUtil;
+import gruppoaereo5.bookBackEnd.dao.UserDAO;
+import gruppoaereo5.bookBackEnd.dto.User;
 
-public class UserDaoImpl {
 
+public class UserDaoImpl implements UserDAO{
+
+    @Override
     public void saveUser(User user) {
         Transaction transaction = null;
         try (Session session = HibernateUtil
@@ -29,4 +30,6 @@ public class UserDaoImpl {
             e.printStackTrace();
         }
     }
+    
+    
 }

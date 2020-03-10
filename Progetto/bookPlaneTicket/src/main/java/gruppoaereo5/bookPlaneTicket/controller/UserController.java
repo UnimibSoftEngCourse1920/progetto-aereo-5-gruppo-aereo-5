@@ -1,8 +1,7 @@
 package gruppoaereo5.bookPlaneTicket.controller;
 
-import java.util.Date;
 import java.io.IOException;
-
+import java.util.Date;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -11,13 +10,14 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-
-
-import gruppoaereo5.bookBackEnd.dto.User;
+import gruppoaereo5.bookBackEnd.daoimpl.CartaFedeltaDAOImpl;
 import gruppoaereo5.bookBackEnd.daoimpl.UserDaoImpl;
+import gruppoaereo5.bookBackEnd.dto.CartaFedelta;
+import gruppoaereo5.bookBackEnd.dto.User;
 @WebServlet("/register")
 public class UserController extends HttpServlet{
 	 private UserDaoImpl userDaoImpl ;
+	 private CartaFedeltaDAOImpl cartaFedeltaDaoImpl;
 
 	
 	/**
@@ -26,6 +26,7 @@ public class UserController extends HttpServlet{
 	private static final long serialVersionUID = 1L;
 	 public void init() {
 	        userDaoImpl = new UserDaoImpl();
+	        cartaFedeltaDaoImpl = new CartaFedeltaDAOImpl();
 	    }
 
 	    protected void doPost(HttpServletRequest request, HttpServletResponse response)
@@ -59,6 +60,12 @@ public class UserController extends HttpServlet{
 	        user.setInfedele(infedele);
 
 	        userDaoImpl.saveUser(user);
+	        
+	        CartaFedelta cs = new CartaFedelta();
+	        cs.setPuntifedelta(0);
+	        cs.setUtente(user.getId());
+	        
+	        cartaFedeltaDaoImpl.saveCartaFedelta(cs);
 
 	        RequestDispatcher dispatcher = request.getRequestDispatcher("registrazioneEffettuata");
 	        dispatcher.forward(request, response);

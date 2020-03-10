@@ -4,8 +4,6 @@ import gruppoaereo5.bookBackEnd.dto.User;
 
 public interface UserDAO {
 	
-	boolean addUser(User user);
-
-
-
+	public void saveUser(User user);
+	
 }
