@@ -36,7 +36,7 @@ CREATE TABLE `Prenotazione` (
   `dataScadenza` DATE NOT NULL,
   `dataPrenotazione` DATE NOT NULL,
   `penaleModifica` FLOAT NULL,
-  `utente` VARCHAR(45) NOT NULL,
+  `utente` INT NOT NULL,
   PRIMARY KEY (`codicePrenotazione`),
   CONSTRAINT `utentePrenotazione` FOREIGN KEY (`utente`) REFERENCES `Utente` (`id`)
     ON DELETE NO ACTION
@@ -71,7 +71,7 @@ CREATE TABLE `Biglietto` (
   `CognomePasseggero` VARCHAR(45) NOT NULL,
   `DataNascita` DATE NOT NULL,
   `prenotazione` INT NOT NULL,
-  `utente` VARCHAR(45) NOT NULL,
+  `utente` INT NOT NULL,
   PRIMARY KEY (`idBiglietto`),
   CONSTRAINT `prenotazioneBiglietto` FOREIGN KEY (`prenotazione`) REFERENCES `Prenotazione` (`codicePrenotazione`)
     ON DELETE NO ACTION
@@ -87,7 +87,7 @@ CREATE TABLE `Biglietto` (
 CREATE TABLE `CartaFedeltà` (
   `idCartaFedeltà` INT NOT NULL,
   `puntiTessera` INT NOT NULL DEFAULT 0,
-  `utente` VARCHAR(45) NOT NULL,
+  `utente` INT NOT NULL,
   PRIMARY KEY (`idCartaFedeltà`),
   CONSTRAINT `utenteCartaFedeltà` FOREIGN KEY (`utente`) REFERENCES `Utente` (`id`)
     ON DELETE NO ACTION
