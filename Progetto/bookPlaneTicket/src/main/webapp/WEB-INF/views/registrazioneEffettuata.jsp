@@ -1,6 +1,8 @@
 <!DOCTYPE html SYSTEM "about:legacy-compat">
+<%@ page import="java.text.SimpleDateFormat" %>
+
 <%@ page import="java.sql.*" %>
-<%@page import="java.io.*, java.util.Date,  java.text.SimpleDateFormat, java.util.Enumeration, gruppoaereo5.bookBackEnd.config.SendEmail" %> <html xmlns:th="https://www.thymeleaf.org">
+<%@page import="java.io.*, java.util.Date,  java.text.SimpleDateFormat, java.util.Enumeration" %> <html xmlns:th="https://www.thymeleaf.org">
 <meta name="_csrf" content="${_csrf.token}" />
 <meta name="_csrf_header" content="${_csrf.headerName}" />
 
@@ -18,8 +20,7 @@
       </div>
     </div>
   </div> 
-<div class="booking-form-box">
-	<div class="booking-form" align="center">
+
 <%
 	try{
 		String nome = request.getParameter("nome");
@@ -29,11 +30,9 @@
 		String indirizzo = request.getParameter("indirizzo");
 		String password = request.getParameter("password");
 		String ultimoAcquisto = "2020-09-09";
-		
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 		String infedele = "0";
 		
-		SendEmail sm = new SendEmail();
-		boolean inviata = sm.sendEmailRegistrazione(email, nome, cognome);
 		
 		String sql = "INSERT INTO UTENTE(EMAIL, NOME, COGNOME, DATANASCITA, INDIRIZZOCASA, PASSWORD, INFEDELE) values(?, ?, ?, CURRENT_TIMESTAMP, ?, ?, ?)";
 		Class.forName("org.h2.Driver");
@@ -46,8 +45,7 @@
 		ps.setString(5, password);
 		ps.setString(6, infedele);
 		ps.executeUpdate();
-		
-		out.println(nome + ", Grazie per esserti registrato");
+		out.println("  "+ nome + ", Grazie per esserti registrato");
 	}
 
 	catch(ClassNotFoundException e){
@@ -58,10 +56,27 @@
 }
 
 %>
-	
+<div class="booking-form-box">
+	<div class="booking-form"> 
+	<h2 class="form-control" align="center">Ecco i dati che hai inserito:</h2>
+		<a class="form-control">Nome: <% ;		
+		out.println(request.getParameter("nome"));
+ 		%></a><br>
+		 <a class="form-control">Cognome: <% ;		
+		out.println(request.getParameter("cognome"));
+ 		%></a><br>
+		<a class="form-control">E-Mail: <% ;		
+		out.println(request.getParameter("email"));
+ 		%></a><br>
+		<a class="form-control">Data di nascita:<% ;		
+		out.println(request.getParameter("indirizzo"));
+ 		%></a><br> 
+		<a class="form-control">Indirizzo di casa: <% ;		
+		out.println(request.getParameter("indirizzo"));
+ 		%></a><br>
 	
 	<div class="form-group">
-      <a class="btn btn-primary flight" href="${contextRoot}/home">Home</a>
-		</div> 	</div></div>	
+      <a class="btn btn-primary flight" href="${contextRoot}/home">Torna alla HomePage</a>
+		</div> 	</div> 	</div> 	
 </body>
 </html>

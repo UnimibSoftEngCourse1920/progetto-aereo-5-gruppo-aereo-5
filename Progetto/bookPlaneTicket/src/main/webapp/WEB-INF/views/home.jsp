@@ -32,14 +32,24 @@
 
 		<form action="listaVoli" method="post" accept-charset=utf-8>
 			<p>
-				Da: <input type="text" id="filtro_partenza" name="città_partenza"
-					class="form-control" placeholder="Città o Aeroporto"
-					th:field="*{id}" />
+				Da: <select id="partenza" class="form-control">
+  <option > </option>				
+  <option value="milano">Milano</option>
+  <option value="Roma">Roma</option>
+  <option value="Brindisi">Brindisi</option>
+  <option value="Napoli">Napoli</option>
+</select>
+ 
 			</p>
 
 			<p>
-				A: <input type="text" id="filtro_arrivo" class="form-control"
-					placeholder="Città o Aeroporto" th:field="*{content}" />
+				A: <select id="partenza" class="form-control">
+ <option > </option>
+  <option value="volvo">Milano</option>
+  <option value="saab">Roma</option>
+  <option value="opel">Brindisi</option>
+  <option value="audi">Napoli</option>
+</select> 
 			</p>
 
 			<div class="input-grp">
