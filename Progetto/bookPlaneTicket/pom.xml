@@ -73,18 +73,7 @@
 		<artifactId>spring-security-taglibs</artifactId>
 		<version>${spring.security.version}</version>
 	</dependency>
-	
- 	
- <!-- H2 Database --> 	
-     <!-- https://mvnrepository.com/artifact/com.h2database/h2 -->
-    <dependency>
-        <groupId>com.h2database</groupId>
-        <artifactId>h2</artifactId>
-        <version>1.4.198</version>
-        <scope>test</scope>
-    </dependency>
- 	 
-  </dependencies>
+ </dependencies>
   
   <build>
   	<plugins>
