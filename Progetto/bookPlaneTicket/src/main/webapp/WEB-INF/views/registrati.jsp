@@ -30,7 +30,7 @@
 
 <div class="booking-form-box">
 	<div class="booking-form">
-	<form action="registrazioneEffettuata" method="post" >
+	<form action="<%=request.getContextPath()%>/register" method="post" >
 		<label >Nome</label>
 		<input type="text" name="nome" class="form-control"placeholder="inserisci nome"/>
 		<sf:errors path="nome" cssClass="help-block" element="em"/>
