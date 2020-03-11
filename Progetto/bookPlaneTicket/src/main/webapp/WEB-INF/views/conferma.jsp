@@ -1,6 +1,7 @@
 <!DOCTYPE html SYSTEM "about:legacy-compat">
  <html>
   <body>
+    
   <head>
   <title> Conferma</title>
   </head>
@@ -20,13 +21,19 @@
 <div class="booking-form-box">
 <div class="booking-form">
 <form action="pagamento" method="post">
-	<label>E-mail</label>
-	<input type="text" class="form-control" >
-	<label>Codice di riferimento prenotazione</label>
-	<input type="text" class="form-control" >
+		<label >ID Utente</label>
+		<input type="text" name="utente" class="form-control"placeholder="Inserisci ID"/>
+	 
+		<label >Codice Prenotazione</label>
+		<input type="text" class="form-control" name="codiceprenotazione" placeholder="Inserisci il codice della prenotazione"/>
 	
-<input  type="submit" class="btn btn-primary flight"  value="Vai al pagamento">
-</form>
+		
+	
+	<div class="form-group">
+		<input  type="submit" class="btn btn-primary flight"  
+		name="pagamento" value="Vai al pagamento" >		
+		</div>
+		</form>	
 </div>
 </div>
 </body>

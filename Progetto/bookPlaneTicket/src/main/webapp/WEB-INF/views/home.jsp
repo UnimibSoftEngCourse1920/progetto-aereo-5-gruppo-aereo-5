@@ -37,7 +37,6 @@
 					name="citta_partenza" class="form-control"
 					placeholder="Città o Aeroporto" />
 
-
 				<label> A: </label>
 				<sf:input type="text" id="filtro_arrivo" class="form-control"
 					path="cittaArrivo" name="citta_arrivo"
