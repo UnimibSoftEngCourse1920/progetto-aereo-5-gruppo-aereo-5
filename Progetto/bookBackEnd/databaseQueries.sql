@@ -32,7 +32,7 @@ CREATE TABLE `Utente` (
 -- Table `Prenotazione`
 -- -----------------------------------------------------
 CREATE TABLE `Prenotazione` (
-  `codicePrenotazione` INT NOT NULL,
+  `codicePrenotazione` INT auto_increment NOT NULL,
   `dataScadenza` DATE NOT NULL,
   `dataPrenotazione` DATE NOT NULL,
   `penaleModifica` FLOAT NULL,
@@ -66,7 +66,7 @@ CREATE TABLE `Posto` (
 -- Table `Biglietto`
 -- -----------------------------------------------------
 CREATE TABLE `Biglietto` (
-  `idBiglietto` INT NOT NULL,
+  `idBiglietto` INT auto_increment NOT NULL,
   `NomePasseggero` VARCHAR(45) NOT NULL,
   `CognomePasseggero` VARCHAR(45) NOT NULL,
   `DataNascita` DATE NOT NULL,
@@ -85,7 +85,7 @@ CREATE TABLE `Biglietto` (
 -- Table `CartaFedeltà`
 -- -----------------------------------------------------
 CREATE TABLE `CartaFedeltà` (
-  `idCartaFedeltà` INT NOT NULL,
+  `idCartaFedeltà` INT auto_increment NOT NULL,
   `puntiTessera` INT NOT NULL DEFAULT 0,
   `utente` INT NOT NULL,
   PRIMARY KEY (`idCartaFedeltà`),
@@ -112,7 +112,7 @@ CREATE TABLE `Promozione` (
 -- Table `Pagamento`
 -- -----------------------------------------------------
 CREATE TABLE `Pagamento` (
-  `idPagamento` INT NOT NULL,
+  `idPagamento` INT auto_increment NOT NULL,
   `importo` FLOAT NOT NULL,
   `cartaFedeltà` INT NULL,
   `prenotazione` INT NOT NULL,
