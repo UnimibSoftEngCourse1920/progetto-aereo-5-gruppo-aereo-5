@@ -9,52 +9,62 @@ import java.io.Serializable;
 import java.util.Date;
 
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
-import javax.persistence.Transient;
 
 //import org.hibernate.validator.constraints.NotBlank;
 
 @Entity
-
-@Table(name = "UTENTE")
+@Table(name = "utente")
 public class User implements Serializable{
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "id")
 	private int id;
-	//@NotBlank(message = "Inserisci nome")
+    
+	@Column(name = "email")
+	private String email;
+	
 	@Column(name = "nome")
 	private String nome;
-	//@NotBlank(message = "Inserisci cognome")
+	
 	@Column(name = "cognome")
 	private String cognome;
-//	@NotBlank(message = "Inserisci mail")	
-	private String email;
-	//@NotBlank(message = "Inserisci data di nascita")
-	@Column(name = "data_nascita")
-	private Date dataNascita;
-	@Column(name = "Indirizzo")
-	private String indirizzo;
-	//	@NotBlank(message = "Inserisci password")
-	private String password;
-	private String confermaPassword;
 	
-	@OneToOne(mappedBy ="user", cascade = CascadeType.ALL)
+	@Column(name = "datanascita")
+	private Date dataNascita;
+	
+	@Column(name = "ultimoAcquisto")
+	private Date ultimoAcquisto;
+	
+	@Column(name = "Indirizzocasa")
+	private String indirizzo;
+	
+	@Column(name = "password")
+	private String password;
+	
+	@Column(name = "infedele")	
+	private boolean infedele;
 
+	public boolean getInfedele() {
+		return infedele;
+	}
+	public void setInfedele(boolean infedele) {
+		this.infedele = infedele;
+	}
 	@Override
 	public String toString() {
 		return "User [id=" + id + ", nome=" + nome + ", cognome=" + cognome + ", email=" + email + ", dataNascita="
-				+ dataNascita + ", password=" + password + ", confirmPassword=" + confirmPassword + "]";
+				+ dataNascita + ", password=" + password + ", confirmPassword=" + "]";
 	}
 	public int getId() {
 		return id;
@@ -98,23 +108,14 @@ public class User implements Serializable{
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	public String getConfirmPassword() {
-		return confirmPassword;
+	public Date getUltimoAcquisto() {
+		return ultimoAcquisto;
 	}
-	public void setConfirmPassword(String confirmPassword) {
-		this.confirmPassword = confirmPassword;
+	public void setUltimoAcquisto(Date ultimoAcquisto) {
+		this.ultimoAcquisto = ultimoAcquisto;
 	}
-	@Transient
-	private String confirmPassword;
-	public User() {
-		// TODO Auto-generated constructor stub
-	}
-	public String getConfermaPassword() {
-		return confermaPassword;
-	}
-	public void setConfermaPassword(String confermaPassword) {
-		this.confermaPassword = confermaPassword;
-	}
+
+
 	
 
 }

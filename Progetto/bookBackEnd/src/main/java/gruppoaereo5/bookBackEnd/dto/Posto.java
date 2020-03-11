@@ -1,12 +1,15 @@
 package gruppoaereo5.bookBackEnd.dto;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
 public class Posto {
 
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int idPosto;
 	
 	private int fila;

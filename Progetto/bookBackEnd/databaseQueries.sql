@@ -32,13 +32,13 @@ CREATE TABLE `Utente` (
 -- Table `Prenotazione`
 -- -----------------------------------------------------
 CREATE TABLE `Prenotazione` (
-  `codicePrenotazione` INT NOT NULL,
+  `codicePrenotazione` INT auto_increment NOT NULL,
   `dataScadenza` DATE NOT NULL,
   `dataPrenotazione` DATE NOT NULL,
   `penaleModifica` FLOAT NULL,
-  `utente` VARCHAR(45) NOT NULL,
+  `utente` INT NOT NULL,
   PRIMARY KEY (`codicePrenotazione`),
-  CONSTRAINT `utentePrenotazione` FOREIGN KEY (`utente`) REFERENCES `Utente` (`email`)
+  CONSTRAINT `utentePrenotazione` FOREIGN KEY (`utente`) REFERENCES `Utente` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION);
 
@@ -66,30 +66,30 @@ CREATE TABLE `Posto` (
 -- Table `Biglietto`
 -- -----------------------------------------------------
 CREATE TABLE `Biglietto` (
-  `idBiglietto` INT NOT NULL,
+  `idBiglietto` INT auto_increment NOT NULL,
   `NomePasseggero` VARCHAR(45) NOT NULL,
   `CognomePasseggero` VARCHAR(45) NOT NULL,
   `DataNascita` DATE NOT NULL,
   `prenotazione` INT NOT NULL,
-  `utente` VARCHAR(45) NOT NULL,
+  `utente` INT NOT NULL,
   PRIMARY KEY (`idBiglietto`),
   CONSTRAINT `prenotazioneBiglietto` FOREIGN KEY (`prenotazione`) REFERENCES `Prenotazione` (`codicePrenotazione`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
-  CONSTRAINT `utenteBiglietto` FOREIGN KEY (`utente`) REFERENCES `Utente` (`email`)
+  CONSTRAINT `utenteBiglietto` FOREIGN KEY (`utente`) REFERENCES `Utente` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION);
 
 
--- -----------------------------------------------------
+-- ------------------------------------------------
 -- Table `CartaFedeltà`
 -- -----------------------------------------------------
 CREATE TABLE `CartaFedeltà` (
-  `idCartaFedeltà` INT NOT NULL,
+  `idCartaFedeltà` INT auto_increment NOT NULL,
   `puntiTessera` INT NOT NULL DEFAULT 0,
-  `utente` VARCHAR(45) NOT NULL,
+  `utente` INT NOT NULL,
   PRIMARY KEY (`idCartaFedeltà`),
-  CONSTRAINT `utenteCartaFedeltà` FOREIGN KEY (`utente`) REFERENCES `Utente` (`email`)
+  CONSTRAINT `utenteCartaFedeltà` FOREIGN KEY (`utente`) REFERENCES `Utente` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION);
 
@@ -112,7 +112,7 @@ CREATE TABLE `Promozione` (
 -- Table `Pagamento`
 -- -----------------------------------------------------
 CREATE TABLE `Pagamento` (
-  `idPagamento` INT NOT NULL,
+  `idPagamento` INT auto_increment NOT NULL,
   `importo` FLOAT NOT NULL,
   `cartaFedeltà` INT NULL,
   `prenotazione` INT NOT NULL,
