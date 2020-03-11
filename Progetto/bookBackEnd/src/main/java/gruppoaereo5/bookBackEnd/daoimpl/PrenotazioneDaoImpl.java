@@ -7,8 +7,8 @@ import gruppoaereo5.bookBackEnd.config.HibernateUtil;
 import gruppoaereo5.bookBackEnd.dao.PrenotazioneDAO;
 import gruppoaereo5.bookBackEnd.dto.Prenotazione;
 
-public class PrenotazioneDaoImpl {
-/*	
+public class PrenotazioneDaoImpl implements PrenotazioneDAO{
+	
 	@Override
 	public void savePrenotazione(Prenotazione prenotazione) {
 		Transaction transaction = null;
@@ -31,7 +31,7 @@ public class PrenotazioneDaoImpl {
         }
 	}
 	
-*/	
+	
 	  public boolean validate(String utente, String codicePrenotazione) {
 
 	        Transaction transaction = null;
@@ -42,7 +42,7 @@ public class PrenotazioneDaoImpl {
 	            // start a transaction
 	            transaction = session.beginTransaction();
 	            // get an user object    select codiceprenotazione, utente from prenotazione where utente=? and codiceprenotazione=?"
-	            prenotazione = (Prenotazione) session.createQuery(" FROM Prenotazione P WHERE P.utente = :utente").setParameter("utente", utente)
+	            prenotazione = (Prenotazione) session.createQuery("FROM Prenotazione WHERE utente = :utente").setParameter("utente", utente)
 	            									 .uniqueResult();
 
 	            if (prenotazione != null && prenotazione.getCodicePrenotazione().equals(codicePrenotazione)) {

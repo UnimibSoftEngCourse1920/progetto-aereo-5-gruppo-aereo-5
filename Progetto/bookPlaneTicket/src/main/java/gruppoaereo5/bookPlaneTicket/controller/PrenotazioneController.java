@@ -42,10 +42,12 @@ public class PrenotazioneController extends HttpServlet{
 	    	String codicePrenotazione = request.getParameter("codiceprenotazione");
 
 	        if (prenotazioneDaoImpl.validate(utente, codicePrenotazione)) {
-	            RequestDispatcher dispatcher = request.getRequestDispatcher("pagamento.jsp");
+	            RequestDispatcher dispatcher = request.getRequestDispatcher("pagamento");
 	            dispatcher.forward(request, response);
 	        } else {
-	            throw new Exception("Prenotazione non trovata..");
+	        	System.out.println("Dati Errati!");
+	        	RequestDispatcher dispatcher = request.getRequestDispatcher("conferma");
+	            dispatcher.forward(request, response);
 	        }
 	    }
 }
