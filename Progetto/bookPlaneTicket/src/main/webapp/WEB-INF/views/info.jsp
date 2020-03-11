@@ -22,14 +22,14 @@ progetto):</p>
  <div >
         <ul >
 <li>Gestione della vendita' dei biglietti aerei:<br>
-o Il sistema deve fornire la possibilita' di consultare l'orario dei voli e la disponibilita'
-dei posti sui voli
-o Il sistema deve fornire la possibilita' di comprare uno o piu' biglietti aerei per lo
-stesso volo da parte dello stesso cliente
-o Il sistema deve offrire supporto per il cambio delle date oppure di orario per i
+Il sistema deve fornire la possibilita' di consultare l'orario dei voli e la disponibilita'
+dei posti sui voli<br>
+Il sistema deve fornire la possibilita' di comprare uno o piu' biglietti aerei per lo
+stesso volo da parte dello stesso cliente<br>
+Il sistema deve offrire supporto per il cambio delle date oppure di orario per i
 biglietti aquistati precedentemente; in base alla tariffa del biglietto la modifica della
-data/orario puo' richiedere il pagamento di una tassa
-o Il pagamento dei biglietti aerei avviene tramite le carte di credito</li>
+data/orario puo' richiedere il pagamento di una tassa<br>
+Il pagamento dei biglietti aerei avviene tramite le carte di credito</li>
 <li>Gestione della prenotazione dei biglietti aerei:<br>
 Un cliente puo' fare soltanto una prenotazione per un determinato volo, ma puo'
 avere prenotazioni diverse su voli diversi<br>
