@@ -27,8 +27,8 @@
 <meta name="author" content="">
 
 
-<!-- Bootstrap core CSS 
-  <link href="${css}/bootstrap.min.css" rel="stylesheet">-->
+<!-- Bootstrap core CSS -->
+<link href="${css}/bootstrap.min.css" rel="stylesheet">
 
 <!-- Bootstrap DataTable -->
 <link href="${css}/dataTables.bootstrap.css" rel="stylesheet">

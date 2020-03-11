@@ -26,8 +26,8 @@
 <meta name="description" content="">
 <meta name="author" content="">
 
-  <!-- Bootstrap core CSS 
-  <link href="${css}/bootstrap.min.css" rel="stylesheet">-->
+  <!-- Bootstrap core CSS -->
+  <link href="${css}/bootstrap.min.css" rel="stylesheet">
   
   <!--  Custom CSS -->
   <link href="${css}/myapp.css" rel="stylesheet">
@@ -69,22 +69,22 @@
 		</div>
 	
 
-		<div class="booking-form-box">
+		<div class="booking-form-box ">
 			<div class="booking-form">
 				<form id="loginForm" action="${contextRoot}/login" method="POST" accept-charset=utf-8>
-					<div>
+					<div class="form-group">
 						<label for="username">Email:</label>
 						<input type="text"	name="username" id="username" class="form-control" />
 					</div>
-					<div>
+					<div class="form-group">
 						<label for="password">Password:</label> 
 						<input type="password" name="password" id="password" class="form-control" />
 					</div>
+					<div class="form-group">
 					<input type="submit" value="Login" class="btn btn-primary flight" />
-
-
+					</div>
 				</form>
-				<div class="panel-footer">
+				<div>
 					<div class="text-right">
 						Nuovo Utente - <a href="${contextRoot}/registrati">Registrati</a>
 					</div>

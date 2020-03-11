@@ -1,18 +1,16 @@
 package gruppoaereo5.bookPlaneTicket.controller;
 
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import gruppoaereo5.bookBackEnd.dao.VoloDAO;
+import gruppoaereo5.bookBackEnd.dto.Filtro;
 import gruppoaereo5.bookBackEnd.dto.Volo;
 
 @Controller
@@ -23,7 +21,9 @@ public class PageController{
 	private VoloDAO voloDAO;
 		
 	@RequestMapping(value = {"/", "/home", "/index"})
-	public ModelAndView index(){
+	public ModelAndView index(Model model){
+		
+		model.addAttribute("filtro", new Filtro());
 		
 	 	ModelAndView mv = new ModelAndView("page");
 	 	mv.addObject("title","Home");
@@ -73,25 +73,16 @@ public class PageController{
 		return mv;
 	}
 	@RequestMapping(value = "/login")
-	public ModelAndView login(){
+	public ModelAndView login(@RequestParam(name="error", required = false)	String error){
 		ModelAndView mv = new ModelAndView("login");
-	
-		
 	 	mv.addObject("title","Login");
 	
-		return mv;
-	}
-	@RequestMapping(value = "/listaVoli")
-	public ModelAndView listavoli(){
-		
-	 	ModelAndView mv = new ModelAndView("page");
-	 	mv.addObject("title","Lista Voli");
-	 	
-	 	mv.addObject("userClickMostraVoli",true);	
+	 	if(error!=null) {
+			mv.addObject("message", "Username and Password is invalid!");
+		}
 	 	
 		return mv;
 	}
-	
 	/*
 	 * Pagina specifiche volo
 	 * */

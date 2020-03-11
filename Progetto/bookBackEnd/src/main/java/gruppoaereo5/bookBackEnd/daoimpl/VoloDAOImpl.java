@@ -9,6 +9,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import gruppoaereo5.bookBackEnd.dao.VoloDAO;
+import gruppoaereo5.bookBackEnd.dto.Filtro;
 import gruppoaereo5.bookBackEnd.dto.Volo;
 
 
@@ -28,8 +29,8 @@ public class VoloDAOImpl implements VoloDAO {
 		 volo.setAereo("fisa");
 		 volo.setCitta_partenza("Milano");
 		 volo.setCitta_arrivo("Roma");
-		 volo.setData_partenza("12/02/1255");
-		 volo.setData_arrivo("12/02/1255");
+		 volo.setData_partenza("2019-02-12");
+		 volo.setData_arrivo("2019-02-13");
 		 volo.setOra_partenza("22:33");
 		 volo.setOra_arrivo("22:33");
 		 volo.setKmTratta(122.22);
@@ -43,8 +44,8 @@ public class VoloDAOImpl implements VoloDAO {
 		 volo.setAereo("fisadfaa");
 		 volo.setCitta_partenza("Londra");
 		 volo.setCitta_arrivo("Parigi");
-		 volo.setData_partenza("12/02/1255");
-		 volo.setData_arrivo("12/02/1255");
+		 volo.setData_partenza("2020-01-15");
+		 volo.setData_arrivo("2020-01-15");
 		 volo.setOra_partenza("22:33");
 		 volo.setOra_arrivo("22:33");
 		 volo.setKmTratta(122.22);
@@ -58,8 +59,8 @@ public class VoloDAOImpl implements VoloDAO {
 		 volo.setAereo("fi56765sa");
 		 volo.setCitta_partenza("Mosca");
 		 volo.setCitta_arrivo("New York");
-		 volo.setData_partenza("12/10/1255");
-		 volo.setData_arrivo("12/10/1255");
+		 volo.setData_partenza("2019-12-20");
+		 volo.setData_arrivo("2019-12-21");
 		 volo.setOra_partenza("22:33");
 		 volo.setOra_arrivo("22:33");
 		 volo.setKmTratta(122.22);
@@ -70,10 +71,18 @@ public class VoloDAOImpl implements VoloDAO {
 		 
 	}
 	@Override
-	public List<Volo> list() {
-		// TODO Auto-generated method stub
-		
-		return voli;
+	public List<Volo> list(Filtro filtro) {
+		List<Volo> voliCercati = new ArrayList<>();
+
+		for(Volo volo : voli) {
+			
+			if((volo.getCitta_partenza().equalsIgnoreCase(filtro.getCittaPartenza())) 
+				&&(volo.getCitta_arrivo().equalsIgnoreCase(filtro.getCittaArrivo()))
+					&&(volo.getData_partenza().equalsIgnoreCase(filtro.getDataPartenza())))
+						voliCercati.add(volo);
+		}
+
+		return voliCercati;
 	}
 	
 	//controllare

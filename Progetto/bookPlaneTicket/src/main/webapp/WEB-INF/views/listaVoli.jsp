@@ -1,10 +1,11 @@
-<div class="container booking-form">
+<div class="container booking-form-box">
 
 	<div class="row">
 
 
 		<!-- to display the actual products -->
 		<div class="col-md-9">
+			
 
 			<!-- Added breadcrumb component -->
 			<div class="row">
@@ -20,10 +21,12 @@
 			
 			<div class="row">
 			
+				<h2>Voli in data: ${ricercaDataPartenza}</h2>
+				
 				<div class="col-xs-12">
 				
 					
-					<table id="voloListTable" class="table table-striped table-borderd" >
+					<table id="voloListTable" class="table display table-striped table-borderd" >
 					
 					
 						<thead>
@@ -69,9 +72,4 @@
 	</div>
 
 
-
-
-
-
 </div>
-

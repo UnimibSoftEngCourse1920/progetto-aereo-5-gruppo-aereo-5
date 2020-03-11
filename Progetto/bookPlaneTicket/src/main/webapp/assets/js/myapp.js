@@ -17,13 +17,11 @@ $(function() {
 
 		
 /*jquery dataTable*/
-		
-	
+
 		var $table = $('#voloListTable');
 		
 		if($table.length){
-			//console.log('Inside the table!');
-			
+						
 			var jsonUrl = window.contextRoot +  '/json/data/voli';
 			
 			$table.DataTable({
@@ -36,24 +34,30 @@ $(function() {
 				columns: [
 					
 					{
-						data: 'aereo'
+						data: 'aereo',
+						bSortable: false,
+						searchable: false
 					},
 					{
 						data: 'citta_partenza',
-						bSortable: false
+						bSortable: false,
+						searchable: false
 					},
 					{
 						data: 'citta_arrivo',
-						bSortable: false
+						bSortable: false,
+						searchable: false
 					},
 					{
 						data: 'ora_partenza'
+						   
 					},
 					{
 						data: 'ora_arrivo'
 					},
 					{
 						data: 'prezzo',
+						searchable: false,
 						mRender: function(data, type, row){
 							return '&euro; ' + data
 						}
@@ -61,6 +65,7 @@ $(function() {
 					{
 						data: 'codice_volo',
 						bSortable: false,
+						searchable: false,
 						mRender: function(data, type, row){
 								
 							var str ='';
@@ -72,7 +77,6 @@ $(function() {
 				]
 			});
 		}
-		
 		
 /*Vlidazione jquery*/
 		
@@ -97,7 +101,7 @@ $(function() {
 			setTimeout(function() {
 		    	$alert.fadeOut('slow');
 			   }, 3000
-			);		
+			)();		
 		}
 			
 		
