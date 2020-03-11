@@ -14,6 +14,7 @@ import gruppoaereo5.bookBackEnd.daoimpl.CartaFedeltaDAOImpl;
 import gruppoaereo5.bookBackEnd.daoimpl.UserDaoImpl;
 import gruppoaereo5.bookBackEnd.dto.CartaFedelta;
 import gruppoaereo5.bookBackEnd.dto.User;
+
 @WebServlet("/register")
 public class UserController extends HttpServlet{
 	 private UserDaoImpl userDaoImpl ;
@@ -38,7 +39,8 @@ public class UserController extends HttpServlet{
 	    throws ServletException, IOException {
 	        response.sendRedirect("registrati.jsp");
 	    }
-
+        
+        
 	    private void register(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 			String nome = request.getParameter("nome");
 			String cognome = request.getParameter("cognome");
@@ -61,10 +63,9 @@ public class UserController extends HttpServlet{
 
 	        userDaoImpl.saveUser(user);
 	        
-	        CartaFedelta cs = new CartaFedelta();
+	        CartaFedelta cs = new CartaFedelta();	                
 	        cs.setPuntifedelta(0);
 	        cs.setUtente(user.getId());
-	        
 	        cartaFedeltaDaoImpl.saveCartaFedelta(cs);
 
 	        RequestDispatcher dispatcher = request.getRequestDispatcher("registrazioneEffettuata");

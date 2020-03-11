@@ -8,7 +8,7 @@
 
   <body>
   
-<%
+<%--
 	try{
 		String utente = request.getParameter("utente");
 		String codiceprenotazione = request.getParameter("codiceprenotazione");
@@ -46,7 +46,7 @@
 	e.printStackTrace();
 }
 
-%>
+--%>
   
   
   <head>

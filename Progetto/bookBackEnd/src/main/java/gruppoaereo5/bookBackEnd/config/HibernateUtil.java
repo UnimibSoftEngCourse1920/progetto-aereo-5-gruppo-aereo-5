@@ -10,11 +10,7 @@ import org.hibernate.service.ServiceRegistry;
 
 import gruppoaereo5.bookBackEnd.dto.User;
 
-/**
- * Java based configuration
- * @author ramesh Fadatare
- *
- */
+
 public class HibernateUtil {
     private static SessionFactory sessionFactory;
 
@@ -29,7 +25,7 @@ public class HibernateUtil {
                 settings.put(Environment.URL, "jdbc:h2:./localhost/~/bookPlaneTicket;DB_CLOSE_DELAY=-1");
                 settings.put(Environment.USER, "gruppo5");
                 settings.put(Environment.PASS, "progetto");
-
+                settings.put (Environment.DIALECT, "org.hibernate.dialect.H2Dialect");
                 settings.put(Environment.SHOW_SQL, "true");
 
                 settings.put(Environment.CURRENT_SESSION_CONTEXT_CLASS, "thread");
