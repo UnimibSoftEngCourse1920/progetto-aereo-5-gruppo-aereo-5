@@ -20,7 +20,7 @@
 
 <div class="booking-form-box">
 <div class="booking-form">
-<form action="pagamento" method="post">
+<form action="<%=request.getContextPath()%>/cercaPrenotazione" method="post">
 		<label >ID Utente</label>
 		<input type="text" name="utente" class="form-control"placeholder="Inserisci ID"/>
 	 

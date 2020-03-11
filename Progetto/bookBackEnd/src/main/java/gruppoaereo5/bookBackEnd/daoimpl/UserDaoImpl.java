@@ -23,12 +23,14 @@ public class UserDaoImpl implements UserDAO{
             session.save(user);
             // commit transaction
             transaction.commit();
+          //  session.close();
         } catch (Exception e) {
             if (transaction != null) {
                 transaction.rollback();
             }
             e.printStackTrace();
         }
+        
     }
     
     
