@@ -6,7 +6,6 @@ import java.io.Serializable;
 
 
 
-import java.util.Date;
 
 
 import javax.persistence.Column;
@@ -41,10 +40,25 @@ public class User implements Serializable{
 	private String cognome;
 	
 	@Column(name = "datanascita")
-	private Date dataNascita;
+	private String dataNascita;
 	
+	public String getDataNascita() {
+		return dataNascita;
+	}
+	public void setDataNascita(String dataNascita) {
+		this.dataNascita = dataNascita;
+	}
+	public String getUltimoAcquisto() {
+		return ultimoAcquisto;
+	}
+	public void setUltimoAcquisto(String ultimoAcquisto) {
+		this.ultimoAcquisto = ultimoAcquisto;
+	}
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
 	@Column(name = "ultimoAcquisto")
-	private Date ultimoAcquisto;
+	private String ultimoAcquisto;
 	
 	@Column(name = "Indirizzocasa")
 	private String indirizzo;
@@ -96,23 +110,11 @@ public class User implements Serializable{
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public Date getDataNascita() {
-		return dataNascita;
-	}
-	public void setDataNascita(Date dataNascita) {
-		this.dataNascita = dataNascita;
-	}
 	public String getPassword() {
 		return password;
 	}
 	public void setPassword(String password) {
 		this.password = password;
-	}
-	public Date getUltimoAcquisto() {
-		return ultimoAcquisto;
-	}
-	public void setUltimoAcquisto(Date ultimoAcquisto) {
-		this.ultimoAcquisto = ultimoAcquisto;
 	}
 
 

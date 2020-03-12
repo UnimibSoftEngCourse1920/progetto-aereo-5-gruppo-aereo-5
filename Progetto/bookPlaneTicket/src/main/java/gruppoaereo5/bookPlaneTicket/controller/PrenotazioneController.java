@@ -34,7 +34,7 @@ public class PrenotazioneController extends HttpServlet{
 	            // TODO Auto-generated catch block
 	            e.printStackTrace();
 	        }
-	    } //Integer a = (Integer) request.getAttribute...
+	    } 
 
 	    private void authenticate(HttpServletRequest request, HttpServletResponse response)
 	    throws Exception {

@@ -44,7 +44,7 @@
 		<sf:errors path="email" cssClass="help-block" element="em"/>
 	
 		<label >Data di nascita</label>
-		<input type="date" class="form-control select-date" name="dataNascita" placeholder="Inserisci data di nascita"/>
+		<input type="date" class="form-control select-date" name="datanascita" placeholder="Inserisci data di nascita"/>
 		<sf:errors path="dataNascita" cssClass="help-block" element="em"/>
 	
 		<label >Indirizzo di casa</label>
