@@ -1,5 +1,6 @@
 package gruppoaereo5.bookBackEnd.dto;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -20,7 +21,9 @@ public class Volo {
 	private String codice_volo;
 	
 	private String aereo;
+	@Column(name = "città_partenza")
 	private String citta_partenza;
+	@Column(name = "città_arrivo")
 	private String citta_arrivo;
 	private String data_partenza;
 	private String data_arrivo;

@@ -104,6 +104,9 @@
 	<!-- Bootstrap core JavaScript -->
 	<script src="${js}/bootstrap.min.js"></script>
 	
+	<!-- Bootbox -->
+	<script src="${js}/bootbox.min.js"></script>
+	
 	<!--  javascript -->
 	<script src="${js}/myapp.js"></script>
 

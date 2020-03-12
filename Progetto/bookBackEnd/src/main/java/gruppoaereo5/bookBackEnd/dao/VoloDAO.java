@@ -8,10 +8,6 @@ import gruppoaereo5.bookBackEnd.dto.Volo;
 public interface VoloDAO {
 
 	Volo get(String codiceVolo);
-	List<Volo> list(Filtro filtro);
-	
-	//controllare
-	boolean add(Volo volo);
-	
-	List<Volo> listVoli();
+	List<Volo> list();
+	List<Volo> listVoli(Filtro filtro);
 }

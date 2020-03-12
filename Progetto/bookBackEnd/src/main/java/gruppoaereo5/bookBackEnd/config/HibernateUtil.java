@@ -9,8 +9,10 @@ import org.hibernate.cfg.Environment;
 import org.hibernate.service.ServiceRegistry;
 
 import gruppoaereo5.bookBackEnd.dto.CartaFedelta;
+import gruppoaereo5.bookBackEnd.dto.Posto;
 import gruppoaereo5.bookBackEnd.dto.Prenotazione;
 import gruppoaereo5.bookBackEnd.dto.User;
+import gruppoaereo5.bookBackEnd.dto.Volo;
 
 
 public class HibernateUtil {
@@ -38,7 +40,9 @@ public class HibernateUtil {
                 configuration.addAnnotatedClass(User.class);
                 configuration.addAnnotatedClass(CartaFedelta.class);
                 configuration.addAnnotatedClass(Prenotazione.class);
-
+                configuration.addAnnotatedClass(Volo.class);
+                configuration.addAnnotatedClass(Posto.class);
+                
                 ServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder()
                     .applySettings(configuration.getProperties()).build();
                 System.out.println("Hibernate Java Config serviceRegistry created");

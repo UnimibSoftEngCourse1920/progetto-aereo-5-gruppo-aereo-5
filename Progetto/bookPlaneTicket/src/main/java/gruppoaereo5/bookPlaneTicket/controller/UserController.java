@@ -61,14 +61,14 @@ public class UserController extends HttpServlet{
 
 	        userDaoImpl.saveUser(user);
 	        
-	      /* CartaFedelta cs = new CartaFedelta();	                
+	        CartaFedelta cs = new CartaFedelta();	                
 	        cs.setPuntifedelta(0);
 	        cs.setUtente(user.getId());
 	        cartaFedeltaDaoImpl.saveCartaFedelta(cs);
 
 	        RequestDispatcher dispatcher = request.getRequestDispatcher("registrazioneEffettuata");
 	        dispatcher.forward(request, response);
-	        */
+	        
 	    }
 }
 	

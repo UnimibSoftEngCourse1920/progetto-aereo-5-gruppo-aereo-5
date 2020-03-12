@@ -31,22 +31,32 @@
 		<div class="booking-form">
 
 			<sf:form id="formRicerca" action="json/data/listaVoli" method="post"
-				modelAttribute="filtro" accept-charset="utf-8">
+				modelAttribute="filtro" accept-charset="utf-8" onsubmit="return validateData()">
 				<label> Da: </label>
-				<sf:input type="text" id="filtro_partenza" path="cittaPartenza"
+				<sf:select id="filtro_partenza" path="cittaPartenza"
 					name="citta_partenza" class="form-control"
-					placeholder="Città o Aeroporto" />
+					 
+					items="${selectVoli}"
+					itemLabel="citta_partenza"
+					itemValue="citta_partenza"
+					/>
 
 				<label> A: </label>
-				<sf:input type="text" id="filtro_arrivo" class="form-control"
+				<sf:select id="filtro_arrivo" class="form-control"
 					path="cittaArrivo" name="citta_arrivo"
-					placeholder="Città o Aeroporto" />
+					
+					items="${selectVoli}"
+					
+					
+					itemLabel="citta_arrivo"
+					itemValue="citta_arrivo"
+					/>
 
 
 				<div class="input-grp">
 					<label>Data di Partenza</label>
 					<sf:input type="date" id="filtro_data_partenza" path="dataPartenza"
-						name="data_partenza" class="form-control select-date" />
+						name="data_partenza" class="form-control select-date" required="true"/>
 
 				</div>
 				<div class="form-group">
@@ -57,3 +67,21 @@
 		</div>
 	</div>
 </body>
+<script type="text/javascript">
+
+/*Validare data*/
+
+var today = new Date();
+
+function validateData() {
+	
+	var data = new Date(document.getElementById("filtro_data_partenza").value);
+	
+	if (data <= today){
+	        alert ("Inserisci una data valida!");
+	       return false;
+		}
+};
+
+
+</script>

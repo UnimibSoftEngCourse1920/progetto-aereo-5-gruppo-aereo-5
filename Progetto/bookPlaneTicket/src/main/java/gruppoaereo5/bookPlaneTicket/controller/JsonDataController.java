@@ -29,19 +29,25 @@ public class JsonDataController {
 		
 		
 		
-		return voloDAO.list(filtroVolo);
+		return voloDAO.listVoli(filtroVolo);
 	}
 
 	@RequestMapping(value = "/listaVoli")
 	public ModelAndView listavoli(@ModelAttribute Filtro filtro,Model model){
 		
-		model.addAttribute("ricercaCittaPartenza", filtro.getCittaPartenza());
-		model.addAttribute("ricercaCittaArrivo", filtro.getCittaArrivo());
-		model.addAttribute("ricercaDataPartenza", filtro.getDataPartenza());
-		
-		filtroVolo.setCittaPartenza(filtro.getCittaPartenza());
-		filtroVolo.setCittaArrivo(filtro.getCittaArrivo());
-		filtroVolo.setDataPartenza(filtro.getDataPartenza());
+		if(filtro!=null) {
+			model.addAttribute("ricercaCittaPartenza", filtro.getCittaPartenza());
+			model.addAttribute("ricercaCittaArrivo", filtro.getCittaArrivo());
+			model.addAttribute("ricercaDataPartenza", filtro.getDataPartenza());
+			
+			filtroVolo.setCittaPartenza(filtro.getCittaPartenza());
+			filtroVolo.setCittaArrivo(filtro.getCittaArrivo());
+			filtroVolo.setDataPartenza(filtro.getDataPartenza());
+		}else {
+			model.addAttribute("ricercaCittaPartenza", filtroVolo.getCittaPartenza());
+			model.addAttribute("ricercaCittaArrivo", filtroVolo.getCittaArrivo());
+			model.addAttribute("ricercaDataPartenza", filtroVolo.getDataPartenza());
+		}
 		
 	 	ModelAndView mv = new ModelAndView("page");
 	 	mv.addObject("title","Lista Voli");

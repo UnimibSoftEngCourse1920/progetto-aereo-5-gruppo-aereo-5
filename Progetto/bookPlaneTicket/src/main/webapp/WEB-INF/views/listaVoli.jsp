@@ -21,7 +21,7 @@
 			
 			<div class="row">
 			
-				<h2>Voli in data: ${ricercaDataPartenza}</h2>
+				<h1><strong>Voli in data: ${ricercaDataPartenza}</strong></h1>
 				
 				<div class="col-xs-12">
 				
