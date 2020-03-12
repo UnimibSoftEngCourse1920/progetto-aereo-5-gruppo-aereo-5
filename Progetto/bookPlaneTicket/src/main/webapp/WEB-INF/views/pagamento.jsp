@@ -7,48 +7,6 @@
 <meta name="_csrf_header" content="${_csrf.headerName}" />
 
   <body>
-  
-<%--
-	try{
-		String utente = request.getParameter("utente");
-		String codiceprenotazione = request.getParameter("codiceprenotazione");
-		String dbUtente = null;
-		String dbCodiceprenotazione = null;
-				
-		
-		String sql = "select codiceprenotazione, utente from prenotazione where utente=? and codiceprenotazione=?";
-		Class.forName("org.h2.Driver");
-		Connection conn = DriverManager.getConnection("jdbc:h2:./localhost/~/bookPlaneTicket;DB_CLOSE_DELAY=-1", "gruppo5", "progetto");
-		PreparedStatement ps = conn.prepareStatement(sql);
-		ps.setString(1, utente);
-		ps.setString(2, codiceprenotazione);
-		ResultSet rs = ps.executeQuery();
-		while(rs.next()) {
-			dbUtente = rs.getString("utente");
-			dbCodiceprenotazione=rs.getString("codiceprenotazione");
-		}
-		//out.println( dbUtente +" :utente,codice: "+dbCodiceprenotazione);
-
-		if(utente.equals(dbUtente) && codiceprenotazione.equals(dbCodiceprenotazione)){
-			out.println( "Prenotazione Trovata");
-
-		}
-		else {
-			response.sendRedirect("conferma");
-			return;
-		}
-	}
-
-	catch(ClassNotFoundException e){
-		e.printStackTrace();
-	}
-	catch (SQLException e) {
-	e.printStackTrace();
-}
-
---%>
-  
-  
   <head>
   <title> Pagamento</title>
   </head>
@@ -69,7 +27,7 @@
 <div class="booking-form-box">
 
 <div class="booking-form">
-<form action="pagamento_ok" method="post">
+<form action="pagamentok" method="post">
 
 	<label>Nome Intestatario</label>
 	<input type="text" class="form-control" name="nome">
@@ -83,8 +41,8 @@
 	<div class="birth-date"><label>Data di Scadenza</label>
 	<input type="date" class="form-control select-date" name="data"></div>
 	
-
 <input  type="submit" class="btn btn-primary flight"  value="Paga">
+
 </form>
 </div>
 </div>

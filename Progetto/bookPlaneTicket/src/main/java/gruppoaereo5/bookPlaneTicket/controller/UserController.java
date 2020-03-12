@@ -43,10 +43,10 @@ public class UserController extends HttpServlet{
 			String nome = request.getParameter("nome");
 			String cognome = request.getParameter("cognome");
 			String email = request.getParameter("email");
-			Date datanascita = new Date();
+			String datanascita = request.getParameter("datanascita");
 			String indirizzo = request.getParameter("indirizzo");
 			String password = request.getParameter("password");
-			Date ultimoAcquisto =new Date();
+			String ultimoAcquisto = " ";
 			boolean infedele = false;
 
 	        User user = new User();
@@ -64,11 +64,11 @@ public class UserController extends HttpServlet{
 	        CartaFedelta cs = new CartaFedelta();	                
 	        cs.setPuntifedelta(0);
 	        cs.setUtente(user.getId());
+	        
 	        cartaFedeltaDaoImpl.saveCartaFedelta(cs);
 
 	        RequestDispatcher dispatcher = request.getRequestDispatcher("registrazioneEffettuata");
 	        dispatcher.forward(request, response);
-	        
 	    }
 }
 	

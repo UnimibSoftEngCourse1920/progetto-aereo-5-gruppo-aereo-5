@@ -29,7 +29,7 @@ public class HibernateUtil {
                 settings.put(Environment.URL, "jdbc:h2:./localhost/~/bookPlaneTicket;DB_CLOSE_DELAY=-1");
                 settings.put(Environment.USER, "gruppo5");
                 settings.put(Environment.PASS, "progetto");
-                settings.put (Environment.DIALECT, "org.hibernate.dialect.H2Dialect");
+                settings.put(Environment.DIALECT, "org.hibernate.dialect.H2Dialect");
                 settings.put(Environment.SHOW_SQL, "true");
 
                 settings.put(Environment.CURRENT_SESSION_CONTEXT_CLASS, "thread");
@@ -38,7 +38,7 @@ public class HibernateUtil {
 
                 configuration.setProperties(settings);
                 configuration.addAnnotatedClass(User.class);
-                configuration.addAnnotatedClass(CartaFedelta.class);
+                configuration.addAnnotatedClass(CartaFedelta.class);               
                 configuration.addAnnotatedClass(Prenotazione.class);
                 configuration.addAnnotatedClass(Volo.class);
                 configuration.addAnnotatedClass(Posto.class);

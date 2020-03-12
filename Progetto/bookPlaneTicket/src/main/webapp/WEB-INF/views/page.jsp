@@ -28,8 +28,9 @@
 
 
 <!-- Bootstrap core CSS -->
-<link href="${css}/bootstrap.min.css" rel="stylesheet">
-
+  <link href="${css}vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap core CSS 
+  <link href="${css}/bootstrap.min.css" rel="stylesheet">-->
 <!-- Bootstrap DataTable -->
 <link href="${css}/dataTables.bootstrap.css" rel="stylesheet">
 
@@ -77,6 +78,13 @@
 		<%@include file="pagamento.jsp"%>
 	</c:if>
 	<!-- / Payment Page -->
+	
+	<!--  Payment ok Page -->
+
+	<c:if test="${userClickPagamentok == true }">
+		<%@include file="pagamentok.jsp"%>
+	</c:if>
+	<!-- / Payment ok Page -->
 	
 	<!--  Register Page -->
 

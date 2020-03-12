@@ -71,6 +71,15 @@ public class PageController{
 	 	mv.addObject("userClickPaga",true);	
 		return mv;
 	}
+	@RequestMapping(value = "/pagamentok")
+	public ModelAndView pagamentok(){
+		
+	 	ModelAndView mv = new ModelAndView("page");
+	 	mv.addObject("title","Pagamentok");
+	 	mv.addObject("userClickPagamentok",true);	
+		return mv;
+	}
+
 	@RequestMapping(value = "/registrazioneEffettuata")
 	public ModelAndView registrazioneEffettuata(){
 		

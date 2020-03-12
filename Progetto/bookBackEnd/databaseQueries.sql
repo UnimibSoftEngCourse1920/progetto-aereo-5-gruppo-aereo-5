@@ -20,8 +20,8 @@ CREATE TABLE `Utente` (
   `email` VARCHAR(45) NOT NULL,
   `nome` VARCHAR(45) NULL,
   `cognome` VARCHAR(45) NULL,
-  `dataNascita` DATE(45) NULL,
-  `ultimoAcquisto` DATE NULL,
+  `dataNascita` VARCHAR(45) NULL,
+  `ultimoAcquisto` VARCHAR NULL,
   `indirizzoCasa` VARCHAR(45) NULL,
   `password` VARCHAR(45) NULL,
   `infedele` BOOLEAN NULL DEFAULT FALSE,
@@ -33,8 +33,8 @@ CREATE TABLE `Utente` (
 -- -----------------------------------------------------
 CREATE TABLE `Prenotazione` (
   `codicePrenotazione` INT auto_increment NOT NULL,
-  `dataScadenza` DATE NOT NULL,
-  `dataPrenotazione` DATE NOT NULL,
+  `dataScadenza` VARCHAR NOT NULL,
+  `dataPrenotazione` VARCHAR NOT NULL,
   `penaleModifica` FLOAT NULL,
   `utente` INT NOT NULL,
   PRIMARY KEY (`codicePrenotazione`),

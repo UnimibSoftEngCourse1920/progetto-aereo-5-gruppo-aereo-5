@@ -41,7 +41,7 @@ public class PrenotazioneDaoImpl implements PrenotazioneDAO{
 	        					.openSession()) {
 	            // start a transaction
 	            transaction = session.beginTransaction();
-	            // get an user object    select codiceprenotazione, utente from prenotazione where utente=? and codiceprenotazione=?"
+	            // get an user object    
 	            prenotazione = (Prenotazione) session.createQuery("FROM Prenotazione WHERE utente = :utente").setParameter("utente", utente)
 	            									 .uniqueResult();
 
