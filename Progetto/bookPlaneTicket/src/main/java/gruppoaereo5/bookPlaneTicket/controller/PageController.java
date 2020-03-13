@@ -71,6 +71,15 @@ public class PageController{
 	 	mv.addObject("userClickPaga",true);	
 		return mv;
 	}
+	
+	@RequestMapping(value = "/login_prova")
+	public ModelAndView login_prova(){
+		
+	 	ModelAndView mv = new ModelAndView("page");
+	 	mv.addObject("title","Logn prova");
+	 	mv.addObject("userClickLoginProva",true);	
+		return mv;
+	}
 	@RequestMapping(value = "/pagamentok")
 	public ModelAndView pagamentok(){
 		
@@ -79,7 +88,14 @@ public class PageController{
 	 	mv.addObject("userClickPagamentok",true);	
 		return mv;
 	}
-
+	@RequestMapping(value = "/accedi_o_prosegui")
+	public ModelAndView accedi_o_prosegui(){
+		
+	 	ModelAndView mv = new ModelAndView("page");
+	 	mv.addObject("title","accedi_o_prosegui");
+	 	mv.addObject("userClickAccedi_o_prosegui",true);	
+		return mv;
+	}
 	@RequestMapping(value = "/registrazioneEffettuata")
 	public ModelAndView registrazioneEffettuata(){
 		

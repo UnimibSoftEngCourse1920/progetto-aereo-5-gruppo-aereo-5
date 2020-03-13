@@ -18,7 +18,7 @@ public class CartaFedeltaDAOImpl implements CartaFedeltaDAO {
         				.openSession()) {
             // start a transaction
             transaction = session.beginTransaction();
-            // save the student object
+            // save the  object
             session.save(cartaFedelta);
             // commit transaction
             transaction.commit();
@@ -30,4 +30,27 @@ public class CartaFedeltaDAOImpl implements CartaFedeltaDAO {
         }
     }
 
+	public boolean update(CartaFedelta cartaFedelta) {
+		boolean result = true;
+		Transaction transaction = null;
+		try (Session session = HibernateUtil
+						.getSessionFactory()
+						.openSession()){
+			 // start a transaction
+			transaction = session.beginTransaction();
+			// update the  object
+			session.update(cartaFedelta);
+			// commit transaction
+			transaction.commit();
+		} catch (Exception e) {
+			if (transaction != null) {
+				transaction.rollback();
+			}
+			result = false;
+		} 
+		return result;
+	}
+	
+	
+	
 }
