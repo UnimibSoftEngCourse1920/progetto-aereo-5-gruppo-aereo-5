@@ -26,16 +26,17 @@ public class JsonDataController {
 	@RequestMapping("/voli")
 	@ResponseBody
 	public List<Volo> getVoli(){
-		
-		
-		
+	
 		return voloDAO.listVoli(filtroVolo);
 	}
 
 	@RequestMapping(value = "/listaVoli")
 	public ModelAndView listavoli(@ModelAttribute Filtro filtro,Model model){
 		
-		if(filtro!=null) {
+		ModelAndView mv = new ModelAndView("page");
+	 	mv.addObject("title","Lista Voli");
+		
+		if(filtro.getCittaPartenza()!=null && filtro.getCittaArrivo()!=null && filtro.getDataPartenza()!=null) {
 			model.addAttribute("ricercaCittaPartenza", filtro.getCittaPartenza());
 			model.addAttribute("ricercaCittaArrivo", filtro.getCittaArrivo());
 			model.addAttribute("ricercaDataPartenza", filtro.getDataPartenza());
@@ -49,9 +50,6 @@ public class JsonDataController {
 			model.addAttribute("ricercaDataPartenza", filtroVolo.getDataPartenza());
 		}
 		
-	 	ModelAndView mv = new ModelAndView("page");
-	 	mv.addObject("title","Lista Voli");
-	 	
 	 	mv.addObject("userClickMostraVoli",true);	
 	 	
 		return mv;

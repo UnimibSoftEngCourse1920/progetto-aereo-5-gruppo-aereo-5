@@ -45,6 +45,8 @@ public class VoloDAOImpl implements VoloDAO {
 	@Override
 	public Volo get(String codiceVolo) {
 
+		String selezionaVoli =  "FROM Volo WHERE codice_volo = :codice_volo";
+		
 		 Transaction transaction = null;
 	        try (Session session = HibernateUtil
 	        				.getSessionFactory()
@@ -52,7 +54,9 @@ public class VoloDAOImpl implements VoloDAO {
 	            // start a transaction
 	            transaction = session.beginTransaction();
 	            // save the student object
-	            return session.get(Volo.class,Integer.valueOf(codiceVolo));
+	            return session.createQuery(selezionaVoli,Volo.class)
+	            		.setParameter("codice_volo",codiceVolo)
+	            			.uniqueResult();
 	           
 	          //  session.close();
 	        } catch (Exception e) {

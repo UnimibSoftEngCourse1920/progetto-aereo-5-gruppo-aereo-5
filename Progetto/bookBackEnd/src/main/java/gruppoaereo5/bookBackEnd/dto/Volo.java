@@ -13,9 +13,6 @@ import javax.persistence.Table;
 @Table(name = "VOLO")
 public class Volo {
 
-	/*
-	 * Private fields
-	 */
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Id
 	private String codice_volo;

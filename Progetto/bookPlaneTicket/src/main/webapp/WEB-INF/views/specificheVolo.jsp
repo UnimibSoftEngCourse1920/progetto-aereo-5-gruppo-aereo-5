@@ -1,10 +1,3 @@
-<style>
-<!--
-pad {
-padding-left: 80px;
-}
--->
-</style>
 <div class="container">
 
 	<div class="booking-form-box">
@@ -83,19 +76,18 @@ padding-left: 80px;
 				
 				<c:when test="${postiDisponibili < 1}">
 				
-					<h6>Posti disponibili: <span style="color:red">Volo completo!</span></h6>
+					<h4><label>Posti disponibili: </label><span style="color:red">Volo completo!</span></h4>
 					
 				</c:when>
 				<c:otherwise>				
 					
-					<h6>Posti disponibili: ${postiDisponibili}</h6>
+					<h4><label>Posti disponibili:</label> ${postiDisponibili}</h4>
 						
 				</c:otherwise>
 			
 				</c:choose>
 				
-			</div
-			>
+			</div>
 			<div class="row">
 				<h4>
 				<label>Prezzo:	</label>
