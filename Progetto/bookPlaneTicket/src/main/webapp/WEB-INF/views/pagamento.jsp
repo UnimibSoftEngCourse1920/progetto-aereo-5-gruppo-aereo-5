@@ -19,6 +19,8 @@
 	
 	int kmvolo= 0;// kmInDatabase - kmVolo solo se kmInDatabase > 10000;
 	
+	
+	
 	if(id!= null){ 
 	devoAggiungerePunti="si";
 	devoRimuoverePunti= "no";
