@@ -22,6 +22,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import gruppoaereo5.bookBackEnd.config.SendEmail;
 import gruppoaereo5.bookBackEnd.dao.PostoDAO;
 import gruppoaereo5.bookBackEnd.dao.PrenotazioneDAO;
 import gruppoaereo5.bookBackEnd.dao.UserDAO;
@@ -97,15 +98,6 @@ public class PageController{
 	 	mv.addObject("userClickPaga",true);	
 		return mv;
 	}
-	
-	/*@RequestMapping(value = "/login_prova")
-	public ModelAndView login_prova(){
-		
-	 	ModelAndView mv = new ModelAndView("page");
-	 	mv.addObject("title","Logn prova");
-	 	mv.addObject("userClickLoginProva",true);	
-		return mv;
-	}*/
 	
 	@RequestMapping(value = "/pagamentok")
 	public ModelAndView pagamentok(){
@@ -203,6 +195,7 @@ public class PageController{
 		String email = request.getParameter("email");
 		Posto posto = postoDAO.get(postoSelezionato.getIdPosto());
 		Prenotazione prenotazione = new Prenotazione();
+		SendEmail sm = new SendEmail();
 		
 		//Setta codice prenotazione
 		String random = generaStringaRandom();
@@ -241,6 +234,8 @@ public class PageController{
 		postoDAO.update(posto);
 		
 		String prenotato = "ok";
+		
+		sm.sendEmailPrenotazione(email, random);
 		
 		return "redirect:/home?"+prenotato;
 	}
