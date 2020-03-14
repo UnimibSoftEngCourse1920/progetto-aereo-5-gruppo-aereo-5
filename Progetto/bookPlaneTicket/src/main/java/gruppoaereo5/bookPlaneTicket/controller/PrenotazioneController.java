@@ -39,10 +39,10 @@ public class PrenotazioneController extends HttpServlet{
 
 	    private void authenticate(HttpServletRequest request, HttpServletResponse response)
 	    throws Exception {
-	    	String utente =request.getParameter("utente");
+	    	String email =request.getParameter("email");
 	    	String codicePrenotazione = request.getParameter("codiceprenotazione");
 
-	        if (prenotazioneDaoImpl.validate(utente, codicePrenotazione)) {
+	        if (prenotazioneDaoImpl.validate(email, codicePrenotazione)) {
 	            RequestDispatcher dispatcher = request.getRequestDispatcher("pagamento");
 	            dispatcher.forward(request, response);
 	        } else {

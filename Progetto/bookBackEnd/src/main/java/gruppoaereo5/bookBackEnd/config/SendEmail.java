@@ -36,9 +36,9 @@ public class SendEmail {
                 );
                 message.setSubject("Conferma registazione");
                 message.setText("Ciao " + cognome + " " +nome +"," + 
-                				"La tua iscrizione è avvenuta con successo." +
+                				" la tua iscrizione è avvenuta con successo." +
                 				"\n Grazie di esserti registrato al nostro servizio." +
-                				"\n /n Gruppo 5 - progetto aereo");
+                				"\n \n Gruppo 5 - progetto aereo");
 
                 Transport.send(message);
 
@@ -50,7 +50,7 @@ public class SendEmail {
             }
         }
         
-        public boolean sendEmailPrenotazione(String destinatario, int codicePrenotazione) {
+        public boolean sendEmailPrenotazione(String destinatario, String codicePrenotazione) {
 
         Properties prop = new Properties();
 		prop.put("mail.smtp.host", "smtp.gmail.com");
