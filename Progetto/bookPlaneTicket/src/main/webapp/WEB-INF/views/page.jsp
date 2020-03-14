@@ -112,7 +112,14 @@
 	<c:if test="${userClickSpecificheVolo == true }">
 		<%@include file="specificheVolo.jsp"%>
 	</c:if>
-	<!-- / Specifiche Volo Pagee -->
+	<!-- / Specifiche Volo Page -->
+	
+	<!--  Seleziona Posto Prenotazione Page -->
+
+	<c:if test="${userClickSelezionaPosto == true }">
+		<%@include file="selezionaPosto.jsp"%>
+	</c:if>
+	<!-- / Seleziona Posto Prenotazione Page -->
 
 	<!-- / Page Content -->
 

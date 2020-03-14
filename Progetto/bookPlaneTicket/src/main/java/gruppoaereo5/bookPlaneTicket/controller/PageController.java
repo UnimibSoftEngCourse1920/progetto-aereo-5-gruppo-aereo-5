@@ -1,7 +1,17 @@
 package gruppoaereo5.bookPlaneTicket.controller;
 
 
+import java.security.SecureRandom;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
+import java.util.Locale;
+import java.util.TimeZone;
+
+import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -13,27 +23,43 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import gruppoaereo5.bookBackEnd.dao.PostoDAO;
+import gruppoaereo5.bookBackEnd.dao.PrenotazioneDAO;
+import gruppoaereo5.bookBackEnd.dao.UserDAO;
 import gruppoaereo5.bookBackEnd.dao.VoloDAO;
 import gruppoaereo5.bookBackEnd.dto.Filtro;
+import gruppoaereo5.bookBackEnd.dto.Posto;
+import gruppoaereo5.bookBackEnd.dto.Prenotazione;
+import gruppoaereo5.bookBackEnd.dto.User;
 import gruppoaereo5.bookBackEnd.dto.Volo;
 
 @Controller
 public class PageController{
 
 	
-	@Autowired
-	private VoloDAO voloDAO;
-	
-	@Autowired
-	private PostoDAO postoDAO;
+	 @Autowired
+		private VoloDAO voloDAO;
+		
+		@Autowired
+		private PostoDAO postoDAO;
+		
+		@Autowired
+		private UserDAO userDAO;
+		
+		@Autowired
+		private PrenotazioneDAO prenotazioneDAO;
 		
 	@RequestMapping(value = {"/", "/home", "/index"})
-	public ModelAndView index(Model model){
+	public ModelAndView index(@RequestParam(name="prenotato", required = false) String prenotato,Model model){
 		
 		model.addAttribute("filtro", new Filtro());
 		
 	 	ModelAndView mv = new ModelAndView("page");
 	 	mv.addObject("title","Home");
+	 	
+	 	if(prenotato!=null) {
+	 		mv.addObject("prenotato","Prenotazione avvenuta con successo");
+	 	}
+	 	
 	 	mv.addObject("userClickHome",true);	
 		return mv;
 	}
@@ -125,5 +151,130 @@ public class PageController{
 	public List<Volo> getVoli(){
 		return voloDAO.list();
 	}
+	
+	@RequestMapping(value = "/{id}/selezionaPosto")
+	public String selezionaPosto(@PathVariable String id) {
+		
+		return "redirect:/scegliIlTuoPosto/{id}";
+	}
+	
+	@RequestMapping(value = "/scegliIlTuoPosto/{id}")
+	public ModelAndView selezionaPosto(@PathVariable String id,Model model) {
+		
+		model.addAttribute("postoSelezionato",new Posto());
+		
+		ModelAndView mv = new ModelAndView("page");
+		
+		List<Posto> posti = new ArrayList<>();
+		
+		posti = postoDAO.listPostiLiberi(id);
+		System.out.println("SELEZIONA POSTO");
+		mv.addObject("title","Seleziona posto");
+		
+		mv.addObject("posti", posti);
+		
+	 	mv.addObject("userClickSelezionaPosto",true);	
+		
+		return mv;
+	}
 
+	@RequestMapping(value = "/prenota")
+	public String prenota(@ModelAttribute Posto postoSelezionato,HttpServletRequest request,Model model){
+		
+		String email = request.getParameter("email");
+		Posto posto = postoDAO.get(postoSelezionato.getIdPosto());
+		Prenotazione prenotazione = new Prenotazione();
+		
+		//Setta codice prenotazione
+		String random = generaStringaRandom();
+		prenotazione.setCodicePrenotazione(random);
+		
+		//Setta data prenotazione
+		Date dataOggi = new Date();
+		DateFormat formatoData = DateFormat.getDateInstance(DateFormat.SHORT, Locale.ITALY);
+		String data = formatoData.format(dataOggi);
+		data = splitData(data,"/","-");
+		prenotazione.setDataPrenotazione(data);
+		
+		//Setta data scadenza
+		Volo volo = new Volo();
+		volo = voloDAO.get(posto.getVolo());
+		String dataPartenza = volo.getData_partenza();
+		dataPartenza = splitData(dataPartenza,"-","/");
+		prenotazione.setDataScadenza(calcolaDataScadenza(dataPartenza));
+		
+		//Setta penale
+		prenotazione.setPenaleModifica(5.0);
+		
+		//Setta utente
+		User user = userDAO.getUserByEmail(email);
+		if(user==null) {
+			user = new User(email);
+			userDAO.saveUser(user);
+			prenotazione.setUtente(userDAO.getUserByEmail(email).getId());
+		}else {
+			prenotazione.setUtente(user.getId());
+		}
+		prenotazioneDAO.savePrenotazione(prenotazione);
+		
+		//Setta prenotazione in posto
+		posto.setPrenotazione(random);
+		postoDAO.update(posto);
+		
+		String prenotato = "ok";
+		
+		return "redirect:/home?"+prenotato;
+	}
+    
+    private String generaStringaRandom() {
+    	String lower = "abcdefghijklmnopqrstuvwxyz";
+        String upper = lower.toUpperCase();
+        String numeri = "0123456789";
+        String perRandom = upper + lower + numeri;
+        int lunghezzaRandom = 4;
+
+        SecureRandom sr = new SecureRandom();
+        StringBuilder sb = new StringBuilder(lunghezzaRandom);
+        for (int i = 0; i < lunghezzaRandom; i++) {
+            int randomInt = sr.nextInt(perRandom.length());
+            char randomChar = perRandom.charAt(randomInt);
+            sb.append(randomChar);
+        }
+        return sb.toString();
+    }
+    
+    private String splitData(String stringa,String separatoreIniziale,String separatoreFinale) {
+    	
+    	String[] arrOfStr = stringa.split(separatoreIniziale);
+    	
+		stringa = "";
+		for(int i = 2; i>=0; i--) {
+			stringa += arrOfStr[i];
+			if(i>=1)
+				stringa += separatoreFinale;
+		}
+    	
+    	return stringa;
+    }
+    
+    private String calcolaDataScadenza(String dataPartenza) {
+    	
+    	Date data = new Date();
+    	DateFormat formatoData = DateFormat.getDateInstance(DateFormat.SHORT, Locale.ITALY);
+		try{
+				formatoData.setLenient(false);           
+				data = formatoData.parse(dataPartenza);
+	       } catch (ParseException e) {
+	           System.out.println("Formato data non valido.");
+	       }
+		
+		Calendar c = Calendar.getInstance(TimeZone.getTimeZone("Europe/Rome"), Locale.ITALY);
+        c.setTime(data);
+        c.add(Calendar.DAY_OF_MONTH, -3);
+        
+        String dataScadenza = formatoData.format(c.getTime());
+        dataScadenza = splitData(dataScadenza,"/","-");
+		
+    	return dataScadenza;
+    }
 }

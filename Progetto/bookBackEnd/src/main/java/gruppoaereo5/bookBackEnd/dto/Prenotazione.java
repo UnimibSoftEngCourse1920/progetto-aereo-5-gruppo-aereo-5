@@ -26,10 +26,10 @@ public class Prenotazione implements Serializable{
 	private String dataPrenotazione;
 	
 	@Column(name = "penalemodifica")
-	private String penaleModifica;
+	private Double penaleModifica;
 	
 	@Column(name = "utente")
-	private String utente ;
+	private int utente ;
 
 	
 
@@ -49,16 +49,13 @@ public class Prenotazione implements Serializable{
 		this.dataPrenotazione = dataPrenotazione;
 	}
 
-	public String getPenaleModifica() {
+	public Double getPenaleModifica() {
 		return penaleModifica;
 	}
 
-	public void setPenaleModifica(String penaleModifica) {
+	public void setPenaleModifica(Double penaleModifica) {
 		this.penaleModifica = penaleModifica;
 	}
-
-
-
 
 	public String getCodicePrenotazione() {
 		return codicePrenotazione;
@@ -68,11 +65,11 @@ public class Prenotazione implements Serializable{
 		this.codicePrenotazione = codicePrenotazione;
 	}
 
-	public String getUtente() {
+	public int getUtente() {
 		return utente;
 	}
 
-	public void setUtente(String utente) {
+	public void setUtente(int utente) {
 		this.utente = utente;
 	}
 

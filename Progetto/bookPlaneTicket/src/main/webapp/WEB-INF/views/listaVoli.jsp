@@ -4,7 +4,7 @@
 
 			
 			
-				<h1><strong>Voli in data: ${ricercaDataPartenza}</strong></h1>
+				<h2><strong>Voli in data: ${ricercaDataPartenza}</strong></h2>
 				
 				<div class="col-xs-12">
 				

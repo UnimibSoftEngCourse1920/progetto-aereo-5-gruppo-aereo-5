@@ -67,7 +67,7 @@ public class PostoDAOImpl implements PostoDAO{
 
 	@Override
 	public List<Posto> listPostiLiberi(String codiceVolo) {
-		String postiLiberiPerVolo = "FROM Posto WHERE volo = :volo AND prenotazione = :prenotazione";
+		String postiLiberiPerVolo = "FROM Posto WHERE volo = :volo AND prenotazione IS NULL";
 		
 		Transaction transaction = null;
         try (Session session = HibernateUtil
@@ -78,7 +78,6 @@ public class PostoDAOImpl implements PostoDAO{
             // save the student object
             return session.createQuery(postiLiberiPerVolo, Posto.class)
     					.setParameter("volo", codiceVolo)
-    						.setParameter("prenotazione", null)
     						.getResultList();
            
           //  session.close();
@@ -90,5 +89,27 @@ public class PostoDAOImpl implements PostoDAO{
         }
 	return null;
 	}
+
+	@Override
+	public void update(Posto posto) {
+		Transaction transaction = null;
+        try (Session session = HibernateUtil
+        				.getSessionFactory()
+        				.openSession()) {
+            // start a transaction
+            transaction = session.beginTransaction();
+            // save the student object
+            session.update(posto);
+            // commit transaction
+            transaction.commit();
+          //  session.close();
+        } catch (Exception e) {
+            if (transaction != null) {
+                transaction.rollback();
+            }
+            e.printStackTrace();
+        }
+        
+    }
 	
 }

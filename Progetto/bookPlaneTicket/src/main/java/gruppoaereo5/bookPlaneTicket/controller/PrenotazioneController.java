@@ -11,12 +11,12 @@ import javax.servlet.http.HttpServletResponse;
 
 import gruppoaereo5.bookBackEnd.daoimpl.PrenotazioneDaoImpl;
 
-
-@WebServlet("/cercaPrenotazione")
+@WebServlet("/prenotazione")
 public class PrenotazioneController extends HttpServlet{
 	 private static final long serialVersionUID = 1L;
 	    private PrenotazioneDaoImpl prenotazioneDaoImpl;
 
+		
 	    public void init() {
 	    	prenotazioneDaoImpl = new PrenotazioneDaoImpl();
 	    }
@@ -50,4 +50,6 @@ public class PrenotazioneController extends HttpServlet{
 	            dispatcher.forward(request, response);
 	        }
 	    }
+	    
+	    
 }

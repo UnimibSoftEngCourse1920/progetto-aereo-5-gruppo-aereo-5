@@ -42,6 +42,13 @@ public class User implements Serializable{
 	@Column(name = "datanascita")
 	private String dataNascita;
 	
+	public User() {
+		super();
+	}
+	public User(String email) {
+		super();
+		this.email = email;
+	}
 	public String getDataNascita() {
 		return dataNascita;
 	}

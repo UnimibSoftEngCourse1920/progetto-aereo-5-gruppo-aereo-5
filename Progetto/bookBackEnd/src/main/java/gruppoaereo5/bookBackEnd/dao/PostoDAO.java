@@ -10,5 +10,6 @@ public interface PostoDAO {
 	Posto get(int postoID);
 	
 	List<Posto> listPostiLiberi(String volo);
+	public void update(Posto posto);
 	
 }

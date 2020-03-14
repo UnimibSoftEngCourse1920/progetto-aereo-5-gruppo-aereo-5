@@ -1,12 +1,13 @@
 package gruppoaereo5.bookBackEnd.daoimpl;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
-
+import org.springframework.stereotype.Repository;
 
 import gruppoaereo5.bookBackEnd.config.HibernateUtil;
 import gruppoaereo5.bookBackEnd.dao.PrenotazioneDAO;
 import gruppoaereo5.bookBackEnd.dto.Prenotazione;
 
+@Repository("prenotazioneDAO")
 public class PrenotazioneDaoImpl implements PrenotazioneDAO{
 	
 	@Override

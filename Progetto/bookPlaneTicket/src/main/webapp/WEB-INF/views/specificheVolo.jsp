@@ -19,7 +19,7 @@
 			</div>
 		<div class="booking-form">
 			
-			<h1><strong>Specifiche Volo</strong></h1>
+			<h2><strong>Specifiche Volo</strong></h2>
 
 			<div class="row">
 				<h3>
@@ -102,13 +102,13 @@
 				<c:when test="${postiDisponibili < 1}">
 				
 					<a href="javascript:void(0)" class="btn btn-success disabled">
-					<span class="glyphicon glyphicon-shopping-cart"></span> Prenota</a>
+					<span class="glyphicon glyphicon-shopping-cart"></span> Seleziona Posto</a>
 					
 				</c:when>
 				<c:otherwise>				
 				
-				<a href="${contextRoot}/prenota" class="btn btn-success">
-				<span class="glyphicon glyphicon-shopping-cart"></span> Prenota</a>
+				<a href="${contextRoot}/${volo.codice_volo}/selezionaPosto" class="btn btn-success">
+				<span class="glyphicon glyphicon-shopping-cart"></span> Seleziona Posto</a>
 	
 				</c:otherwise>
 			
