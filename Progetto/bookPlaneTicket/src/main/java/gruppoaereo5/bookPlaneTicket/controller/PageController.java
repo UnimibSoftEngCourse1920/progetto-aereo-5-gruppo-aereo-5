@@ -109,6 +109,7 @@ public class PageController{
 	@RequestMapping(value = "/login")
 	public ModelAndView login(@RequestParam(name="error", required = false)	String error){
 		ModelAndView mv = new ModelAndView("login");
+	 	mv.addObject("userClickAccedi",true);	
 	 	mv.addObject("title","Login");
 	
 	 	if(error!=null) {

@@ -71,7 +71,7 @@
 
 		<div class="booking-form-box ">
 			<div class="booking-form">
-				<form id="loginForm" action="${contextRoot}/login_prova" method="POST" accept-charset=utf-8>
+				<form id="loginForm" action="${contextRoot}/loginConferma" method="POST" accept-charset=utf-8>
 					<div class="form-group">
 						<label for="username">Email:</label>
 						<input type="text"	name="username" id="username" class="form-control" />

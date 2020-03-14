@@ -8,6 +8,7 @@
 
   <body>
   <%
+  	//String email = chiedi id;
   	String id = request.getParameter("id");
 	String pwd = request.getParameter("pwd");
 	

@@ -26,7 +26,7 @@ public class HibernateUtil {
                 // Hibernate settings equivalent to hibernate.cfg.xml's properties
                 Properties settings = new Properties();
                 settings.put(Environment.DRIVER, "org.h2.Driver");
-                settings.put(Environment.URL, "jdbc:h2:tcp.//localhost/~/bookPlaneTicket");
+                settings.put(Environment.URL, "jdbc:h2:.//localhost/~/bookPlaneTicket");
                 settings.put(Environment.USER, "gruppo5");
                 settings.put(Environment.PASS, "progetto");
                 settings.put(Environment.DIALECT, "org.hibernate.dialect.H2Dialect");

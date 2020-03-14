@@ -10,17 +10,20 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import gruppoaereo5.bookBackEnd.dao.UserDAO;
+import gruppoaereo5.bookBackEnd.daoimpl.UserDaoImpl;
 
-@WebServlet("/login")
+@WebServlet("/loginConferma")
 public class LoginController extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
-	private UserDAO loginDao;
-
+	private UserDaoImpl loginDao;
+	public void init() {
+	loginDao= new UserDaoImpl();
+	}
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
-        response.sendRedirect("login.jsp");
+        response.sendRedirect("login");
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
@@ -40,7 +43,7 @@ public class LoginController extends HttpServlet {
 
         if (loginDao.validate(username, password)) {
         	System.out.println("Login eseguita con successo");
-            RequestDispatcher dispatcher = request.getRequestDispatcher("home.jsp");
+            RequestDispatcher dispatcher = request.getRequestDispatcher("pagamento");
             dispatcher.forward(request, response);
         } else {
             throw new Exception("Login not successful..");
