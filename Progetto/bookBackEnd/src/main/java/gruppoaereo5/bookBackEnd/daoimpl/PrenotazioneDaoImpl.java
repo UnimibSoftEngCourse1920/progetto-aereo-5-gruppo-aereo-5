@@ -19,7 +19,7 @@ public class PrenotazioneDaoImpl implements PrenotazioneDAO{
         	
             // start a transaction
             transaction = session.beginTransaction();
-            // save the student object
+            // save the  object
             session.save(prenotazione);
             // commit transaction
             transaction.commit();
@@ -42,7 +42,7 @@ public class PrenotazioneDaoImpl implements PrenotazioneDAO{
 	        					.openSession()) {
 	            // start a transaction
 	            transaction = session.beginTransaction();
-	            // get an user object    
+	            // get an  object    
 	            prenotazione = (Prenotazione) session.createQuery("FROM Prenotazione WHERE utente = :utente").setParameter("utente", utente)
 	            									 .uniqueResult();
 

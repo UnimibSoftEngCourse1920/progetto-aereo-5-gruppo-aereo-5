@@ -26,9 +26,6 @@ public class Posto {
 	public int getFila() {
 		return fila;
 	}
-	public void setFila(int fila) {
-		this.fila = fila;
-	}
 	public String getLettera() {
 		return lettera;
 	}
@@ -40,6 +37,9 @@ public class Posto {
 	}
 	public void setPrenotazione(String prenotazione) {
 		this.prenotazione = prenotazione;
+	}
+	public void setFila(int fila) {
+		this.fila = fila;
 	}
 	public String getVolo() {
 		return volo;

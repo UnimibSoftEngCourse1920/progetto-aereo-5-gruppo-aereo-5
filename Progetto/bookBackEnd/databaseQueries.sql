@@ -32,7 +32,7 @@ CREATE TABLE `Utente` (
 -- Table `Prenotazione`
 -- -----------------------------------------------------
 CREATE TABLE `Prenotazione` (
-  `codicePrenotazione` VARCHAR(8) NOT NULL,
+  `codicePrenotazione` VARCHAR NOT NULL,
   `dataScadenza` VARCHAR NOT NULL,
   `dataPrenotazione` VARCHAR NOT NULL,
   `penaleModifica` FLOAT NULL,
@@ -51,7 +51,7 @@ CREATE TABLE `Posto` (
   `idPosto` INT NOT NULL,
   `fila` INT NOT NULL,
   `lettera` CHAR NOT NULL,
-  `prenotazione` VARCHAR(8) NULL,
+  `prenotazione` VARCHAR NULL,
   `volo` VARCHAR(8) NOT NULL,
   PRIMARY KEY (`idPosto`),
   CONSTRAINT `voloPosto` FOREIGN KEY (`volo`) REFERENCES `Volo` (`codice_volo`)

@@ -78,6 +78,13 @@
 		<%@include file="pagamentok.jsp"%>
 	</c:if>
 	<!-- / Payment ok Page -->
+
+		<!--  Accedi o prosegui  Page -->
+
+	<c:if test="${userClickAccedi_o_prosegui == true }">
+		<%@include file="accedi_o_prosegui.jsp"%>
+	</c:if>
+	<!-- / Accedi o prosegui Page -->
 	
 	<!--  Register Page -->
 
@@ -92,6 +99,23 @@
 		<%@include file="login.jsp"%>
 	</c:if>
 	<!-- / Login Page -->
+	
+	
+	
+	
+	
+	<!--  Login prova Page -->
+
+	<c:if test="${userClickLoginProva == true }">
+		<%@include file="login_prova.jsp"%>
+	</c:if>
+	<!-- / Login prova Page -->
+	
+	
+	
+	
+	
+	
 
 	<!--  Info Page -->
 
