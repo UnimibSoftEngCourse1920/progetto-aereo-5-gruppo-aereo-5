@@ -53,7 +53,8 @@
 		</form>		
       	<div class="booking-form">
       		<h3 class="mt-5" align="center">Accedi al servizio fedeltà<br> </h3>
-      		<a class="btn btn-primary flight" href="${contextRoot}/login_prova">Accedi</a>
+      		<!--  Prova -->
+      		<a class="btn btn-primary flight" href="${contextRoot}/login">Accedi</a>
 		</div>		
 <% 		
 	}

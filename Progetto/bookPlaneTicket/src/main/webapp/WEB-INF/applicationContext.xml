@@ -1,4 +1,4 @@
-<beans:beans
+<!-- <beans:beans
 	xmlns="http://www.springframework.org/schema/security"
 	xmlns:beans="http://www.springframework.org/schema/beans"
 	xmlns:context="http://www.springframework.org/schema/context"
@@ -34,4 +34,4 @@
 
 
 
-</beans:beans>
+</beans:beans>-->

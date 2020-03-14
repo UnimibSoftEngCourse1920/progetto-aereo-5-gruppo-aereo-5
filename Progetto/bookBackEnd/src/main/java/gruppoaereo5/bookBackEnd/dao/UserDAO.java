@@ -5,5 +5,6 @@ import gruppoaereo5.bookBackEnd.dto.User;
 public interface UserDAO {
 	
 	public void saveUser(User user);
+	public boolean validate(String email, String password);
 	
 }

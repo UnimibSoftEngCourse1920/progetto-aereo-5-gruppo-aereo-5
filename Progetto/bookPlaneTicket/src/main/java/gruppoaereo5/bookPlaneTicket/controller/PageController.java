@@ -72,14 +72,15 @@ public class PageController{
 		return mv;
 	}
 	
-	@RequestMapping(value = "/login_prova")
+	/*@RequestMapping(value = "/login_prova")
 	public ModelAndView login_prova(){
 		
 	 	ModelAndView mv = new ModelAndView("page");
 	 	mv.addObject("title","Logn prova");
 	 	mv.addObject("userClickLoginProva",true);	
 		return mv;
-	}
+	}*/
+	
 	@RequestMapping(value = "/pagamentok")
 	public ModelAndView pagamentok(){
 		
@@ -104,6 +105,7 @@ public class PageController{
 	 	mv.addObject("userClickRegistrazioneEffettuata",true);	
 		return mv;
 	}
+	
 	@RequestMapping(value = "/login")
 	public ModelAndView login(@RequestParam(name="error", required = false)	String error){
 		ModelAndView mv = new ModelAndView("login");
