@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import gruppoaereo5.bookBackEnd.daoimpl.CartaFedeltaDAOImpl;
+import gruppoaereo5.bookBackEnd.daoimpl.VoloDAOImpl;
 import gruppoaereo5.bookBackEnd.dto.CartaFedelta;
 
 @WebServlet("/aggiornaCartaFedele")
@@ -26,17 +27,32 @@ protected void doPost(HttpServletRequest request, HttpServletResponse response)
 		throws ServletException, IOException {
 	CartaFedeltaDAOImpl cartafedeltaDAOImpl = new CartaFedeltaDAOImpl();
 	CartaFedelta cartaFedelta = new CartaFedelta();
+	VoloDAOImpl voloDAOImpl= new VoloDAOImpl();
 	
-	//String id=request.getParameter("id");
-	//String kmvolo=request.getParameter("kmvolo");
+	String idString=request.getParameter("id");
 	int id= Integer.parseInt(request.getParameter("id"));
+	int punti=voloDAOImpl.getPunti(idString);
 	
-	cartaFedelta.setId(id);
-	cartaFedelta.setPuntifedelta(20);
-	cartaFedelta.setUtente(id);
-	
+	int puntiCarta=cartafedeltaDAOImpl.getPuntiCarta(idString);
 
-	//product.setQuantity(Integer.parseInt(request.getParameter("quantity")));
+	String deviRimuovere = request.getParameter("deviRimuovere");
+	
+	if(deviRimuovere.contentEquals("1")) {
+		if(puntiCarta < (punti*10)) {
+			System.out.println("punti non sufficienti sulla carta");
+			request.getRequestDispatcher("pagamento").forward(request, response);	
+		}
+		else {
+			puntiCarta=puntiCarta-(punti*10);
+		}
+	}
+	else {
+		puntiCarta=puntiCarta+punti;
+	}
+	cartaFedelta.setId(id);
+	cartaFedelta.setPuntifedelta(puntiCarta);
+	cartaFedelta.setUtente(idString);
+	
 	if (cartafedeltaDAOImpl.update(cartaFedelta)) {
 		request.setAttribute("msg", "Successful");
 	} else {

@@ -27,7 +27,7 @@ public class CartaFedelta implements Serializable {
 	private int puntifedelta;
 	
 	@Column(name = "utente")
-	private int utente;
+	private String utente;
 
 	public int getId() {
 		return id;
@@ -45,12 +45,17 @@ public class CartaFedelta implements Serializable {
 		this.puntifedelta = puntifedelta;
 	}
 
-	public int getUtente() {
+
+	public String getUtente() {
 		return utente;
 	}
 
-	public void setUtente(int utente) {
+	public void setUtente(String utente) {
 		this.utente = utente;
+	}
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
 	}
 
 	@Override

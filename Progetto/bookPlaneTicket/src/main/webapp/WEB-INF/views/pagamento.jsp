@@ -17,39 +17,30 @@
 	
 	
 	
-	int kmvolo= 0;// kmInDatabase - kmVolo solo se kmInDatabase > 10000;
+	int kmvolo= 0;   // kmInDatabase - kmVolo solo se kmInDatabase > 10000;
 	
 	
 	
 	if(id!= null){ 
-	devoAggiungerePunti="si";
-	devoRimuoverePunti= "no";
+
 	%>		
 			<div class="booking-form">
 				<form action="<%=request.getContextPath()%>/aggiornaCartaFedele"  method="post">
 				
 					<input type="hidden"  name="id" placeholder="idfedele" value="<%=request.getParameter("id")%>">									
-					<input type="hidden"  name="kmvolo" placeholder="idfedele" value=<%=kmvolo%>   >
+					<input type="hidden"  name="deviRimuovere" placeholder="idfedele" value=<%=1%>   >					
 					<input  type="submit" class="btn btn-primary flight"  value="Paga con carta Fedeltà">
 					<h4 class="mt-5" align="center">Altrimenti... </h4>
 				</form>
 			</div>	
 						
-		<form method="post" action="pagamentok"> 
-			<%session.setAttribute("pagafedele", id); 
-			  session.setAttribute("devoAggiungerePunti", devoAggiungerePunti);%>    
-		</form>
 	<% 
 	}
 	else{ 
 	id="null" ;
-	devoAggiungerePunti = "no";
-	devoRimuoverePunti= "no";
 	%>	
 		<form method="post" action="pagamentok"> 
-			<%session.setAttribute("pagafedele", id); 
-		      session.setAttribute("devoAggiungerePunti", devoAggiungerePunti);
-			  session.setAttribute("devoRimuoverePunti", devoRimuoverePunti);%>    
+			<%session.setAttribute("pagafedele", id);%>    
 		</form>		
       	<div class="booking-form">
       		<h3 class="mt-5" align="center">Accedi al servizio fedeltà<br> </h3>
@@ -70,25 +61,51 @@
       </div>
     </div>
   </div>
+<%if(id.equals("null")){ %>
+		<div class="booking-form-box">
+			<div class="booking-form">
+				<form action="<%=request.getContextPath()%>/aggiornaCartaFedele"  method="post">
 
-	<div class="booking-form-box">
-		<div class="booking-form">
-			<form action="pagamentok" method="post">
-
-				<label>Nome Intestatario</label>
-					<input type="text" class="form-control" name="nome">
+					<label>Nome Intestatario</label>
+						<input type="text" class="form-control" name="nome">
 	
-				<label>Codice</label>
-					<input type="text" class="form-control" maxlength="16" name="codice" placeholder="0000 0000 0000 0000">
+					<label>Codice</label>
+						<input type="text" class="form-control" maxlength="16" name="codice" placeholder="0000 0000 0000 0000">
 	
-				<label>cvc</label>
-					<input type="text" class="form-control" maxlength="3" name="cvc" placeholder="000">
+					<label>cvc</label>
+						<input type="text" class="form-control" maxlength="3" name="cvc" placeholder="000">
 	
-				<div class="birth-date"><label>Data di Scadenza</label>
-					<input type="date" class="form-control select-date" name="data"></div>
-				<input  type="submit" class="btn btn-primary flight"  value="Paga">
-
+					<div class="birth-date"><label>Data di Scadenza</label>
+						<input type="date" class="form-control select-date" name="data">
+					</div>
+					  					
+					<input  type="submit" class="btn btn-primary flight"  value="Paga">					
 				</form>
+			</div>
+		</div>
+<%} else{ %>
+		<div class="booking-form-box">
+			<div class="booking-form">
+				<form action="<%=request.getContextPath()%>/aggiornaCartaFedele"  method ="post">
+
+					<label>Nome Intestatario</label>
+						<input type="text" class="form-control" name="nome">
+	
+					<label>Codice</label>
+						<input type="text" class="form-control" maxlength="16" name="codice" placeholder="0000 0000 0000 0000">
+	
+					<label>cvc</label>
+						<input type="text" class="form-control" maxlength="3" name="cvc" placeholder="000">
+	
+					<div class="birth-date"><label>Data di Scadenza</label>
+						<input type="date" class="form-control select-date" name="data">
+					</div>
+					  					
+					<input type="hidden"  name="id" placeholder="idfedele" value="<%=request.getParameter("id")%>">									
+					<input type="hidden"  name="deviRimuovere" placeholder="idfedele" value=<%=0%>   >					
+					<input type="submit" class="btn btn-primary flight"  value="Paga e carica i punti">				
+				</form>
+				<%} %>
 			</div>
 		</div>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>

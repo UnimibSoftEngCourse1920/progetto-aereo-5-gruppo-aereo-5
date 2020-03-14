@@ -13,8 +13,8 @@ public class Posto {
 	private int idPosto;
 	
 	private int fila;
-	private int lettera;
-	private int prenotazione;
+	private String lettera;
+	private String prenotazione;
 	private String volo;
 	
 	public int getIdPosto() {
@@ -26,21 +26,22 @@ public class Posto {
 	public int getFila() {
 		return fila;
 	}
+	public String getLettera() {
+		return lettera;
+	}
+	public void setLettera(String lettera) {
+		this.lettera = lettera;
+	}
+	public String getPrenotazione() {
+		return prenotazione;
+	}
+	public void setPrenotazione(String prenotazione) {
+		this.prenotazione = prenotazione;
+	}
 	public void setFila(int fila) {
 		this.fila = fila;
 	}
-	public int getLettera() {
-		return lettera;
-	}
-	public void setLettera(int lettera) {
-		this.lettera = lettera;
-	}
-	public int getPrenotazione() {
-		return prenotazione;
-	}
-	public void setPrenotazione(int prenotazione) {
-		this.prenotazione = prenotazione;
-	}
+
 	public String getVolo() {
 		return volo;
 	}

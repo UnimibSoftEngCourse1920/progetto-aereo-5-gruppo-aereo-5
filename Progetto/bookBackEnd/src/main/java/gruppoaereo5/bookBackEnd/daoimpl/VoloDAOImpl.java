@@ -10,6 +10,8 @@ import org.springframework.transaction.annotation.Transactional;
 import gruppoaereo5.bookBackEnd.config.HibernateUtil;
 import gruppoaereo5.bookBackEnd.dao.VoloDAO;
 import gruppoaereo5.bookBackEnd.dto.Filtro;
+import gruppoaereo5.bookBackEnd.dto.Posto;
+import gruppoaereo5.bookBackEnd.dto.Prenotazione;
 import gruppoaereo5.bookBackEnd.dto.Volo;
 
 
@@ -96,7 +98,38 @@ public class VoloDAOImpl implements VoloDAO {
         }
         return null;
 	}
+	public int getPunti(String id) {
+		 Transaction transaction = null;
+			Volo volo=null;
+			Prenotazione prenotazione = null;
+			Posto posto =null;
+			String pren=null;
+			String post=null;
+	        try (Session session = HibernateUtil
+	        					.getSessionFactory()
+	        					.openSession()) {
+	            // start a transaction
+	            transaction = session.beginTransaction();
+	            // get an  object    	
+	            prenotazione = (Prenotazione) session.createQuery("FROM Prenotazione WHERE utente = :id").setParameter("id", id).getSingleResult();
+	            pren=prenotazione.getCodicePrenotazione();
+	            
+	            posto = (Posto) session.createQuery("FROM Posto WHERE prenotazione = :pren").setParameter("pren", pren).getSingleResult();
+	            
+	            post=posto.getVolo();
+	            volo = (Volo) session.createQuery("FROM Volo WHERE codice_volo = :post ").setParameter("post", post).getSingleResult();	    								
 
+				// commit transaction
+				transaction.commit();
+	           //  session.close();
+	                } catch (Exception e) {
+	            if (transaction != null) {
+	                transaction.rollback();
+	            }
+	            e.printStackTrace();
+	        }
+	        return (int) volo.getPuntiOttenuti();
+	    }
+	}
 	
-}
 
