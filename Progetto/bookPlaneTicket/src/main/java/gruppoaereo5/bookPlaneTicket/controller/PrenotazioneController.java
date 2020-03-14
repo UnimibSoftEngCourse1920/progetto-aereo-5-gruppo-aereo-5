@@ -9,9 +9,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.springframework.web.bind.annotation.RequestMapping;
+
 import gruppoaereo5.bookBackEnd.daoimpl.PrenotazioneDaoImpl;
 
-
+@RequestMapping("/{id}/conferma")
 @WebServlet("/cercaPrenotazione")
 public class PrenotazioneController extends HttpServlet{
 	 private static final long serialVersionUID = 1L;
@@ -50,4 +52,4 @@ public class PrenotazioneController extends HttpServlet{
 	            dispatcher.forward(request, response);
 	        }
 	    }
-}
+	}

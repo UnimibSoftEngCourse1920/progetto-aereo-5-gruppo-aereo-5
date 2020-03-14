@@ -8,6 +8,7 @@ import gruppoaereo5.bookBackEnd.dao.CartaFedeltaDAO;
 import gruppoaereo5.bookBackEnd.dto.CartaFedelta;
 
 
+
 public class CartaFedeltaDAOImpl implements CartaFedeltaDAO {
 
 	@Override
@@ -51,6 +52,29 @@ public class CartaFedeltaDAOImpl implements CartaFedeltaDAO {
 		return result;
 	}
 	
+	public int getPuntiCarta(String id) {
+		 Transaction transaction = null;
+			CartaFedelta cartaFedelta=null;
+
+	        try (Session session = HibernateUtil
+	        					.getSessionFactory()
+	        					.openSession()) {
+	            // start a transaction
+	            transaction = session.beginTransaction();
+	            // get an  object    	
+	            cartaFedelta = (CartaFedelta) session.createQuery("FROM CartaFedelta WHERE utente = :id").setParameter("id", id).getSingleResult();
+
+				// commit transaction
+				transaction.commit();
+	           //  session.close();
+	                } catch (Exception e) {
+	            if (transaction != null) {
+	                transaction.rollback();
+	            }
+	            e.printStackTrace();
+	        }
+	        return  cartaFedelta.getPuntifedelta();
+	    }
 	
 	
 }

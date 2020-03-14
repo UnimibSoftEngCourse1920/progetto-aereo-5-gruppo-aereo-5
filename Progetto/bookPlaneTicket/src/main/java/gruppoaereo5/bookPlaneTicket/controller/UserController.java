@@ -26,6 +26,7 @@ public class UserController extends HttpServlet{
 	 public void init() {
 	        userDaoImpl = new UserDaoImpl();
 	        cartaFedeltaDaoImpl = new CartaFedeltaDAOImpl();
+	        
 	    }
 
 	    protected void doPost(HttpServletRequest request, HttpServletResponse response)
@@ -59,10 +60,11 @@ public class UserController extends HttpServlet{
 	        user.setInfedele(infedele);
 
 	        userDaoImpl.saveUser(user);
-	        
+	        String id=null;
+	        id=Integer.toString(user.getId());
 	        CartaFedelta cs = new CartaFedelta();	                
 	        cs.setPuntifedelta(0);
-	        cs.setUtente(user.getId());
+	        cs.setUtente(id);
 	        
 	        cartaFedeltaDaoImpl.saveCartaFedelta(cs);
 
