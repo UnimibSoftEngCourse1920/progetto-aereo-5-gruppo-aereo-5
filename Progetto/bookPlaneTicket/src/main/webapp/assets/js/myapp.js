@@ -16,6 +16,7 @@ $(function() {
 
 
 		
+			
 /*jquery dataTable*/
 
 		var $table = $('#voloListTable');
@@ -27,6 +28,13 @@ $(function() {
 			$table.DataTable({
 				lengthMenu : [[3,5,10,-1], ['3','5','10','Tutti']],
 				pageLength : 5,
+				language: {
+					info: "Pagina _PAGE_ di _PAGES_",
+					infoEmpty: "Nessun volo da mostrare",
+					loadingRecords: "Attendere - caricamento...",
+					zeroRecords: "Nessun volo",
+					lengthMenu: "Mostra _MENU_ records"
+				},
 				ajax: {
 					url: jsonUrl,
 					dataSrc: ''

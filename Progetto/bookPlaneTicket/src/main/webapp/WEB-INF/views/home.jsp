@@ -47,7 +47,7 @@
 						required="true" />
 
 				</div>
-				<div class="form-group">
+				<div class="form-group" style="margin-top:20px">
 					<input type="submit" value="Mostra Voli" id="filtra_voli"
 						class="btn btn-primary flight">
 				</div>
