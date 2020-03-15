@@ -51,6 +51,30 @@ public class CartaFedeltaDAOImpl implements CartaFedeltaDAO {
 		} 
 		return result;
 	}
+	@Override
+    public CartaFedelta getCartaFedelta(Integer id) {
+        Transaction transaction = null;
+        CartaFedelta cartaFedelta=null;
+
+        try (Session session = HibernateUtil
+                            .getSessionFactory()
+                            .openSession()) {
+            // start a transaction
+            transaction = session.beginTransaction();
+            // get an  object
+            cartaFedelta = (CartaFedelta) session.createQuery("FROM CartaFedelta WHERE utente = :id").setParameter("id", id.toString()).getSingleResult();
+
+            // commit transaction
+            transaction.commit();
+           //  session.close();
+                } catch (Exception e) {
+            if (transaction != null) {
+                transaction.rollback();
+            }
+            e.printStackTrace();
+        }
+        return  cartaFedelta;
+    }
 	
 	public int getPuntiCarta(String id) {
 		 Transaction transaction = null;

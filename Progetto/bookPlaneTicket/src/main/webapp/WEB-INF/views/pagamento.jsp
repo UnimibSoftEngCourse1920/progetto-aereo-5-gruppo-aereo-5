@@ -9,26 +9,20 @@
   <body>
   <%
   	//String email = chiedi id;
-  	String id = request.getParameter("id");
+  	String username = request.getParameter("username");
 	String pwd = request.getParameter("pwd");
 	
-	String devoRimuoverePunti= "";
-	String devoAggiungerePunti = "";
 	
-	
-	
-	
-	int kmvolo= 0;   // kmInDatabase - kmVolo solo se kmInDatabase > 10000;
-	
-	
-	
-	if(id!= null){ 
+	if(username!= null){ 
 
 	%>		
 			<div class="booking-form">
 				<form action="<%=request.getContextPath()%>/aggiornaCartaFedele"  method="post">
 				
-					<input type="hidden"  name="id" placeholder="idfedele" value="<%=request.getParameter("id")%>">									
+									<input type="hidden"  name="username" placeholder="idfedele" value="<%=request.getParameter("username")%>">									
+				
+				
+										
 					<input type="hidden"  name="deviRimuovere" placeholder="idfedele" value=<%=1%>   >					
 					<input  type="submit" class="btn btn-primary flight"  value="Paga con carta Fedeltà">
 					<h4 class="mt-5" align="center">Altrimenti... </h4>
@@ -38,11 +32,9 @@
 	<% 
 	}
 	else{ 
-	id="null" ;
+	username="null" ;
 	%>	
-		<form method="post" action="pagamentok"> 
-			<%session.setAttribute("pagafedele", id);%>    
-		</form>		
+	
       	<div class="booking-form">
       		<h3 class="mt-5" align="center">Accedi al servizio fedeltà<br> </h3>
       		<!--  Prova -->
@@ -63,10 +55,10 @@
       </div>
     </div>
   </div>
-<%if(id.equals("null")){ %>
+<%if(username.equals("null")){ %>
 		<div class="booking-form-box">
 			<div class="booking-form">
-				<form action="<%=request.getContextPath()%>/aggiornaCartaFedele"  method="post">
+				<form action="pagamentok"  method="post">
 
 					<label>Nome Intestatario</label>
 						<input type="text" class="form-control" name="nome">
@@ -103,7 +95,7 @@
 						<input type="date" class="form-control select-date" name="data">
 					</div>
 					  					
-					<input type="hidden"  name="id" placeholder="idfedele" value="<%=request.getParameter("id")%>">									
+					<input type="hidden"  name="username"  value="<%=request.getParameter("username")%>">									
 					<input type="hidden"  name="deviRimuovere" placeholder="idfedele" value=<%=0%>   >					
 					<input type="submit" class="btn btn-primary flight"  value="Paga e carica i punti">				
 				</form>

@@ -17,8 +17,9 @@
 	<div class="booking-form-box">
 		<div class="booking-form">
 			<form action="<%=request.getContextPath()%>/cercaPrenotazione" method="post">
-				<label >Email</label>
-					<input type="text" name="email" class="form-control"placeholder="Inserisci email fornita durante prenotazione"/>
+				<label >E-mail</label>
+					<input type="text" name="email" class="form-control"placeholder="Inserisci E-mail"/>
+
 
 				<label >Codice Prenotazione</label>
 					<input type="text" class="form-control" name="codiceprenotazione" placeholder="Inserisci il codice della prenotazione"/>	

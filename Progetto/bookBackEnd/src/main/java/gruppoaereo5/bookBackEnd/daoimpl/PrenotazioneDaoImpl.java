@@ -35,25 +35,26 @@ public class PrenotazioneDaoImpl implements PrenotazioneDAO {
 		}
 	}
 
+
 	public boolean validate(String email, String codicePrenotazione) {
 
-		Transaction transaction = null;
-		Prenotazione prenotazione = null;
-		User user = null;
-		int utente;
+	        Transaction transaction = null;
+	        Prenotazione prenotazione = null;
+	        User user = null;
 
-		try (Session session = HibernateUtil.getSessionFactory().openSession()) {
-			// start a transaction
-			transaction = session.beginTransaction();
-			// get an object
+	        try (Session session = HibernateUtil
+	        					.getSessionFactory()
+	        					.openSession()) {
+	            // start a transaction
+	            transaction = session.beginTransaction();
+	            
+	            user = (User) session.createQuery("FROM User WHERE email = :email").setParameter("email", email)
+	                    .uniqueResult();
+	            
+	            // get an  object    
 
-			user = (User) session.createQuery("FROM User WHERE email = :email").setParameter("email", email)
-					.uniqueResult();
-
-			utente = user.getId();
-
-			prenotazione = (Prenotazione) session.createQuery("FROM Prenotazione WHERE utente = :utente")
-					.setParameter("utente", utente).uniqueResult();
+	            prenotazione = (Prenotazione) session.createQuery("FROM Prenotazione WHERE utente = :utente").setParameter("utente", user.getId())
+	            									 .uniqueResult();
 
 			if (prenotazione != null && prenotazione.getCodicePrenotazione().equals(codicePrenotazione)) {
 				return true;

@@ -9,8 +9,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import gruppoaereo5.bookBackEnd.daoimpl.CartaFedeltaDAOImpl;
+import gruppoaereo5.bookBackEnd.daoimpl.UserDaoImpl;
 import gruppoaereo5.bookBackEnd.daoimpl.VoloDAOImpl;
 import gruppoaereo5.bookBackEnd.dto.CartaFedelta;
+import gruppoaereo5.bookBackEnd.dto.User;
 
 @WebServlet("/aggiornaCartaFedele")
 public class CartaFedeltaController extends HttpServlet{
@@ -26,21 +28,31 @@ protected void doGet(HttpServletRequest request, HttpServletResponse response)
 protected void doPost(HttpServletRequest request, HttpServletResponse response)
 		throws ServletException, IOException {
 	CartaFedeltaDAOImpl cartafedeltaDAOImpl = new CartaFedeltaDAOImpl();
-	CartaFedelta cartaFedelta = new CartaFedelta();
 	VoloDAOImpl voloDAOImpl= new VoloDAOImpl();
 	
-	String idString=request.getParameter("id");
-	int id= Integer.parseInt(request.getParameter("id"));
-	int punti=voloDAOImpl.getPunti(idString);
+	UserDaoImpl userDaoImpl=new UserDaoImpl();
+	User user= new User();
 	
-	int puntiCarta=cartafedeltaDAOImpl.getPuntiCarta(idString);
+	String username=request.getParameter("username"); //email utente
+	
+	
+	user=userDaoImpl.getUserByEmail(username); //ho in user l'utente con email=username
+	
+	Integer id = user.getId(); //id utente
+	
+	String idString=id.toString(); //id utente in forma di stringa
 
+	int punti=voloDAOImpl.getPunti(id); //metto in punti i punti del volo specifico
+	
+	int puntiCarta=cartafedeltaDAOImpl.getPuntiCarta(idString); //prendo i punti sulla carta
+	CartaFedelta cartaFedelta=cartafedeltaDAOImpl.getCartaFedelta(id);
 	String deviRimuovere = request.getParameter("deviRimuovere");
 	
 	if(deviRimuovere.contentEquals("1")) {
 		if(puntiCarta < (punti*10)) {
 			System.out.println("punti non sufficienti sulla carta");
 			request.getRequestDispatcher("pagamento").forward(request, response);	
+			return;
 		}
 		else {
 			puntiCarta=puntiCarta-(punti*10);
@@ -49,7 +61,6 @@ protected void doPost(HttpServletRequest request, HttpServletResponse response)
 	else {
 		puntiCarta=puntiCarta+punti;
 	}
-	cartaFedelta.setId(id);
 	cartaFedelta.setPuntifedelta(puntiCarta);
 	cartaFedelta.setUtente(idString);
 	

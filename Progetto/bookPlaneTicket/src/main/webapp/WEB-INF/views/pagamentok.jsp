@@ -13,8 +13,6 @@
 	String cvc = request.getParameter("cvc");
 	String data = request.getParameter("data");
 	
-  	String idfedele = session.getAttribute("pagafedele").toString();
-
   		if(nome != null){
   			if(nome.length()==0 || codice.length()!=16 || cvc.length()!=3 || data.length()!=10){
   				response.sendRedirect("pagamento");
