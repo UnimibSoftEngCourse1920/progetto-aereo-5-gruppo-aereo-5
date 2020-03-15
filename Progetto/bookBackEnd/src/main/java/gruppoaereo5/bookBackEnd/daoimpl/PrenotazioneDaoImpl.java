@@ -6,6 +6,7 @@ import org.springframework.stereotype.Repository;
 import gruppoaereo5.bookBackEnd.config.HibernateUtil;
 import gruppoaereo5.bookBackEnd.dao.PrenotazioneDAO;
 import gruppoaereo5.bookBackEnd.dto.Prenotazione;
+import gruppoaereo5.bookBackEnd.dto.User;
 
 @Repository("prenotazioneDAO")
 public class PrenotazioneDaoImpl implements PrenotazioneDAO{
@@ -33,17 +34,22 @@ public class PrenotazioneDaoImpl implements PrenotazioneDAO{
 	}
 	
 	
-	  public boolean validate(String utente, String codicePrenotazione) {
+	  public boolean validate(String email, String codicePrenotazione) {
 
 	        Transaction transaction = null;
 	        Prenotazione prenotazione = null;
+	        User user = null;
 	        try (Session session = HibernateUtil
 	        					.getSessionFactory()
 	        					.openSession()) {
 	            // start a transaction
 	            transaction = session.beginTransaction();
+	            
+	            user = (User) session.createQuery("FROM User WHERE email = :email").setParameter("email", email)
+	                    .uniqueResult();
+	            
 	            // get an  object    
-	            prenotazione = (Prenotazione) session.createQuery("FROM Prenotazione WHERE utente = :utente").setParameter("utente", utente)
+	            prenotazione = (Prenotazione) session.createQuery("FROM Prenotazione WHERE utente = :utente").setParameter("utente", user.getId())
 	            									 .uniqueResult();
 
 	            if (prenotazione != null && prenotazione.getCodicePrenotazione().equals(codicePrenotazione)) {

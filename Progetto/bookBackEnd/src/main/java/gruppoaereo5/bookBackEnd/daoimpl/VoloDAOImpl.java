@@ -98,7 +98,7 @@ public class VoloDAOImpl implements VoloDAO {
         }
         return null;
 	}
-	public int getPunti(String id) {
+	public int getPunti(Integer id) {
 		 Transaction transaction = null;
 			Volo volo=null;
 			Prenotazione prenotazione = null;
