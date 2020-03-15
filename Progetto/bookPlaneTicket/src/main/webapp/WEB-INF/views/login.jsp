@@ -16,7 +16,7 @@
 
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="it">
 
 <head>
 

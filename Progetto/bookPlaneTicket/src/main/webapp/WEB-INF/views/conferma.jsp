@@ -1,10 +1,9 @@
 <!DOCTYPE html SYSTEM "about:legacy-compat">
-<html>
-	<body>
-    
+<html lang="it">
   	<head>
   		<title> Conferma</title>
  	 </head>
+	<body>
  	<div class="container">
   	  <div class="row">
    	   <div class="col-lg-12 text-center">

@@ -3,7 +3,7 @@
 <%@page
 	import="java.io.*, java.util.Date,  java.text.SimpleDateFormat, java.util.Enumeration"%>
 <%@taglib prefix="sf" uri="http://www.springframework.org/tags/form"%>
-<html>
+<html lang="it">
 <head>
 <title>Home</title>
 </head>

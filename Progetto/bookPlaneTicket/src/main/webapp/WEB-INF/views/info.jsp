@@ -1,5 +1,5 @@
 <!DOCTYPE html SYSTEM "about:legacy-compat">
-  <html>
+  <html lang="it">
   <body>
   <head>
   <title> Info</title>

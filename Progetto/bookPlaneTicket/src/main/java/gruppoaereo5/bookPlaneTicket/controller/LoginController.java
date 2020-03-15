@@ -45,7 +45,10 @@ public class LoginController extends HttpServlet {
             RequestDispatcher dispatcher = request.getRequestDispatcher("pagamento");
             dispatcher.forward(request, response);
         } else {
-            throw new Exception("Login not successful..");
+        	username = null;
+        	password = null;
+        	RequestDispatcher dispatcher = request.getRequestDispatcher("login");
+            dispatcher.forward(request, response);
         }
     }
 }

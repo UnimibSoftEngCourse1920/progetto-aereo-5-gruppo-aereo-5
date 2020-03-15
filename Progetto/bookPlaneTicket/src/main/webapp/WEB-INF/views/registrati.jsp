@@ -2,7 +2,10 @@
 
 <!DOCTYPE html SYSTEM "about:legacy-compat">
 
- <html>
+ <html lang="it">
+ <head>
+ <title>Registrati</title>
+ </head>
   <body>
 
 

@@ -13,7 +13,7 @@
 				response.sendRedirect("pagamento");
 				return;
 			} else {
-				out.println(" Pagamento effettuato");
+				//out.println(" Pagamento effettuato");
 			}
 		}
 	%>
@@ -21,7 +21,7 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-12 text-center">
-				<h1 class="alert alert-success" style="text-align: center">
+				<h1 class="alert alert-success" style="text-align: center" value="">
 					Pagamento Avvenuto con successo<br>
 				</h1>
 				<p class="lead">A breve riceverai una mail con tutte le
