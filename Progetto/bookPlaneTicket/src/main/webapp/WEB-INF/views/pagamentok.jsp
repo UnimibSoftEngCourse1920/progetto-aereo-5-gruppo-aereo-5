@@ -3,8 +3,6 @@
 
 <%@ page import="java.sql.*" %>
 <%@page import="java.io.*, java.util.Date,  java.text.SimpleDateFormat, java.util.Enumeration" %> <html xmlns:th="https://www.thymeleaf.org">
-<meta name="_csrf" content="${_csrf.token}" />
-<meta name="_csrf_header" content="${_csrf.headerName}" />
 
 <body>  
 <%	
@@ -29,7 +27,7 @@
   	<div class="container">
    	 <div class="row">
     	  <div class="col-lg-12 text-center">
-     	   <h1 class="mt-5">Pagamento Avvenuto con successo<br> </h1>
+     	   <h1 class="alert alert-success" style="text-align:center">Pagamento Avvenuto con successo<br> </h1>
       	   <p class="lead">A breve riceverai una mail con tutte le informazioni sul volo acquistato</p>
            </div>        
       	  </div>

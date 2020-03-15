@@ -220,9 +220,6 @@ public class PageController {
 			return "redirect:/home?" + response;
 		}
 		
-		
-		prenotazioneDAO.savePrenotazione(prenotazione);
-		
 		// Setta codice prenotazione
 		String random = generaStringaRandom();
 		prenotazione.setCodicePrenotazione(random);
@@ -244,6 +241,9 @@ public class PageController {
 		// Setta penale
 		prenotazione.setPenaleModifica(5.0);
 
+		//registra prenotazione
+		prenotazioneDAO.savePrenotazione(prenotazione);
+		
 		// Setta prenotazione in posto
 		posto.setPrenotazione(random);
 		postoDAO.update(posto);
