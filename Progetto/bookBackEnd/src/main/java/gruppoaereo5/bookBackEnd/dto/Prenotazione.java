@@ -16,16 +16,16 @@ public class Prenotazione implements Serializable{
 	private static final long serialVersionUID = 1L;
 	
     @Id
-	@Column(name = "codiceprenotazione")
+	//@Column(name = "codiceprenotazione")
 	private String codicePrenotazione;
     
-	@Column(name = "datascadenza")
+	//@Column(name = "datascadenza")
 	private String dataScadenza;
 	
-	@Column(name = "dataprenotazione")
+	//@Column(name = "dataprenotazione")
 	private String dataPrenotazione;
 	
-	@Column(name = "penalemodifica")
+	//@Column(name = "penalemodifica")
 	private Double penaleModifica;
 	
 	@Column(name = "utente")

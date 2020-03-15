@@ -9,7 +9,20 @@
 </head>
 
 <body>
-
+	<c:if test="${not empty prenotato}">
+		<div class="row">
+			<div class="col-xs-12 col-md-offset-2 col-md-8">
+				<div class="alert alert-success" style="text-align:center">${prenotato}</div>
+			</div>
+		</div>
+	</c:if>
+	<c:if test="${not empty errore}">
+		<div class="row">
+			<div class="col-xs-12 col-md-offset-2 col-md-8">
+				<div class="alert alert-danger" style="text-align:center">${errore}</div>
+			</div>
+		</div>
+	</c:if>
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-12 text-center">
@@ -47,7 +60,7 @@
 						required="true" />
 
 				</div>
-				<div class="form-group" style="margin-top:20px">
+				<div class="form-group" style="margin-top: 20px">
 					<input type="submit" value="Mostra Voli" id="filtra_voli"
 						class="btn btn-primary flight">
 				</div>
@@ -69,7 +82,6 @@
 			return false;
 		}
 	};
-
 </script>
 </body>
 </html>

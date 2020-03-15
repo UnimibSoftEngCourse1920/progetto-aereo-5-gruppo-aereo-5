@@ -9,7 +9,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import gruppoaereo5.bookBackEnd.dao.UserDAO;
 import gruppoaereo5.bookBackEnd.daoimpl.UserDaoImpl;
 
 @WebServlet("/loginConferma")
