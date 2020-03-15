@@ -10,18 +10,18 @@
 				
 					
 					<table id="voloListTable" class="table display table-striped table-borderd" >
-					
+						<caption>Tabella elenco voli cercati</caption>
 					
 						<thead>
 						
 							<tr>
-								<th>Aereo</th>
-								<th>Partenza</th>
-								<th>Arrivo</th>
-								<th>Ora Partenza</th>
-								<th>Ora Arrivo</th>
-								<th>Prezzo</th>
-								<th></th>
+								<th id="header1">Aereo</th>
+								<th id="header2">Partenza</th>
+								<th id="header3">Arrivo</th>
+								<th id="header4">Ora Partenza</th>
+								<th id="header5">Ora Arrivo</th>
+								<th id="header6">Prezzo</th>
+								<th id="header7"></th>
 							
 							</tr>
 						
@@ -29,13 +29,13 @@
 						<tfoot>
 						
 							<tr>
-								<th>Aereo</th>
-								<th>Partenza</th>
-								<th>Arrivo</th>
-								<th>Ora Partenza</th>
-								<th>Ora Arrivo</th>
-								<th>Prezzo</th>
-								<th></th>
+								<th id="footer1">Aereo</th>
+								<th id="footer2">Partenza</th>
+								<th id="footer3">Arrivo</th>
+								<th id="footer4">Ora Partenza</th>
+								<th id="footer5">Ora Arrivo</th>
+								<th id="footer6">Prezzo</th>
+								<th id="footer7"></th>
 							
 							</tr>
 						
