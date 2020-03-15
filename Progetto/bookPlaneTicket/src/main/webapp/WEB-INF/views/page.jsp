@@ -12,7 +12,7 @@
 <c:set var="contextRoot" value="${pageContext.request.contextPath}" />
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="it">
 
 <head>
 <meta charset="utf-8">
@@ -99,23 +99,6 @@
 		<%@include file="login.jsp"%>
 	</c:if>
 	<!-- / Login Page -->
-	
-	
-	
-	
-	
-	<!--  Login prova Page -->
-
-	<c:if test="${userClickLoginProva == true }">
-		<%@include file="login_prova.jsp"%>
-	</c:if>
-	<!-- / Login prova Page -->
-	
-	
-	
-	
-	
-	
 
 	<!--  Info Page -->
 
