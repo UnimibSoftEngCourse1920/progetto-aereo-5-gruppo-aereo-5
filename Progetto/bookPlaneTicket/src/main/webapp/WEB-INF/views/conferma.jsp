@@ -9,7 +9,7 @@
   	  <div class="row">
    	   <div class="col-lg-12 text-center">
     	    <h1 class="mt-5">Hai già una prenotazione confermata?</h1>
-     	   <p class="lead">Inserisci la tua E-mail con il codice della prenotazione ricevuto</p>
+     	   <p class="lead">Inserisci la tua E-mail con il codice della prenotazione ricevuta</p>
       </div>
     </div>
   </div>
@@ -18,7 +18,8 @@
 		<div class="booking-form">
 			<form action="<%=request.getContextPath()%>/cercaPrenotazione" method="post">
 				<label >E-mail</label>
-					<input type="text" name="utente" class="form-control"placeholder="Inserisci E-mail"/>
+					<input type="text" name="email" class="form-control"placeholder="Inserisci E-mail"/>
+
 
 				<label >Codice Prenotazione</label>
 					<input type="text" class="form-control" name="codiceprenotazione" placeholder="Inserisci il codice della prenotazione"/>	

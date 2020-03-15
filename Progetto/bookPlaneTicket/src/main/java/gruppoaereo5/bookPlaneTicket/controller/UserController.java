@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import gruppoaereo5.bookBackEnd.config.SendEmail;
 import gruppoaereo5.bookBackEnd.daoimpl.CartaFedeltaDAOImpl;
 import gruppoaereo5.bookBackEnd.daoimpl.UserDaoImpl;
 import gruppoaereo5.bookBackEnd.dto.CartaFedelta;
@@ -17,6 +18,7 @@ import gruppoaereo5.bookBackEnd.dto.User;
 public class UserController extends HttpServlet{
 	 private UserDaoImpl userDaoImpl ;
 	 private CartaFedeltaDAOImpl cartaFedeltaDaoImpl;
+	 private SendEmail sm;
 
 	
 	/**
@@ -26,6 +28,8 @@ public class UserController extends HttpServlet{
 	 public void init() {
 	        userDaoImpl = new UserDaoImpl();
 	        cartaFedeltaDaoImpl = new CartaFedeltaDAOImpl();
+	        sm = new SendEmail();
+	        
 	        
 	    }
 
@@ -67,7 +71,9 @@ public class UserController extends HttpServlet{
 	        cs.setUtente(id);
 	        
 	        cartaFedeltaDaoImpl.saveCartaFedelta(cs);
-
+	        
+	        sm.sendEmailRegistrazione(email, nome, cognome);
+	        
 	        RequestDispatcher dispatcher = request.getRequestDispatcher("registrazioneEffettuata");
 	        dispatcher.forward(request, response);
 	    }
